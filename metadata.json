@@ -1,0 +1,6 @@
+{
+  "name": "Dreamy Vacations",
+  "description": "Premium resort accommodation located in Kushalnagar, Coorg, Karnataka, offering comfortable family rooms, group stay facilities, swimming pool, and peaceful surroundings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

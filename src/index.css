@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Manrope", sans-serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sub: "Outfit", "Inter", sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-primary-bg: #e2d7c5;
+  --color-brand-black: #0d0d0d;
+  --color-brand-charcoal: #111111;
+  --color-brand-gray: #777777;
+  --color-brand-white: #ffffff;
+  --color-brand-taupe: #6b5b4b;
+}
+
+/* Custom Base Styles */
+@layer base {
+  body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom Utilities for Premium Apple-like & Booking.com style feel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.glass-panel-dark {
+  background: rgba(17, 17, 17, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shadow-premium {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.shadow-premium-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.shadow-premium-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(107, 91, 75, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Scrollbars & Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 100, 80, 0.55) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(120, 100, 80, 0.55);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(120, 100, 80, 0.8);
+}
+
+@media (max-width: 768px) {
+  * {
+    scrollbar-width: none !important;
+  }
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    background: transparent !important;
+  }
+}
+
+/* Custom keyframes for lighting rays */
+@keyframes light-rays {
+  0% {
+    opacity: 0.15;
+    transform: rotate(-5deg) scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: rotate(5deg) scale(1.05);
+  }
+  100% {
+    opacity: 0.15;
+    transform: rotate(-5deg) scale(1);
+  }
+}
+
+.animate-light-rays {
+  animation: light-rays 12s ease-in-out infinite alternate;
+}
+
+/* About Page Feature Alignment & Footer Safety Styles */
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.feature-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.feature-title {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footer-copyright {
+  padding-left: 24px;
+  padding-right: 24px;
+  text-align: center;
+  line-height: 1.6;
+}
