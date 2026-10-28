@@ -1,24 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
-import { Compass, Phone, Mail, MapPin, MessageSquare, Heart, Sparkles, Clock, Globe } from 'lucide-react';
 import Navbar from './components/Navbar';
 import SEOManager from './components/SEOManager';
-import Logo from './components/Logo';
 
-// Pages imports
+// Eagerly loaded for instant initial render
 import Home from './pages/Home';
-import Rooms from './pages/Rooms';
-import RoomDetail from './pages/RoomDetail';
-import GroupBooking from './pages/GroupBooking';
-import Gallery from './pages/Gallery';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Booking from './pages/Booking';
-import TravelGuide from './pages/TravelGuide';
-import BlogList from './pages/BlogList';
-import BlogPostDetail from './pages/BlogPostDetail';
-import TripPlanner from './pages/TripPlanner';
-import SharedTrip from './pages/SharedTrip';
+
+// Lazy loaded secondary pages to optimize initial bundle size & mobile performance
+const Rooms = lazy(() => import('./pages/Rooms'));
+const RoomDetail = lazy(() => import('./pages/RoomDetail'));
+const GroupBooking = lazy(() => import('./pages/GroupBooking'));
+const Gallery = lazy(() => import('./pages/Gallery'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Booking = lazy(() => import('./pages/Booking'));
+const TravelGuide = lazy(() => import('./pages/TravelGuide'));
+const BlogList = lazy(() => import('./pages/BlogList'));
+const BlogPostDetail = lazy(() => import('./pages/BlogPostDetail'));
+const TripPlanner = lazy(() => import('./pages/TripPlanner'));
+const SharedTrip = lazy(() => import('./pages/SharedTrip'));
 
 // ScrollToTop helper on route updates (complies with smooth Apple style transitions)
 function ScrollToTop() {
@@ -47,25 +47,27 @@ function AppContent() {
 
       {/* MAIN ROUTER BODY */}
       <main id="main-content" className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/rooms" element={<Rooms />} />
-          <Route path="/rooms/:id" element={<RoomDetail />} />
-          <Route path="/group-booking" element={<GroupBooking />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/travel-guide" element={<TravelGuide />} />
-          <Route path="/travel-guide/:slug" element={<TravelGuide />} />
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:slug" element={<BlogPostDetail />} />
-          <Route path="/trip-planner" element={<TripPlanner />} />
-          <Route path="/trip/:id" element={<SharedTrip />} />
-          
-          {/* Catch-all fallback */}
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen bg-[#0d0d0d]" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/rooms" element={<Rooms />} />
+            <Route path="/rooms/:id" element={<RoomDetail />} />
+            <Route path="/group-booking" element={<GroupBooking />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/travel-guide" element={<TravelGuide />} />
+            <Route path="/travel-guide/:slug" element={<TravelGuide />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPostDetail />} />
+            <Route path="/trip-planner" element={<TripPlanner />} />
+            <Route path="/trip/:id" element={<SharedTrip />} />
+            
+            {/* Catch-all fallback */}
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </Suspense>
       </main>
 
       {/* FOOTER */}

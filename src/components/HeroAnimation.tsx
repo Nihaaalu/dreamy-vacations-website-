@@ -80,11 +80,14 @@ export default function HeroAnimation({ onBookNow }: HeroAnimationProps) {
             duration: 0.5,
             ease: 'easeOut'
           }}
-          className="text-[38px] md:text-[66px] font-display font-medium text-white tracking-tight leading-[1.2] mb-0 text-center select-none"
+          className="text-[34px] sm:text-[44px] md:text-[60px] font-display font-medium text-white tracking-tight leading-[1.15] mb-0 text-center select-none"
           style={{ textShadow: '0 4px 20px rgba(0,0,0,0.35)' }}
           id="hero-title"
         >
-          Dreamy Vacations
+          <span className="block">Dreamy Vacations</span>
+          <span className="block text-sm sm:text-lg md:text-xl font-sub font-normal text-[#e2d7c5] mt-2 tracking-wide uppercase">
+            Family Resort in Kushalnagar, Coorg
+          </span>
         </motion.h1>
 
         {/* TAGLINE (Fades in at 0.9s) */}

@@ -49,6 +49,19 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.dreamyvacations1.vercel.app"
+        }
+      ],
+      "destination": "https://dreamyvacations1.vercel.app/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!assets/|images/|video/|sitemap\\.xml|robots\\.txt|favicon\\.ico|llms\\.txt).*)",
