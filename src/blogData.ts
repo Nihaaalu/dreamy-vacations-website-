@@ -423,3 +423,8 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
     structuredType: 'TouristAttraction'
   }
 };
+
+// Aliases for user navigation convenience
+BLOG_POSTS['coorg-trip-plan-2-days'] = BLOG_POSTS['2-day-coorg-itinerary'];
+BLOG_POSTS['coorg-trip-plan-3-days'] = BLOG_POSTS['3-day-coorg-itinerary'];
+

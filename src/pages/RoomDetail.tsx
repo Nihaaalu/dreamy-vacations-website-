@@ -93,9 +93,9 @@ export default function RoomDetail({ onOpenBooking }: RoomDetailProps) {
 
             {/* DESCRIPTION BOX */}
             <div className="bg-[#121212] rounded-2xl p-6 md:p-8 border border-white/5 space-y-4">
-              <h3 className="text-xl font-display font-light text-white border-b border-white/5 pb-4 flex items-center gap-2">
+              <h2 className="text-xl font-display font-light text-white border-b border-white/5 pb-4 flex items-center gap-2">
                 <Compass className="w-5 h-5 text-[#e2d7c5]" /> Room Overview
-              </h3>
+              </h2>
               <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">
                 {room.longDescription}
               </p>
@@ -104,9 +104,9 @@ export default function RoomDetail({ onOpenBooking }: RoomDetailProps) {
             {/* DETAILED AMENITIES LISTING */}
             <div className="bg-[#121212] rounded-2xl p-6 md:p-8 border border-white/5 space-y-6">
               <div>
-                <h3 className="text-xl font-display font-light text-white flex items-center gap-2">
+                <h2 className="text-xl font-display font-light text-white flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-[#e2d7c5]" /> Premium Included Amenities
-                </h3>
+                </h2>
                 <p className="text-xs text-white/50 mt-1 font-light">Everything listed below is thoroughly cleaned and fully prepared prior to your arrival.</p>
               </div>
 
@@ -209,7 +209,7 @@ export default function RoomDetail({ onOpenBooking }: RoomDetailProps) {
             >
               <MapPin className="w-5 h-5 text-[#e2d7c5] flex-shrink-0 mt-0.5" />
               <div className="space-y-1">
-                <h4 className="text-xs font-display font-light text-white">Resort Physical Address</h4>
+                <h3 className="text-xs font-display font-light text-white">Resort Physical Address</h3>
                 <p className="text-[10px] text-white/60 leading-relaxed font-light">
                   Chikkathur Village, Kushalnagar, Coorg, Karnataka. Close proximity to Golden Temple Bylakuppe &amp; Nisargadhama.
                 </p>

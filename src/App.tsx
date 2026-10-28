@@ -34,12 +34,19 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#0d0d0d] selection:bg-[#6b5b4b] selection:text-white text-white">
-      
+      {/* ACCESSIBLE SKIP TO CONTENT */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#e2d7c5] focus:text-[#0d0d0d] focus:font-semibold focus:rounded-md focus:shadow-lg focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       {/* NAVBAR */}
       <Navbar onBookNow={() => navigate('/booking')} />
 
       {/* MAIN ROUTER BODY */}
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<Rooms />} />
@@ -69,9 +76,9 @@ function AppContent() {
           
           {/* Column 1: About & Legal (span 4) */}
           <div className="md:col-span-4 space-y-5" id="footer-col-about">
-            <h4 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
+            <h3 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
               Dreamy Vacations
-            </h4>
+            </h3>
             <p className="text-[13px] text-white/60 leading-[1.7] font-light">
               Dreamy Vacations offers premium family and group accommodation in Kushalnagar, Coorg. With spacious rooms, outdoor swimming pool, high-tech rain dance, and cozy campfire setups.
             </p>
@@ -84,9 +91,9 @@ function AppContent() {
           
           {/* Column 2: Resort (span 2) */}
           <div className="md:col-span-2 space-y-5" id="footer-col-resort">
-            <h4 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
+            <h3 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
               Resort
-            </h4>
+            </h3>
             <ul className="space-y-3 text-xs font-light text-white/60">
               <li><Link to="/rooms" className="hover:text-white transition-colors">Rooms</Link></li>
               <li><Link to="/gallery" className="hover:text-white transition-colors">Gallery</Link></li>
@@ -97,9 +104,9 @@ function AppContent() {
 
           {/* Column 3: Travel Guides & Planners (span 3) */}
           <div className="md:col-span-3 space-y-5" id="footer-col-travel">
-            <h4 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
+            <h3 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
               Travel & Planning
-            </h4>
+            </h3>
             <ul className="space-y-3 text-xs font-light text-white/60">
               <li><Link to="/blog" className="hover:text-white transition-colors">Travel Guides</Link></li>
               <li><Link to="/trip-planner" className="hover:text-white font-semibold text-[#e2d7c5] transition-colors">Trip Planner</Link></li>
@@ -112,9 +119,9 @@ function AppContent() {
 
           {/* Column 4: Location & Contact (span 3) */}
           <div className="md:col-span-3 space-y-5" id="footer-col-contact">
-            <h4 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
+            <h3 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
               Reach Us
-            </h4>
+            </h3>
             <ul className="space-y-3 text-xs font-light text-white/60">
               <li>
                 <a href="tel:+919902960484" className="font-mono hover:text-white transition-colors block">

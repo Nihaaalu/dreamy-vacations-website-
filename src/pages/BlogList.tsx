@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Compass, BookOpen, MapPin, Search, ArrowRight, ArrowLeft } from 'lucide-react';
 import { BLOG_POSTS } from '../blogData';
+import { getProductionOrigin } from '../components/SEOManager';
 
 export default function BlogList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const origin = getProductionOrigin();
 
   const categories = ['All', 'Itineraries', 'Guides', 'Where to Stay'];
 
@@ -27,11 +29,11 @@ export default function BlogList() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     'name': 'Dreamy Vacations Coorg Travel Guide Blog',
-    'url': 'https://dreamyvacations.in/blog',
+    'url': `${origin}/blog`,
     'description': 'Discover expert itineraries, places to stay, and attraction guides for Kushalnagar & Coorg.',
     'potentialAction': {
       '@type': 'SearchAction',
-      'target': 'https://dreamyvacations.in/blog?q={search_term_string}',
+      'target': `${origin}/blog?q={search_term_string}`,
       'query-input': 'required name=search_term_string'
     }
   };
@@ -110,9 +112,9 @@ export default function BlogList() {
             <span className="text-[9px] uppercase font-mono tracking-wider text-[#e2d7c5] block">
               Strategic Base
             </span>
-            <h4 className="text-sm font-display font-light text-white leading-tight">
+            <h2 className="text-sm font-display font-light text-white leading-tight">
               Stay in Kushalnagar
-            </h4>
+            </h2>
             <p className="text-[11px] text-white/50 leading-relaxed font-light">
               Bypass high mountain traffic bottlenecks. Check in immediately on arrival day and enjoy our deep outdoor swimming pool.
             </p>
@@ -160,6 +162,10 @@ export default function BlogList() {
                     <img
                       src={post.heroImg}
                       alt={post.title}
+                      width={400}
+                      height={176}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />

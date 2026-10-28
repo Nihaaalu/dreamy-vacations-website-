@@ -117,6 +117,10 @@ export default function Rooms({ onOpenBooking }: RoomsProps) {
                     <img
                       src={displayImg}
                       alt={room.name}
+                      width={360}
+                      height={220}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 ease-out"
                       onError={(e) => {

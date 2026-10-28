@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Host & Sitemaps
+Sitemap: https://dreamyvacations1.vercel.app/sitemap.xml

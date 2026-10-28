@@ -51,6 +51,9 @@ export default function DynamicRoomGallery({ roomId, roomName, localImages }: Dy
               key={activeIndex}
               src={images[activeIndex]}
               alt={`${roomName} - View ${activeIndex + 1}`}
+              width={800}
+              height={500}
+              decoding="async"
               referrerPolicy="no-referrer"
               onError={() => handleImageError(activeIndex)}
               className="main-gallery-image w-full h-full object-cover select-none"
@@ -160,7 +163,11 @@ export default function DynamicRoomGallery({ roomId, roomName, localImages }: Dy
             >
               <img 
                 src={img} 
-                alt="Thumbnail" 
+                alt={`${roomName} Thumbnail ${idx + 1}`} 
+                width={96}
+                height={60}
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover rounded-[11px]" 
               />

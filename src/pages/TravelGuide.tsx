@@ -798,6 +798,9 @@ export default function TravelGuide() {
                     <img 
                       src={att.img} 
                       alt={att.alt}
+                      width={600}
+                      height={224}
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out opacity-80"
                       referrerPolicy="no-referrer"
                       loading="lazy"

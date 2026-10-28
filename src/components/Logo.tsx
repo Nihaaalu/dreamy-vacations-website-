@@ -21,6 +21,9 @@ export default function Logo({ className = "h-[32px] md:h-[42px]", fallbackSizeC
         <img
           src={LOGO_PATH}
           alt="Dreamy Vacations"
+          width="160"
+          height="42"
+          fetchPriority="high"
           onError={() => setLogoError(true)}
           className={`${className} w-auto object-contain block p-0 m-0`}
           style={{

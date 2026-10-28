@@ -100,6 +100,26 @@ export default function Home({ onOpenBooking }: HomeProps) {
         </span>
       </section>
 
+      {/* 2.5 EDITORIAL INTRODUCTION SECTION */}
+      <section className="py-16 md:py-20 px-6 sm:px-12 lg:px-20 bg-[#0d0d0d] border-b border-white/5" id="home-intro-editorial">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <span className="text-[10px] font-sub font-semibold tracking-[0.25em] text-[#e2d7c5] uppercase block opacity-80">
+            A TRANQUIL RETREAT IN KODAGU
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-light text-white tracking-tight leading-tight">
+            A Peaceful Family Resort in Kushalnagar, Coorg
+          </h2>
+          <div className="space-y-4 text-sm sm:text-base text-white/70 font-light leading-relaxed max-w-3xl mx-auto text-left sm:text-center">
+            <p>
+              Dreamy Vacations is a peaceful resort located in Chikkathur Village near Kushalnagar, Coorg. Set amidst calm village surroundings away from high-density traffic bottlenecks, our property is tailored for families, couples, and traveling groups seeking clean, comfortable accommodation and warm local hospitality.
+            </p>
+            <p>
+              Positioned at the eastern gateway to Coorg, our resort offers spacious rooms, an outdoor swimming pool with filtered water, an active musical rain dance arena, tabletop indoor games, and cozy evening campfire setups. With flat, easily navigable roadways from Bangalore and Mysore via the expressway, you can check in easily without the fatigue of steep mountain hairpin bends.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* 3. ROOM CATEGORIES */}
       <section className="pt-12 pb-24 px-6 sm:px-12 lg:px-20 bg-[#0d0d0d]" id="home-rooms-section">
         <div className="max-w-7xl mx-auto">
@@ -138,7 +158,7 @@ export default function Home({ onOpenBooking }: HomeProps) {
             className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-none scroll-smooth touch-pan-x"
             id="rooms-carousel"
           >
-            {roomCategories.map((room) => (
+            {roomCategories.map((room, idx) => (
               <div
                 key={room.id}
                 className="w-[280px] sm:w-[350px] md:w-[370px] h-[440px] sm:h-[470px] flex-shrink-0 snap-start bg-[#121212] rounded-2xl overflow-hidden border border-white/5 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-white/10"
@@ -149,6 +169,10 @@ export default function Home({ onOpenBooking }: HomeProps) {
                   <img
                     src={room.image}
                     alt={room.name}
+                    width={370}
+                    height={250}
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-101"
                   />
@@ -278,6 +302,10 @@ export default function Home({ onOpenBooking }: HomeProps) {
                   <img
                     src={img.src}
                     alt={`Resort view ${index + 1}`}
+                    width={400}
+                    height={300}
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
                     style={{ filter: 'saturate(0.85) contrast(1.05) brightness(0.97) sepia(0.04)' }}
@@ -301,6 +329,74 @@ export default function Home({ onOpenBooking }: HomeProps) {
               id="btn-home-view-gallery"
             >
               View Full Gallery <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5.5 PLACES TO VISIT & ITINERARIES SECTION */}
+      <section className="py-20 px-6 sm:px-12 lg:px-20 bg-[#0a0a0a] border-t border-white/5" id="home-attractions-editorial">
+        <div className="max-w-7xl mx-auto space-y-12">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <span className="text-[10px] font-sub font-semibold tracking-[0.25em] text-[#e2d7c5] uppercase block opacity-80">
+              CENTRAL GATEWAY LOCATION
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-light text-white tracking-tight leading-tight">
+              Places to Visit Near Kushalnagar &amp; Coorg Sightseeing
+            </h2>
+            <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
+              Basing yourself in Kushalnagar allows you to experience Coorg's most celebrated cultural, wildlife, and natural attractions without unnecessary backtracking. Plan an optimized 2-day or 3-day Coorg travel itinerary with renowned sights located just minutes away.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-[#121212] p-6 rounded-2xl border border-white/5 space-y-3">
+              <span className="text-[10px] font-mono text-[#e2d7c5] uppercase tracking-wider block">12 MINS DRIVE (6 KM)</span>
+              <h3 className="text-lg font-display font-light text-white">Namdroling Golden Temple</h3>
+              <p className="text-xs text-white/60 font-light leading-relaxed">
+                South India's largest Tibetan settlement in Bylakuppe with 40-foot golden Buddha statues, tranquil prayer halls, and traditional Tibetan handicraft markets.
+              </p>
+            </div>
+
+            <div className="bg-[#121212] p-6 rounded-2xl border border-white/5 space-y-3">
+              <span className="text-[10px] font-mono text-[#e2d7c5] uppercase tracking-wider block">8 MINS DRIVE (4 KM)</span>
+              <h3 className="text-lg font-display font-light text-white">Kaveri Nisargadhama</h3>
+              <p className="text-xs text-white/60 font-light leading-relaxed">
+                A 64-acre lush island formed by the River Cauvery, featuring a picturesque suspension bridge, bamboo groves, rabbit burrow park, and deer sanctuary.
+              </p>
+            </div>
+
+            <div className="bg-[#121212] p-6 rounded-2xl border border-white/5 space-y-3">
+              <span className="text-[10px] font-mono text-[#e2d7c5] uppercase tracking-wider block">20 MINS DRIVE (14 KM)</span>
+              <h3 className="text-lg font-display font-light text-white">Dubare Elephant Camp</h3>
+              <p className="text-xs text-white/60 font-light leading-relaxed">
+                Historic riverside camp on the banks of the Cauvery where travelers can observe elephant morning bathing rituals, feeding, and calm river rafting.
+              </p>
+            </div>
+
+            <div className="bg-[#121212] p-6 rounded-2xl border border-white/5 space-y-3">
+              <span className="text-[10px] font-mono text-[#e2d7c5] uppercase tracking-wider block">15 MINS DRIVE (9 KM)</span>
+              <h3 className="text-lg font-display font-light text-white">Harangi Dam &amp; Reservoir</h3>
+              <p className="text-xs text-white/60 font-light leading-relaxed">
+                An impressive masonry reservoir surrounded by dense forest foliage, featuring a quiet tree park with landscaped walking trails and calm waterways.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <Link
+              to="/travel-guide"
+              className="px-8 py-3.5 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out flex items-center gap-2 cursor-pointer"
+            >
+              Explore Travel Guide <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link
+              to="/trip-planner"
+              className="px-8 py-3.5 border border-[#e2d7c5]/30 hover:border-[#e2d7c5] text-[#e2d7c5] hover:bg-[#e2d7c5]/5 text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-sm transition-all duration-300 ease-out flex items-center gap-2 cursor-pointer"
+            >
+              Custom Trip Planner <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -366,9 +462,9 @@ export default function Home({ onOpenBooking }: HomeProps) {
 
                 <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
                   <div>
-                    <h4 className="text-sm font-sub font-semibold text-white tracking-wide">
+                    <h3 className="text-sm font-sub font-semibold text-white tracking-wide">
                       {rev.name}
-                    </h4>
+                    </h3>
                     <span className="text-[10px] font-mono text-white/40 block mt-0.5">
                       Verified Guest Stay • {rev.location}
                     </span>

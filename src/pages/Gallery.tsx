@@ -269,7 +269,10 @@ export default function Gallery({ onOpenBooking }: GalleryProps) {
                   <img
                     src={item.src}
                     alt={`Dreamy Vacations Resort visual portfolio ${index + 1}`}
+                    width={400}
+                    height={300}
                     loading="lazy"
+                    decoding="async"
                     onContextMenu={(e) => e.preventDefault()}
                     draggable="false"
                     referrerPolicy="no-referrer"

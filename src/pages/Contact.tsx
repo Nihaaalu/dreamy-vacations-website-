@@ -36,7 +36,9 @@ export default function Contact() {
         </div>
 
         {/* PRIMARY CONTACT DETAILS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section aria-labelledby="contact-channels-heading">
+          <h2 id="contact-channels-heading" className="sr-only">Contact Channels</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* CARD 1: PHONE */}
           <motion.div
@@ -129,8 +131,8 @@ export default function Contact() {
               </button>
             </div>
           </motion.div>
-
         </div>
+      </section>
 
         {/* MAPS INTERACTIVE SECTION (COORDINATES: 12.486260,75.940539) */}
         <motion.div
@@ -142,7 +144,7 @@ export default function Contact() {
         >
           <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 border-b border-white/5 pb-6">
             <div>
-              <h3 className="text-xl font-display font-light text-white">Interactive Location Map</h3>
+              <h2 className="text-xl font-display font-light text-white">Interactive Location Map</h2>
               <p className="text-xs text-white/50 font-light">Chikkathur Govt School is our primary visual landmark on the village approach road.</p>
             </div>
             <button

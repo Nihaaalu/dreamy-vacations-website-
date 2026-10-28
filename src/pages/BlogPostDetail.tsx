@@ -2,12 +2,14 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ChevronLeft, Calendar, User, Tag, Clock, ArrowRight, Share2, Printer, MapPin, CheckCircle } from 'lucide-react';
 import { BLOG_POSTS } from '../blogData';
+import { getProductionOrigin } from '../components/SEOManager';
 
 export default function BlogPostDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
 
   const post = slug && BLOG_POSTS[slug] ? BLOG_POSTS[slug] : BLOG_POSTS['best-place-to-stay-in-coorg'];
+  const origin = getProductionOrigin();
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -17,19 +19,19 @@ export default function BlogPostDetail() {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://dreamyvacations.in'
+        'item': origin
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Blog',
-        'item': 'https://dreamyvacations.in/blog'
+        'item': `${origin}/blog`
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': post.title,
-        'item': `https://dreamyvacations.in/blog/${slug}`
+        'item': `${origin}/blog/${slug || 'best-place-to-stay-in-coorg'}`
       }
     ]
   };
@@ -49,16 +51,16 @@ export default function BlogPostDetail() {
 
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+    '@type': 'Article',
     'headline': post.title,
     'description': post.metaDesc,
     'image': [post.heroImg],
     'datePublished': '2026-07-15T04:00:00+05:30',
-    'dateModified': '2026-07-15T04:00:00+05:30',
+    'dateModified': '2026-10-28T09:00:00+05:30',
     'author': {
       '@type': 'Organization',
       'name': 'Dreamy Vacations Coorg',
-      'url': 'https://dreamyvacations.in'
+      'url': origin
     }
   };
 
@@ -133,6 +135,10 @@ export default function BlogPostDetail() {
           <img
             src={post.heroImg}
             alt={post.title}
+            width={800}
+            height={480}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -177,9 +183,9 @@ export default function BlogPostDetail() {
             {/* Factual Highlights Box */}
             {post.highlights && post.highlights.length > 0 && (
               <div className="bg-[#121212] border border-white/5 rounded-2xl p-6 space-y-4 my-8">
-                <h3 className="text-sm font-display font-medium tracking-[0.1em] text-[#e2d7c5] uppercase flex items-center gap-2">
+                <h2 className="text-sm font-display font-medium tracking-[0.1em] text-[#e2d7c5] uppercase flex items-center gap-2">
                   <MapPin className="w-4 h-4" /> Factual Travel Metrics
-                </h3>
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {post.highlights.map((h, i) => (
                     <div key={i} className="space-y-1 border-l-2 border-[#6b5b4b] pl-3">
@@ -193,9 +199,9 @@ export default function BlogPostDetail() {
 
             {/* Attractions and driving times context */}
             <div className="border-t border-white/5 pt-8 space-y-4">
-              <h3 className="text-base font-display font-light text-white tracking-wide">
+              <h2 className="text-base font-display font-light text-white tracking-wide">
                 Kushalnagar Strategic Access Guide:
-              </h3>
+              </h2>
               <p className="text-xs text-white/50 leading-relaxed">
                 Kushalnagar sits at the foot of the Coorg highlands, offering flat roads and direct connectivity. Driving times from Kushalnagar resorts to main destinations:
               </p>
@@ -211,15 +217,15 @@ export default function BlogPostDetail() {
             {/* Dynamic FAQ List */}
             {post.faqs && post.faqs.length > 0 && (
               <div className="border-t border-white/5 pt-8 space-y-6">
-                <h3 className="text-lg font-display font-light text-white tracking-wide">
+                <h2 className="text-lg font-display font-light text-white tracking-wide">
                   Frequently Asked Questions
-                </h3>
+                </h2>
                 <div className="space-y-4">
                   {post.faqs.map((f, i) => (
                     <div key={i} className="space-y-2">
-                      <h4 className="text-xs font-semibold text-[#e2d7c5] flex items-start gap-1.5 leading-snug">
+                      <h3 className="text-xs font-semibold text-[#e2d7c5] flex items-start gap-1.5 leading-snug">
                         <CheckCircle className="w-3.5 h-3.5 text-[#e2d7c5] shrink-0 mt-0.5" /> {f.q}
-                      </h4>
+                      </h3>
                       <p className="text-xs text-white/60 leading-relaxed font-light pl-5">
                         {f.a}
                       </p>
@@ -240,9 +246,9 @@ export default function BlogPostDetail() {
                 Stay with us
               </span>
               
-              <h3 className="text-lg font-display font-light text-white leading-tight">
+              <h2 className="text-lg font-display font-light text-white leading-tight">
                 Dreamy Vacations Kushalnagar
-              </h3>
+              </h2>
               
               <p className="text-xs text-white/50 leading-relaxed font-light">
                 Position yourself beautifully at the eastern gateway. Enjoy premium double deluxe cottages, kids-friendly swimming pool, high-tech rain dance, and campfires.
