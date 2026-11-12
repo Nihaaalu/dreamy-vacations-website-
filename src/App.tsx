@@ -43,7 +43,13 @@ function AppContent() {
       </a>
 
       {/* NAVBAR */}
-      <Navbar onBookNow={() => navigate('/booking')} />
+      <Navbar onBookNow={() => {
+        window.open(
+          'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability%20and%20booking.',
+          '_blank',
+          'noopener,noreferrer'
+        );
+      }} />
 
       {/* MAIN ROUTER BODY */}
       <main id="main-content" className="flex-grow">

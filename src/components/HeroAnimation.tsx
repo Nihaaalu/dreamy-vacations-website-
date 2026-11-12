@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 
 interface HeroAnimationProps {
   onBookNow: () => void;
@@ -123,25 +123,36 @@ export default function HeroAnimation({ onBookNow }: HeroAnimationProps) {
         </motion.p>
 
         {/* BOOK NOW ACTION BUTTON (Fades in at 1.4s) */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 1.4,
-            duration: 0.5,
-            ease: 'easeOut'
-          }}
-          className="mt-12"
-          id="hero-book-now-container"
-        >
-          <button 
-            onClick={onBookNow}
-            className="px-8 py-3.5 bg-[#6b5b4b] text-white font-sub font-semibold rounded-full text-[11px] tracking-[0.18em] uppercase transition-all duration-300 ease-out hover:bg-[#85725f] shadow-md flex items-center justify-center gap-2 cursor-pointer"
-            id="hero-book-now-btn"
-          >
-            BOOK NOW <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </motion.div>
+        {/* HERO BOOKING BUTTONS */}
+<motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    delay: 1.4,
+    duration: 0.5,
+    ease: 'easeOut'
+  }}
+  className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+  id="hero-book-now-container"
+>
+  <a
+    href="https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability%20and%20booking."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="px-8 py-3.5 bg-[#6b5b4b] text-white font-sub font-semibold rounded-full text-[11px] tracking-[0.18em] uppercase transition-all duration-300 ease-out hover:bg-[#85725f] shadow-md flex items-center justify-center gap-2 cursor-pointer"
+  >
+    <MessageCircle className="w-4 h-4" />
+    BOOK NOW
+  </a>
+
+  <a
+    href="tel:+919902960484"
+    className="px-8 py-3.5 bg-[#6b5b4b] text-white font-sub font-semibold rounded-full text-[11px] tracking-[0.18em] uppercase transition-all duration-300 ease-out hover:bg-[#85725f] shadow-md flex items-center justify-center gap-2 cursor-pointer"
+  >
+    <Phone className="w-4 h-4" />
+    CALL NOW
+  </a>
+</motion.div>
       </div>
     </div>
   );
