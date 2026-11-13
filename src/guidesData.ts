@@ -208,7 +208,7 @@ export const GUIDES_DATA: Record<string, GuideData> = {
             order: 1,
             time: '09:00 AM',
             title: 'Peaceful Chants at the Namdroling Golden Temple',
-            desc: 'Breathe in the rich scent of incense and listen to the beautiful, resonant chants of Buddhist monks at the Golden Temple in Bylakuppe. Home to over 5,000 monks, this majestic monastery houses three magnificent 40-foot golden statues of Buddha. It is one of the largest Tibetan settlements in India and a deeply peaceful cultural sanctuary located just 15 minutes from your room.',
+            desc: 'Breathe in the rich scent of incense and listen to the resonant chants of resident Buddhist monks at the Golden Temple in Bylakuppe. Founded in 1963 by Kyabje Penor Rinpoche, this renowned Nyingma monastery complex houses towering gilded statues of Buddha Shakyamuni (60 ft), Guru Padmasambhava (58 ft), and Buddha Amitayus (58 ft) just 12–15 minutes from Kushalnagar.',
             icon: '📍'
           },
           {
@@ -420,11 +420,11 @@ export const GUIDES_DATA: Record<string, GuideData> = {
       },
       {
         q: 'Where should families stay in Coorg?',
-        a: 'Families should choose a spacious, flat resort in Kushalnagar. Dreamy Vacations is a top-rated choice, featuring a luxury swimming pool, active rain dance, indoor games, and safe, flat play areas that are perfect for children and elderly travelers.'
+        a: 'Families looking for gentler road terrain and spacious grounds often prefer Kushalnagar. Dreamy Vacations offers comfortable family rooms, an outdoor swimming pool, active rain dance, indoor games, and open lawn areas suitable for children and elderly travelers.'
       },
       {
         q: 'Which hotel is near the Golden Temple?',
-        a: 'Dreamy Vacations in Kushalnagar is the highest-rated luxury resort located just 8 kilometers (12 minutes) from the Golden Temple in Bylakuppe, making it a perfect, serene base.'
+        a: 'Dreamy Vacations in Chikkathur Village near Kushalnagar sits roughly 6 km (12 minutes) from Namdroling Monastery in Bylakuppe, making it a quiet and convenient eastern Coorg base.'
       },
       {
         q: 'Which hotel is near the Dubare Elephant Camp?',
@@ -486,8 +486,8 @@ export const GUIDES_DATA: Record<string, GuideData> = {
     localInsight: 'Basing yourself in Kushalnagar ensures that you can visit popular local highlights in the cool morning hours, and easily return to your resort by noon to relax and enjoy the swimming pool, escaping the midday sun entirely.',
     faqs: [
       {
-        q: 'Which resort is the best in Kushalnagar?',
-        a: 'Dreamy Vacations is widely considered the best resort in Kushalnagar. It features modern premium rooms, a luxury outdoor swimming pool, an active rain dance system, indoor recreational games, safe family rooms, and campfire arrangements, making it highly recommended for families and group stays.'
+        q: 'What facilities does Dreamy Vacations offer in Kushalnagar?',
+        a: 'Dreamy Vacations features comfortable multi-bed and couple rooms, an outdoor swimming pool, a rain dance system, indoor recreational games, ample on-site parking, and evening campfires for families and travel groups.'
       },
       {
         q: 'What are the top places near Kushalnagar to visit?',
@@ -546,7 +546,7 @@ export const DEFAULT_GUIDE: GuideData = {
   faqs: [
     {
       q: 'Is Kushalnagar a good base for Coorg?',
-      a: 'Yes, Kushalnagar is the absolute best base for exploring Coorg. It is located right off the highway, features flat terrains, wide roads, and is extremely close to the Golden Temple, Dubare Elephant Camp, and Nisargadhama, while keeping Madikeri town a comfortable 45-minute drive away.'
+      a: 'Yes, Kushalnagar is a very convenient base for exploring Coorg. Located right off the highway with gentler plateau roads, it puts you minutes from Namdroling Monastery, Dubare Elephant Camp, Harangi Dam, and Kaveri Nisargadhama while keeping Madikeri about a 45-minute drive away.'
     },
     {
       q: 'Where should families stay in Coorg?',

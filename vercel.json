@@ -55,10 +55,10 @@
       "has": [
         {
           "type": "host",
-          "value": "www.dreamyvacations1.vercel.app"
+          "value": "dreamyvacations.in"
         }
       ],
-      "destination": "https://dreamyvacations1.vercel.app/$1",
+      "destination": "https://www.dreamyvacations.in/$1",
       "permanent": true
     }
   ],

@@ -70,123 +70,123 @@ const ATTRACTIONS: Attraction[] = [
   {
     name: 'Golden Temple (Namdroling Monastery)',
     img: '/images/places/gold.jpeg',
-    alt: 'Golden Temple in Kushalnagar, Coorg',
-    distance: '8 km from Dreamy Vacations',
+    alt: 'Ornate golden roof and multi-tiered facade of Namdroling Monastery in Bylakuppe near Kushalnagar',
+    distance: '6 km from Dreamy Vacations',
     time: '12–15 mins drive',
-    timeAway: '15 mins away',
-    rating: '★★★★★ Most Visited',
+    timeAway: '12 mins away',
+    rating: 'Tibetan Cultural Landmark',
     bestHours: '09:00 AM – 12:00 PM',
-    description: 'One of the largest Tibetan settlements and monasteries in India, housing three magnificent 40-foot tall golden statues of Buddha Shakyamuni, Padmasambhava, and Amitayus. A deeply serene cultural sanctuary.',
+    description: 'Located in Bylakuppe—India’s oldest Tibetan settlement established in 1961—Namdroling Monastery houses monumental gilded statues of Buddha Shakyamuni (60 ft), Guru Padmasambhava (58 ft), and Buddha Amitayus (58 ft) alongside the Zangdok Palri Temple.',
     nearby: ['Bylakuppe Tibetan Settlement', 'Tibetan Shopping Arcade', 'Local Tibetan Cafés'],
     mapLink: 'https://maps.google.com/?q=Namdroling+Monastery+Kushalnagar',
-    travelTip: 'Visit before 9:00 AM to hear the monks chanting and enjoy the ultimate morning serenity without any tour bus crowds.'
+    travelTip: 'Visit between 8:30 AM and 10:30 AM to experience peaceful courtyard stillness ahead of highway tour groups, and dress modestly with shoulders and knees covered.'
   },
   {
     name: 'Dubare Elephant Camp',
     img: '/images/places/dubare.jpeg',
-    alt: 'Dubare Elephant Camp on Cauvery River, Coorg',
+    alt: 'Asian elephants accompanied by mahouts along the Cauvery River at Dubare Elephant Camp',
     distance: '14 km from Dreamy Vacations',
     time: '20–25 mins drive',
     timeAway: '20 mins away',
-    rating: '★★★★★ Highly Recommended',
+    rating: 'River Conservation Camp',
     bestHours: '08:30 AM – 11:00 AM',
-    description: 'A historic river camp set on the banks of the Cauvery River. Visitors can cross the river by motorboat, participate in elephant feeding and grooming, and enjoy peaceful river rafting.',
+    description: 'A forested conservation camp set along the River Cauvery. Visitors cross the river by boat or shallow walkway to observe morning elephant bathing and care routines with trained mahouts and enjoy seasonal still-water rafting.',
     nearby: ['Cauvery River Rafting', 'Chiklihole Reservoir', 'Deciduous Forests'],
     mapLink: 'https://maps.google.com/?q=Dubare+Elephant+Camp+Coorg',
-    travelTip: 'Arrive by 8:15 AM to secure your boat tickets early and catch the elephant bathing ritual in the natural river waters.'
+    travelTip: 'Arrive by 8:15 AM to catch the morning elephant bathing and feeding routine (approx. 9:00–11:00 AM) before river ferry queues lengthen.'
   },
   {
     name: 'Kaveri Nisargadhama',
     img: '/images/places/nisa.jpeg',
-    alt: 'Kaveri Nisargadhama Forest Reserve, Coorg',
+    alt: 'Shaded bamboo trails inside Kaveri Nisargadhama river island near Kushalnagar',
     distance: '4 km from Dreamy Vacations',
     time: '7–10 mins drive',
-    timeAway: '10 mins away',
-    rating: '★★★★★ Perfect for Families',
+    timeAway: '8 mins away',
+    rating: 'Family River Island',
     bestHours: '09:00 AM – 04:30 PM',
-    description: 'A beautiful 64-acre island forest formed by the river Cauvery, featuring dense bamboo groves, a deer park, orchid gardens, and a thrilling suspension bridge walkway.',
+    description: 'A shaded 64-acre forest island formed by the River Cauvery, entered via a suspension bridge leading into tall bamboo groves, teak paths, a spotted-deer park, and elevated wooden viewing decks.',
     nearby: ['Rope Suspension Bridge', 'Deer Park Walkway', 'Bamboo Tree Houses'],
     mapLink: 'https://maps.google.com/?q=Kaveri+Nisargadhama+Kushalnagar',
-    travelTip: 'Cross the suspension bridge early in the morning for the best birdwatching and a misty, quiet walk under the bamboo canopy.'
+    travelTip: 'Great for warm afternoons because towering bamboo canopies shade the flat walking paths; swimming in river channels is prohibited for safety.'
   },
   {
     name: 'Harangi Dam',
     img: '/images/places/harangi.jpeg',
-    alt: 'Harangi Dam and Backwaters in Kushalnagar, Coorg',
+    alt: 'Harangi Dam spillway and landscaped river park near Kushalnagar',
     distance: '9 km from Dreamy Vacations',
     time: '15 mins drive',
     timeAway: '15 mins away',
-    rating: '★★★★★ Scenic & Peaceful',
+    rating: 'Masonry Reservoir & Park',
     bestHours: '08:00 AM – 10:30 AM',
-    description: 'A spectacular masonry reservoir built across the Harangi tributary. The backwaters are surrounded by dense forests and offer an incredibly peaceful escape with minimal tourist crowds.',
+    description: 'Built across the Harangi tributary of the Cauvery, this sweeping masonry dam is paired with tranquil landscaped gardens and the adjoining Harangi Tree Park—especially dramatic when monsoon crest gates open.',
     nearby: ['Harangi Tree Park', 'Chiklihole Dam', 'Birdwatching Path'],
     mapLink: 'https://maps.google.com/?q=Harangi+Dam+Coorg',
-    travelTip: 'Combine this with Harangi Tree Park nearby for a wonderful, shaded midday picnic under high-canopy trees.'
+    travelTip: 'Combine Harangi Dam with the neighboring Tree Park for a peaceful, uncrowded morning walk away from commercial traffic.'
   },
   {
     name: 'Chiklihole Reservoir',
     img: '/images/places/chick.jpeg',
-    alt: 'Chiklihole Reservoir near Kushalnagar, Coorg',
+    alt: 'Water flowing over the curved semi-circular spillway of Chiklihole Reservoir in Coorg',
     distance: '11 km from Dreamy Vacations',
     time: '18 mins drive',
     timeAway: '20 mins away',
-    rating: '★★★★★ Offbeat Gem',
-    bestHours: '03:00 PM – 05:30 PM',
-    description: 'A beautiful, semi-circular dam surrounded by lush green forests. With no commercial stalls and very few tourists, it is the perfect spot for quiet photography and enjoying the sounds of nature.',
+    rating: 'Offbeat Woodland Weir',
+    bestHours: '03:30 PM – 05:30 PM',
+    description: 'A semi-circular irrigation reservoir tucked along the Dubare forest range. With zero commercial stalls and calm afternoon light, it offers peaceful birdwatching and distinctive spillway views.',
     nearby: ['Dubare Forest Range', 'Siddapur Coffee Estates'],
     mapLink: 'https://maps.google.com/?q=Chiklihole+Reservoir+Coorg',
-    travelTip: 'There are no shops or toilets here, so carry your own drinking water and snacks to fully enjoy the undisturbed wilderness.'
+    travelTip: 'There are no shops or restrooms on-site, so carry drinking water and return to Kushalnagar before complete dark.'
   },
   {
     name: 'Abbey Falls',
     img: '/images/places/ab.jpeg',
-    alt: 'Abbey Falls waterfall in Madikeri, Coorg',
+    alt: 'Mountain stream cascading down basalt rock faces at Abbey Falls in Madikeri',
     distance: '34 km from Dreamy Vacations',
     time: '50 mins drive',
     timeAway: '50 mins away',
-    rating: '★★★★★ Most Photographed',
+    rating: 'Coffee-Estate Cascade',
     bestHours: '01:30 PM – 04:00 PM',
-    description: 'One of Coorg’s most famous landmarks, where mountain streams cascade down 70 feet over black rocks. Enjoying the shaded coffee estate walk and roaring waterfall during the afternoon makes it a wonderful post-lunch stop.',
+    description: 'Surrounded by private coffee and cardamom estates near Madikeri, Abbey Falls drops roughly 70 feet over dark rock ledges, viewed safely from a dedicated footbridge across the gorge.',
     nearby: ['Hanging Bridge View', 'Coffee Estate Walk', 'Madikeri Fort'],
     mapLink: 'https://maps.google.com/?q=Abbey+Falls+Madikeri',
-    travelTip: 'The path down to the falls has about 150 concrete steps; take your time on the walk back up and enjoy the cool, spice-scented afternoon shade.'
+    travelTip: 'Expect roughly 150–200 concrete steps down and back up; wear shoes with steady wet-grip soles and stay behind guard rails.'
   },
   {
     name: 'Raja’s Seat',
     img: '/images/places/raja.jpeg',
-    alt: 'Rajas Seat viewpoint in Madikeri, Coorg',
+    alt: 'Misty garden lawns and arched stone pavilion at Raja’s Seat in Madikeri',
     distance: '31 km from Dreamy Vacations',
     time: '45 mins drive',
     timeAway: '45 mins away',
-    rating: '★★★★★ Best Sunset Spot',
+    rating: 'Historic Sunset Terrace',
     bestHours: '05:00 PM – 06:30 PM',
-    description: 'A spectacular public garden perched on a high ridge in Madikeri, intentionally scheduled for the early evening because it is one of Coorg’s absolute best sunset viewpoints. Historically, the Kings of Coorg sat here to enjoy sunset views.',
-    nearby: ['Toy Train Station', 'Madikeri Viewpoint', 'Musical Fountain'],
+    description: 'A cliffside public garden in Madikeri historically favored by Kodagu’s kings for evening views across rolling western valleys and layered mountain mist.',
+    nearby: ['Toy Train Station', 'Madikeri Fort', 'Omkareshwara Temple'],
     mapLink: 'https://maps.google.com/?q=Rajas+Seat+Madikeri',
-    travelTip: 'Arrive at least 45 minutes before sunset to secure a good spot along the stone railing for the ultimate panoramic sunset and mist-filled valley photo.'
+    travelTip: 'Arrive around 4:45 PM before weekend sunset crowds peak, then cruise cleanly back down NH 275 toward Kushalnagar after dusk.'
   },
   {
     name: 'Mandalpatti Peak',
     img: '/images/places/md.jpeg',
-    alt: 'Mandalpatti Peak viewpoint in Coorg',
+    alt: 'Green Western Ghats ridgelines above clouds at Mandalpatti Peak in Coorg',
     distance: '50 km from Dreamy Vacations',
     time: '1 hr 30 mins (inc. 4x4 Jeep)',
     timeAway: '1.5 hrs away',
-    rating: '★★★★★ Epic Adventure',
-    bestHours: '08:00 AM – 11:30 AM',
-    description: 'An absolute must-visit mountain ridge. Accessed via a thrilling 4x4 off-road jeep safari, it is best visited in the morning for the clearest mountain views, pleasant weather, and to beat the heavy afternoon crowds.',
+    rating: 'High-Altitude Jeep Trail',
+    bestHours: '07:00 AM – 10:30 AM',
+    description: 'Rising into Pushpagiri foothills north of Madikeri, Mandalpatti delivers 360-degree mountain cloudscapes reachable only via local authorized 4x4 off-road jeeps past the forest checkpost.',
     nearby: ['Pushpagiri Forest Reserve', 'Off-road Jeep Trails'],
     mapLink: 'https://maps.google.com/?q=Mandalpatti+Peak+Coorg',
-    travelTip: 'A windcheater or light jacket is essential. Early morning visibility is outstanding, providing spectacular 360-degree views of the Western Ghats.'
+    travelTip: 'Carry a windcheater and start early before afternoon fog closes in; skip the bumpy 4x4 climb if anyone in your group has severe back pain or is pregnant.'
   }
 ];
 
 // Related articles list
 const RELATED_ARTICLES = [
-  { name: '2 Day Coorg Itinerary', path: '/travel-guide/coorg-trip-plan-2-days' },
-  { name: 'Ultimate 3 Day Travel Guide', path: '/travel-guide/coorg-trip-plan-3-days' },
-  { name: 'Where to Stay: Kushalnagar vs Madikeri', path: '/travel-guide/best-place-to-stay-in-coorg' },
-  { name: 'Best Resorts & Attractions Near Kushalnagar', path: '/travel-guide/resorts-near-kushalnagar' }
+  { name: 'Complete Coorg Travel Guide', path: '/blog/complete-coorg-travel-guide' },
+  { name: 'Bylakuppe & Tibetan Settlement Guide', path: '/blog/bylakuppe-tibetan-settlement-guide' },
+  { name: '2-Day Coorg Itinerary', path: '/blog/2-day-coorg-itinerary' },
+  { name: '3-Day Coorg Itinerary', path: '/blog/3-day-coorg-itinerary' }
 ];
 
 const WHATSAPP_ENQUIRE_URL =

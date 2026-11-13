@@ -111,9 +111,11 @@ function AppContent() {
             <ul className="space-y-3 text-xs font-light text-white/60">
               <li><Link to="/blog" className="hover:text-white transition-colors">Travel Guides</Link></li>
               <li><Link to="/trip-planner" className="hover:text-white font-semibold text-[#e2d7c5] transition-colors">Trip Planner</Link></li>
-              <li><Link to="/blog/coorg-trip-plan-2-days" className="hover:text-white transition-colors">2 Day Itinerary</Link></li>
-              <li><Link to="/blog/coorg-trip-plan-3-days" className="hover:text-white transition-colors">3 Day Itinerary</Link></li>
-              <li><Link to="/blog/best-place-to-stay-in-coorg" className="hover:text-white transition-colors">Where to Stay</Link></li>
+              <li><Link to="/blog/complete-coorg-travel-guide" className="hover:text-white transition-colors">Complete Coorg Guide</Link></li>
+              <li><Link to="/blog/bylakuppe-tibetan-settlement-guide" className="hover:text-white transition-colors">Bylakuppe &amp; Golden Temple</Link></li>
+              <li><Link to="/blog/2-day-coorg-itinerary" className="hover:text-white transition-colors">2 Day Itinerary</Link></li>
+              <li><Link to="/blog/3-day-coorg-itinerary" className="hover:text-white transition-colors">3 Day Itinerary</Link></li>
+              <li><Link to="/blog/where-to-stay-in-coorg" className="hover:text-white transition-colors">Where to Stay</Link></li>
               <li><Link to="/blog/kushalnagar-tourist-places" className="hover:text-white transition-colors">Nearby Attractions</Link></li>
             </ul>
           </div>

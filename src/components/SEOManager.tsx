@@ -1,24 +1,12 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { BLOG_POSTS } from '../blogData';
+import { BLOG_POSTS, CANONICAL_BLOG_POSTS, resolveCanonicalBlogSlug } from '../blogData';
 import { decodeTrip } from '../lib/tripHelper';
 import { ROOMS } from '../data';
 
-const PRIMARY_ORIGIN = 'https://dreamyvacations1.vercel.app';
+const PRIMARY_ORIGIN = 'https://www.dreamyvacations.in';
 
 export function getProductionOrigin(): string {
-  if (typeof window !== 'undefined') {
-    const host = window.location.hostname;
-    if (host.includes('dreamyvacations.in')) {
-      return 'https://dreamyvacations.in';
-    }
-    if (host.includes('dreamyvacations1.vercel.app')) {
-      return 'https://dreamyvacations1.vercel.app';
-    }
-    if (window.location.origin && !window.location.origin.includes('localhost') && !window.location.origin.includes('127.0.0.1')) {
-      return window.location.origin;
-    }
-  }
   return PRIMARY_ORIGIN;
 }
 
@@ -49,7 +37,7 @@ export default function SEOManager() {
     const origin = getProductionOrigin();
     const path = location.pathname;
     const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
-    const canonical = `${origin}${cleanPath || '/'}`;
+    let canonical = `${origin}${cleanPath || '/'}`;
 
     // Defaults
     let title = 'Dreamy Vacations | Family Resort in Kushalnagar, Coorg';
@@ -225,14 +213,14 @@ export default function SEOManager() {
       ogImage = `${origin}/images/places/dubare.jpeg`;
 
     } else if (path === '/blog') {
-      title = 'Coorg Travel Guides & Itineraries | Dreamy Vacations Blog';
-      description = 'Read expert travel guides, sightseeing itineraries, and local tips for Kushalnagar and Coorg. Authored by the local hospitality team at Dreamy Vacations.';
+      title = 'Coorg Travel Guides, Tibetan Heritage & Itineraries | Dreamy Vacations';
+      description = 'Discover the other side of Coorg with comprehensive travel guides covering Bylakuppe Tibetan culture, Kushalnagar attractions, Madikeri highlands, and realistic itineraries.';
       ogImage = `${origin}/images/places/gold.jpeg`;
 
       const blogListSchema = {
         '@context': 'https://schema.org',
         '@type': 'Blog',
-        'name': 'Dreamy Vacations Coorg Travel Publication',
+        'name': 'Dreamy Vacations Coorg & Kushalnagar Travel Publication',
         'url': `${origin}/blog`,
         'description': description,
         'publisher': {
@@ -243,26 +231,31 @@ export default function SEOManager() {
       schemas = [blogListSchema];
 
     } else if (path.startsWith('/blog/')) {
-      const slug = path.split('/blog/')[1];
-      const post = BLOG_POSTS[slug];
+      const slug = path.split('/blog/')[1]?.replace(/\/$/, '');
+      const resolvedSlug = resolveCanonicalBlogSlug(slug);
+      const post = (slug && BLOG_POSTS[slug]) || CANONICAL_BLOG_POSTS[resolvedSlug];
 
       if (post) {
-        title = `${post.title} | Coorg Travel Guide`;
+        const canonicalSlug = post.canonicalSlug || resolvedSlug;
+        canonical = `${origin}/blog/${canonicalSlug}`;
+        title = `${post.seoTitle} | Dreamy Vacations`;
         description = post.metaDesc;
-        ogImage = post.heroImg;
+        ogImage = post.heroImg.startsWith('http') ? post.heroImg : `${origin}${post.heroImg}`;
         ogType = 'article';
 
         const articleSchema = {
           '@context': 'https://schema.org',
-          '@type': 'Article',
+          '@type': 'BlogPosting',
           'headline': post.title,
           'description': post.metaDesc,
-          'image': [post.heroImg],
-          'datePublished': '2026-07-15T04:00:00+05:30',
-          'dateModified': '2026-10-28T09:00:00+05:30',
+          'image': [ogImage],
+          'datePublished': `${post.publishedDate}T08:00:00+05:30`,
+          'dateModified': `${post.updatedDate}T09:00:00+05:30`,
+          'articleSection': post.category,
+          'keywords': [post.primaryKeyword, ...post.secondaryKeywords].join(', '),
           'author': {
             '@type': 'Organization',
-            'name': 'Dreamy Vacations Coorg',
+            'name': 'Dreamy Vacations Editorial Team',
             'url': origin
           },
           'publisher': {
@@ -283,8 +276,8 @@ export default function SEOManager() {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           'itemListElement': [
-            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': origin },
-            { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': `${origin}/blog` },
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': `${origin}/` },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Travel Guides', 'item': `${origin}/blog` },
             { '@type': 'ListItem', 'position': 3, 'name': post.title, 'item': canonical }
           ]
         };

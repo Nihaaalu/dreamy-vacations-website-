@@ -7,7 +7,7 @@
 - Location: #51/5, Behind Chikkathur Govt School, Chikkathur Village, Kushalnagar, Kudumangalore, Karnataka 571232, India
 - GPS Coordinates: 12.486260, 75.940539
 - Primary Contact: +91 99029 60484
-- Official Website: https://dreamyvacations1.vercel.app/
+- Official Website: https://www.dreamyvacations.in/
 - Check-in Time: 12:00 PM
 - Check-out Time: 11:00 AM
 
@@ -34,8 +34,8 @@
 - Madikeri Town Centre, Abbey Falls, Raja's Seat: 30 km (45 mins scenic drive)
 
 ## Links
-- Accommodations: https://dreamyvacations1.vercel.app/rooms
-- Photo Gallery: https://dreamyvacations1.vercel.app/gallery
-- Travel Guides & Itineraries: https://dreamyvacations1.vercel.app/blog
-- Trip Planner Generator: https://dreamyvacations1.vercel.app/trip-planner
-- Contact & Location: https://dreamyvacations1.vercel.app/contact
+- Accommodations: https://www.dreamyvacations.in/rooms
+- Photo Gallery: https://www.dreamyvacations.in/gallery
+- Travel Guides & Itineraries: https://www.dreamyvacations.in/blog
+- Trip Planner Generator: https://www.dreamyvacations.in/trip-planner
+- Contact & Location: https://www.dreamyvacations.in/contact
