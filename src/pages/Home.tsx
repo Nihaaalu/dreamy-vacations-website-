@@ -1,34 +1,37 @@
 import { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Waves, Sparkles, Gamepad2, Users, Home as HomeIcon, 
-  Car, Eye, ChevronRight, Phone, MapPin, ArrowRight,
-  Wifi, Heart, Bed, Calendar
+  Car, ChevronRight, MapPin, ArrowRight,
+  Wifi, Heart, Bed
 } from 'lucide-react';
 import HeroAnimation from '../components/HeroAnimation';
-import { ROOMS, GALLERY_ITEMS } from '../data';
+import { GALLERY_ITEMS } from '../data';
 
-const WHATSAPP_ENQUIRE_URL =
-  'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability.';
+const globDf1Images = (import.meta as any).glob(
+  '../../images/rooms/df1/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
+  { eager: true }
+);
 
-const ROOM_SUBTITLES: Record<string, string> = {
-  'standard-family-room': 'Perfect for families seeking comfort.',
-  'deluxe-family-room': 'More space for memorable family stays.',
-  'superior-deluxe-double': 'Our flagship premium accommodation.',
-  'triple-room': 'Designed for friends and small groups.',
-};
+function resolveDf1Image(filename: string): string {
+  const entry = Object.entries(globDf1Images).find(([key]) =>
+    key.toLowerCase().endsWith(`/${filename.toLowerCase()}`)
+  );
+  if (entry) {
+    const mod = entry[1] as any;
+    return mod.default || mod;
+  }
+  return `/images/rooms/df1/${filename}`;
+}
 
 interface HomeProps {
   onOpenBooking?: (roomName: string) => void;
 }
 
-export default function Home({ onOpenBooking }: HomeProps) {
-  const navigate = useNavigate();
+export default function Home({}: HomeProps) {
   const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(null);
   
-  const roomsRef = useRef<HTMLDivElement>(null);
-  const galleryRef = useRef<HTMLDivElement>(null);
   const reviewsRef = useRef<HTMLDivElement>(null);
 
   const galleryImages = GALLERY_ITEMS;
@@ -62,12 +65,35 @@ export default function Home({ onOpenBooking }: HomeProps) {
     }
   ];
 
-  const roomCategories = ROOMS.map((room) => ({
-    id: room.id,
-    name: room.name,
-    subtitle: ROOM_SUBTITLES[room.id] || '',
-    image: room.images[0]
-  }));
+  const accommodationCategories = [
+    {
+      id: 'couples',
+      title: 'Rooms for Couples',
+      description:
+        'Private cottages with king-size double bedding, warm wood finishes, and peaceful garden surroundings for two.',
+      image: resolveDf1Image('df1.jpeg'),
+      alt: 'Double bedroom for couples with warm wooden ceiling and crisp linens at Dreamy Vacations Coorg',
+      route: '/rooms/couples',
+    },
+    {
+      id: 'families',
+      title: 'Rooms for Families',
+      description:
+        'Spacious multi-bed suites with cozy sofa lounges and easy ground access steps from our pool and play areas.',
+      image: '/images/rooms/sd2/sd2.jpeg',
+      alt: 'Spacious family suite with two double beds and seating lounge at Dreamy Vacations Coorg',
+      route: '/rooms/families',
+    },
+    {
+      id: 'group-booking',
+      title: 'Group Booking',
+      description:
+        'Adjoining cottages and multi-bed stays around our central courtyard with custom Coorg dining and campfires.',
+      image: resolveDf1Image('WhatsApp Image 2026-07-14 at 12.07.32 PM (4).jpeg'),
+      alt: 'Aerial view of Dreamy Vacations cottages and open courtyard for group stays in Kushalnagar, Coorg',
+      route: '/rooms/group-booking',
+    },
+  ];
 
   const scrollLeft = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
@@ -120,7 +146,7 @@ export default function Home({ onOpenBooking }: HomeProps) {
         </div>
       </section>
 
-      {/* 3. ROOM CATEGORIES */}
+      {/* 3. ACCOMMODATION CATEGORIES */}
       <section className="pt-12 pb-24 px-6 sm:px-12 lg:px-20 bg-[#0d0d0d]" id="home-rooms-section">
         <div className="max-w-7xl mx-auto">
           
@@ -133,106 +159,75 @@ export default function Home({ onOpenBooking }: HomeProps) {
                 Our Accommodation
               </h2>
             </div>
-
-            <div className="mt-8 md:mt-0 flex items-center gap-4">
-              <button 
-                onClick={() => scrollLeft(roomsRef)}
-                className="p-4 rounded-full border border-white/10 hover:border-white/40 text-white transition-all hidden md:block cursor-pointer"
-                aria-label="Scroll left"
-              >
-                <ChevronRight className="w-4 h-4 rotate-180" />
-              </button>
-              <button 
-                onClick={() => scrollRight(roomsRef)}
-                className="p-4 rounded-full border border-white/10 hover:border-white/40 text-white transition-all hidden md:block cursor-pointer"
-                aria-label="Scroll right"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
+            <p className="mt-4 md:mt-0 text-xs sm:text-sm text-white/60 font-light max-w-md leading-relaxed">
+              Thoughtfully arranged cottages and multi-bed suites tailored for couples, families, and traveling groups in Kushalnagar.
+            </p>
           </div>
 
-          {/* Room Cards Row */}
+          {/* 3-Category Responsive Grid (Vertical Stack on Mobile, Balanced 3 Columns on Desktop) */}
           <div 
-            ref={roomsRef}
-            className="flex gap-8 overflow-x-auto overflow-y-hidden overscroll-x-contain pb-8 snap-x snap-mandatory scrollbar-none scroll-smooth touch-auto"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
             id="rooms-carousel"
           >
-            {roomCategories.map((room, idx) => (
-              <div
-                key={room.id}
-                className="w-[280px] sm:w-[350px] md:w-[370px] h-[440px] sm:h-[470px] flex-shrink-0 snap-start bg-[#121212] rounded-2xl overflow-hidden border border-white/5 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-white/10"
-                id={`room-card-${room.id}`}
+            {accommodationCategories.map((category, idx) => (
+              <article
+                key={category.id}
+                className="bg-[#121212] rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.4)] hover:border-[#6b5b4b]/50"
+                id={`room-card-${category.id}`}
               >
-                {/* Large Room Image */}
+                {/* Category Photograph */}
                 <Link
-                  to={`/rooms/${room.id}`}
-                  className="relative h-[220px] sm:h-[250px] overflow-hidden bg-zinc-950 flex-shrink-0 block"
-                  aria-label={`View ${room.name} details and gallery`}
+                  to={category.route}
+                  className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-950 flex-shrink-0 block group"
+                  aria-label={`Explore ${category.title}`}
                 >
                   <img
-                    src={room.image}
-                    alt={room.name}
-                    width={370}
-                    height={250}
+                    src={category.image}
+                    alt={category.alt}
+                    width={480}
+                    height={360}
                     loading={idx === 0 ? "eager" : "lazy"}
                     decoding="async"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-101"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
                 </Link>
 
-                {/* Simplified Info Block */}
-                <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
-                  <div className="space-y-1.5 sm:space-y-2">
+                {/* Category Summary & EXPLORE CTA */}
+                <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between gap-6">
+                  <div className="space-y-2.5">
                     <h3 className="text-xl sm:text-2xl font-display font-light text-white leading-tight">
-                      <Link to={`/rooms/${room.id}`} className="hover:text-[#e2d7c5] transition-colors">
-                        {room.name}
+                      <Link to={category.route} className="hover:text-[#e2d7c5] transition-colors">
+                        {category.title}
                       </Link>
                     </h3>
-                    <p className="text-[13px] sm:text-sm text-white/55 font-sans font-light leading-relaxed tracking-wide">
-                      {room.subtitle}
+                    <p className="text-[13px] sm:text-sm text-white/60 font-sans font-light leading-relaxed tracking-wide">
+                      {category.description}
                     </p>
                   </div>
 
-                  {/* Actions: Room details link + Enquire Now WhatsApp CTA */}
-                  <div className="mt-4 space-y-2.5">
-                    <Link
-                      to={`/rooms/${room.id}`}
-                      className="inline-flex items-center gap-1 text-[11px] font-sub font-semibold tracking-[0.14em] uppercase text-[#e2d7c5]/80 hover:text-[#e2d7c5] transition-colors"
-                    >
-                      View Room Details <ArrowRight className="w-3 h-3" />
-                    </Link>
-                    <a
-                      href={WHATSAPP_ENQUIRE_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-3.5 bg-[#6b5b4b] text-white hover:bg-[#85725f] text-xs font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center justify-center gap-1.5"
-                      id={`btn-home-book-now-${room.id}`}
-                    >
-                      ENQUIRE NOW <ArrowRight className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
+                  <Link
+                    to={category.route}
+                    className="w-full py-3.5 px-6 bg-[#6b5b4b] text-white hover:bg-[#85725f] text-xs font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap"
+                    id={`btn-home-explore-${category.id}`}
+                  >
+                    EXPLORE <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
-          {/* Visual swipe indicator for mobile */}
-          <div className="text-center mt-6 text-xs text-white/40 font-light flex items-center justify-center gap-2 md:hidden">
-            <span>Swipe to discover all configurations</span>
-            <ArrowRight className="w-3.5 h-3.5 animate-pulse text-[#e2d7c5]" />
-          </div>
-
-          {/* Centered View All Rooms Button */}
+          {/* Centered View All Accommodation Button */}
           <div className="mt-14 flex flex-col items-center">
             <div className="w-full max-w-sm border-t border-white/5 my-6" />
             <Link
               to="/rooms"
-              className="px-8 py-3 bg-transparent border border-[#e2d7c5]/30 hover:border-[#e2d7c5] hover:bg-[#e2d7c5]/5 text-[#e2d7c5] hover:text-white text-[10px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-sm transition-all duration-300 ease-out flex items-center gap-2 cursor-pointer"
+              className="px-8 py-3.5 bg-transparent border border-[#e2d7c5]/30 hover:border-[#e2d7c5] hover:bg-[#e2d7c5]/5 text-[#e2d7c5] hover:text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-sm transition-all duration-300 ease-out flex items-center gap-2 whitespace-nowrap cursor-pointer"
               id="btn-home-view-all-rooms"
             >
-              View All Rooms <ArrowRight className="w-3.5 h-3.5" />
+              VIEW ALL ACCOMMODATION <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <div className="w-full max-w-sm border-b border-white/5 my-6" />
           </div>
