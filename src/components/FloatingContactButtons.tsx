@@ -8,6 +8,9 @@ const WHATSAPP_URL =
 
 const NON_HOME_ROUTES = [
   '/rooms',
+  '/rooms/couples',
+  '/rooms/families',
+  '/rooms/group-booking',
   '/rooms/:id',
   '/group-booking',
   '/gallery',

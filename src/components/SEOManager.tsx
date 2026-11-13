@@ -134,6 +134,44 @@ export default function SEOManager() {
 
       schemas = [baseResortSchema, roomsBreadcrumb];
 
+    } else if (path === '/rooms/couples' || path === '/rooms/families' || path === '/rooms/group-booking') {
+      const categoryMetaMap: Record<string, { title: string; desc: string; name: string; img: string }> = {
+        '/rooms/couples': {
+          title: 'Rooms for Couples | Dreamy Vacations Kushalnagar, Coorg',
+          desc: 'Peaceful cottages for couples in Kushalnagar, Coorg with double beds, private ensuite bathrooms, swimming pool access, and green courtyard views.',
+          name: 'Rooms for Couples',
+          img: `${origin}/images/rooms/df1/df1.jpeg`,
+        },
+        '/rooms/families': {
+          title: 'Rooms for Families | Dreamy Vacations Kushalnagar, Coorg',
+          desc: 'Spacious single, twin, and triple-bed family accommodations in Kushalnagar with sofa seating, swimming pool, rain dance, and indoor games.',
+          name: 'Rooms for Families',
+          img: `${origin}/images/rooms/sd2/sd2.jpeg`,
+        },
+        '/rooms/group-booking': {
+          title: 'Group Booking & Cottage Blocks | Dreamy Vacations Coorg',
+          desc: 'Group accommodations in Kushalnagar, Coorg for friends, reunions, and corporate teams with adjoining cottages, custom dining, campfire, and coach parking.',
+          name: 'Group Booking',
+          img: `${origin}/images/rooms/t3/t3.jpeg`,
+        },
+      };
+      const catMeta = categoryMetaMap[path];
+      title = catMeta.title;
+      description = catMeta.desc;
+      ogImage = catMeta.img;
+
+      const catBreadcrumbs = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': origin },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Rooms', 'item': `${origin}/rooms` },
+          { '@type': 'ListItem', 'position': 3, 'name': catMeta.name, 'item': canonical }
+        ]
+      };
+
+      schemas = [baseResortSchema, catBreadcrumbs];
+
     } else if (path.startsWith('/rooms/')) {
       const roomId = path.split('/rooms/')[1]?.toLowerCase();
       const matchedRoom = ROOMS.find(r => {

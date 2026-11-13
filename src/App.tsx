@@ -9,6 +9,7 @@ import Home from './pages/Home';
 
 // Lazy loaded secondary pages to optimize initial bundle size & mobile performance
 const Rooms = lazy(() => import('./pages/Rooms'));
+const RoomCategoryDetail = lazy(() => import('./pages/RoomCategoryDetail'));
 const RoomDetail = lazy(() => import('./pages/RoomDetail'));
 const GroupBooking = lazy(() => import('./pages/GroupBooking'));
 const Gallery = lazy(() => import('./pages/Gallery'));
@@ -50,6 +51,9 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/rooms" element={<Rooms />} />
+            <Route path="/rooms/couples" element={<RoomCategoryDetail category="couples" />} />
+            <Route path="/rooms/families" element={<RoomCategoryDetail category="families" />} />
+            <Route path="/rooms/group-booking" element={<RoomCategoryDetail category="group-booking" />} />
             <Route path="/rooms/:id" element={<RoomDetail />} />
             <Route path="/group-booking" element={<GroupBooking />} />
             <Route path="/gallery" element={<Gallery />} />
