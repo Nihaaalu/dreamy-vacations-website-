@@ -46,7 +46,7 @@ export default function BookingModal({ isOpen, onClose, roomName }: BookingModal
     // Structure WhatsApp pre-filled message text
     const textMessage = `Hello Dreamy Vacations,
 
-I would like to reserve a room.
+I would like to enquire about room availability.
 
 Room Type:
 ${roomName}
@@ -66,7 +66,7 @@ ${booking.children}
 Food Preference:
 ${booking.foodPreference === 'with-food' ? 'With Food (Traditional Coorg style meals)' : 'Without Food'}
 
-Please share availability and final pricing.
+Please share availability for these dates.
 
 Thank you.`;
 
@@ -115,9 +115,9 @@ Thank you.`;
 
           {/* Header */}
           <div className="mb-6 pr-6">
-            <span className="text-[10px] font-sub font-semibold tracking-[0.18em] text-[#e2d7c5] uppercase block">Instant Booking Request</span>
+            <span className="text-[10px] font-sub font-semibold tracking-[0.18em] text-[#e2d7c5] uppercase block">Availability Enquiry</span>
             <h3 className="text-xl md:text-2xl font-display font-light text-white mt-1">
-              Reserve Room
+              Enquire About Room
             </h3>
             <p className="text-sm text-white/60 mt-1 truncate max-w-sm font-light">
               Selected: <span className="text-[#e2d7c5] font-normal">{roomName}</span>
@@ -242,7 +242,7 @@ Thank you.`;
             <div className="p-4 bg-[#6b5b4b]/5 rounded-xl border border-white/5 flex gap-2.5 mt-2">
               <AlertCircle className="w-5 h-5 text-[#e2d7c5] flex-shrink-0 mt-0.5" />
               <p className="text-xs text-white/60 leading-relaxed font-light">
-                <span className="font-medium text-[#e2d7c5]">Please Note:</span> Final pricing may vary depending on selected food options, season rates, and special festival holidays. We will share exact availability immediately.
+                <span className="font-medium text-[#e2d7c5]">Please Note:</span> Our team will confirm room availability and meal options directly with you on WhatsApp.
               </p>
             </div>
 
@@ -260,7 +260,7 @@ Thank you.`;
               }`}
               id="btn-reserve-modal-submit"
             >
-              Reserve Now via WhatsApp
+              ENQUIRE NOW
             </button>
             <p className="text-[9px] text-center text-white/40 mt-2.5 tracking-wide font-light">
               Connects instantly with Dreamy Vacations representative

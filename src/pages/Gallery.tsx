@@ -6,11 +6,14 @@ import {
 } from 'lucide-react';
 import { GALLERY_ITEMS } from '../data';
 
+const WHATSAPP_ENQUIRE_URL =
+  'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability.';
+
 interface GalleryProps {
   onOpenBooking?: (roomName: string) => void;
 }
 
-export default function Gallery({ onOpenBooking }: GalleryProps) {
+export default function Gallery({}: GalleryProps) {
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [isSlideshowActive, setIsSlideshowActive] = useState<boolean>(false);
@@ -312,13 +315,15 @@ export default function Gallery({ onOpenBooking }: GalleryProps) {
             Secure your tranquil stay in Coorg today. Let us make your family vacation or corporate event truly extraordinary.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => onOpenBooking('Gallery Inquiry')}
+            <a
+              href={WHATSAPP_ENQUIRE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto px-10 py-4.5 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-lg transition-all duration-300 ease-out cursor-pointer text-center"
               id="btn-gallery-cta-book"
             >
-              Book Now
-            </button>
+              ENQUIRE NOW
+            </a>
             <a
               href="tel:+919902960484"
               className="w-full sm:w-auto px-10 py-4.5 border border-white/10 hover:bg-white/5 text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out text-center"

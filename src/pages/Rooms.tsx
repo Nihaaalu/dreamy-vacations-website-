@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Users, LayoutGrid, Check, ChevronRight, HelpCircle, ArrowRight, Building, Sparkles, Image as ImageIcon, BedDouble } from 'lucide-react';
+import { Users, LayoutGrid, HelpCircle, ArrowRight, Building, Sparkles, Image as ImageIcon, BedDouble } from 'lucide-react';
 import { ROOMS } from '../data';
+
+const WHATSAPP_ENQUIRE_URL =
+  'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability.';
 
 interface RoomsProps {
   onOpenBooking?: (roomName: string) => void;
 }
 
-export default function Rooms({ onOpenBooking }: RoomsProps) {
-  const navigate = useNavigate();
+export default function Rooms({}: RoomsProps) {
   const location = useLocation();
   const [highlightedRoomId, setHighlightedRoomId] = useState<string | null>(null);
 
@@ -38,13 +40,13 @@ export default function Rooms({ onOpenBooking }: RoomsProps) {
         {/* HEADER SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-xs font-sub font-semibold tracking-[0.18em] text-[#e2d7c5] uppercase flex items-center justify-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-[#e2d7c5]" /> Rooms &amp; Rates
+            <Sparkles className="w-4 h-4 text-[#e2d7c5]" /> Accommodations
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-light text-white tracking-tight">
             Accommodations in Coorg
           </h1>
           <p className="text-sm md:text-base text-white/70 font-light max-w-xl mx-auto leading-relaxed">
-            Dreamy Vacations offers clean, comfortable, and well-maintained room options in Kushalnagar. Explore starting rates and select your perfect fit.
+            Dreamy Vacations offers clean, comfortable, and well-maintained room options in Kushalnagar. Explore our suites and select your perfect stay.
           </p>
         </div>
 
@@ -58,7 +60,7 @@ export default function Rooms({ onOpenBooking }: RoomsProps) {
               Looking for Corporate or Group Booking?
             </h3>
             <p className="text-xs md:text-sm text-white/60 font-light leading-relaxed">
-              We offer exclusive rates, complete meal customization (traditional Coorg cuisine), private bonfire access, and dedicated team-building coordinators for corporate seminars, family reunions, or friend gatherings.
+              We offer tailored stays, complete meal customization (traditional Coorg cuisine), private bonfire access, and dedicated team-building coordinators for corporate seminars, family reunions, or friend gatherings.
             </p>
           </div>
           <Link
@@ -106,8 +108,12 @@ export default function Rooms({ onOpenBooking }: RoomsProps) {
                 id={`room-card-${room.id}`}
               >
                 
-                {/* TOP SECTION (40%): Image block with Badge Overlay */}
-                <div className="h-[220px] w-full relative overflow-hidden bg-zinc-950 group flex-shrink-0 flex items-center justify-center">
+                {/* TOP SECTION (40%): Image block */}
+                <Link
+                  to={`/rooms/${room.id}`}
+                  className="h-[220px] w-full relative overflow-hidden bg-zinc-950 group flex-shrink-0 flex items-center justify-center"
+                  aria-label={`View ${room.name} details and gallery`}
+                >
                   {!displayImg ? (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-950 text-white/40 font-sans">
                       <ImageIcon className="w-8 h-8 mb-2 opacity-50 text-[#e2d7c5]" />
@@ -146,16 +152,7 @@ export default function Rooms({ onOpenBooking }: RoomsProps) {
                     />
                   )}
                   <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-                  
-                  {/* Luxury Price Badge Overlay in Top-Right */}
-                  <div 
-                    className="absolute top-4 right-4 bg-black/65 px-[14px] py-[8px] rounded-full text-center flex flex-col items-center justify-center pointer-events-none"
-                    style={{ backdropFilter: 'blur(4px)' }}
-                  >
-                    <span className="text-sm sm:text-base font-display font-medium text-white leading-tight">₹{room.price}</span>
-                    <span className="text-[9px] text-white/50 font-sans tracking-wide leading-none uppercase mt-0.5">Starting from</span>
-                  </div>
-                </div>
+                </Link>
 
                 {/* BOTTOM SECTION (60%): Informative luxury details */}
                 <div className="h-[330px] p-6 sm:p-8 flex flex-col justify-between flex-grow">
@@ -164,7 +161,9 @@ export default function Rooms({ onOpenBooking }: RoomsProps) {
                     
                     {/* Room Title */}
                     <h2 className="text-[22px] md:text-[28px] font-display font-light text-white leading-tight">
-                      {room.name}
+                      <Link to={`/rooms/${room.id}`} className="hover:text-[#e2d7c5] transition-colors">
+                        {room.name}
+                      </Link>
                     </h2>
 
                     {/* Room Meta Data: Single horizontal row, small luxury sans-serif */}
@@ -198,15 +197,23 @@ export default function Rooms({ onOpenBooking }: RoomsProps) {
 
                   </div>
 
-                  {/* Buttons Row: Only one Book Now CTA */}
-                  <div className="w-full mt-4 flex-shrink-0">
-                    <button
-                      onClick={() => navigate(`/rooms/${room.id}`)}
+                  {/* Buttons Row: View Details + Enquire Now WhatsApp CTA */}
+                  <div className="w-full mt-4 flex-shrink-0 space-y-2.5">
+                    <Link
+                      to={`/rooms/${room.id}`}
+                      className="inline-flex items-center gap-1.5 text-[11px] font-sub font-semibold tracking-[0.14em] uppercase text-[#e2d7c5]/80 hover:text-[#e2d7c5] transition-colors"
+                    >
+                      View Room Details &amp; Gallery <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <a
+                      href={WHATSAPP_ENQUIRE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full flex items-center justify-center h-12 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-[14px] shadow-md transition-all duration-300 ease-out cursor-pointer text-center"
                       id={`btn-reserve-instant-${room.id}`}
                     >
-                      Book Now
-                    </button>
+                      ENQUIRE NOW
+                    </a>
                   </div>
 
                 </div>

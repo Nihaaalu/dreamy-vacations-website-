@@ -69,7 +69,6 @@ export default function SEOManager() {
       'image': `${origin}/images/rooms/sf1/sf1.jpeg`,
       'description': description,
       'telephone': '+91 99029 60484',
-      'priceRange': '₹4084 - ₹10449',
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': '#51/5, Behind Chikkathur Govt School, Chikkathur Village',
@@ -132,8 +131,8 @@ export default function SEOManager() {
       schemas = [baseResortSchema, homeFaqSchema];
 
     } else if (path === '/rooms') {
-      title = 'Rooms & Rates | Accommodations in Kushalnagar, Coorg';
-      description = 'Explore comfortable rooms and family accommodations at Dreamy Vacations, Kushalnagar. Standard family suites, deluxe rooms, and dormitory packages starting from ₹4,084.';
+      title = 'Accommodations & Suites | Dreamy Vacations Kushalnagar, Coorg';
+      description = 'Explore comfortable rooms and family accommodations at Dreamy Vacations, Kushalnagar. Standard family suites, deluxe rooms, and group accommodation options.';
       ogImage = `${origin}/images/rooms/sf1/sf1.jpeg`;
 
       const roomsBreadcrumb = {
@@ -156,7 +155,7 @@ export default function SEOManager() {
 
       if (matchedRoom) {
         title = `${matchedRoom.name} | Dreamy Vacations Kushalnagar Coorg`;
-        description = `${matchedRoom.description} Capacity: ${matchedRoom.occupancy}. Starting at ₹${matchedRoom.price}/night at Dreamy Vacations in Kushalnagar.`;
+        description = `${matchedRoom.description} Capacity: ${matchedRoom.occupancy}. Enquire via WhatsApp for availability at Dreamy Vacations in Kushalnagar.`;
         ogImage = matchedRoom.images[0]?.startsWith('http') ? matchedRoom.images[0] : `${origin}${matchedRoom.images[0]}`;
 
         const roomSchema = {
@@ -172,13 +171,6 @@ export default function SEOManager() {
           'floorSize': {
             '@type': 'QuantitativeValue',
             'value': matchedRoom.size
-          },
-          'offers': {
-            '@type': 'Offer',
-            'price': matchedRoom.price,
-            'priceCurrency': 'INR',
-            'availability': 'https://schema.org/InStock',
-            'url': canonical
           }
         };
 

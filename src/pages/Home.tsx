@@ -9,6 +9,9 @@ import {
 import HeroAnimation from '../components/HeroAnimation';
 import { ROOMS, GALLERY_ITEMS } from '../data';
 
+const WHATSAPP_ENQUIRE_URL =
+  'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability.';
+
 const ROOM_SUBTITLES: Record<string, string> = {
   'standard-family-room': 'Perfect for families seeking comfort.',
   'deluxe-family-room': 'More space for memorable family stays.',
@@ -63,7 +66,6 @@ export default function Home({ onOpenBooking }: HomeProps) {
     id: room.id,
     name: room.name,
     subtitle: ROOM_SUBTITLES[room.id] || '',
-    price: room.price.toLocaleString('en-IN'),
     image: room.images[0]
   }));
 
@@ -83,9 +85,7 @@ export default function Home({ onOpenBooking }: HomeProps) {
     <div className="w-full bg-[#0d0d0d] text-white font-sans overflow-hidden" id="homepage-root">
       
       {/* 1. HERO VIDEO SECTION */}
-      <HeroAnimation onBookNow={() => {
-        navigate('/rooms');
-      }} />
+      <HeroAnimation />
 
       {/* 2. TRUST BAR / SOCIAL PROOF STRIP */}
       <section 
@@ -155,7 +155,7 @@ export default function Home({ onOpenBooking }: HomeProps) {
           {/* Room Cards Row */}
           <div 
             ref={roomsRef}
-            className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-none scroll-smooth touch-pan-x"
+            className="flex gap-8 overflow-x-auto overflow-y-hidden overscroll-x-contain pb-8 snap-x snap-mandatory scrollbar-none scroll-smooth touch-auto"
             id="rooms-carousel"
           >
             {roomCategories.map((room, idx) => (
@@ -165,7 +165,11 @@ export default function Home({ onOpenBooking }: HomeProps) {
                 id={`room-card-${room.id}`}
               >
                 {/* Large Room Image */}
-                <div className="relative h-[220px] sm:h-[250px] overflow-hidden bg-zinc-950 flex-shrink-0">
+                <Link
+                  to={`/rooms/${room.id}`}
+                  className="relative h-[220px] sm:h-[250px] overflow-hidden bg-zinc-950 flex-shrink-0 block"
+                  aria-label={`View ${room.name} details and gallery`}
+                >
                   <img
                     src={room.image}
                     alt={room.name}
@@ -176,31 +180,38 @@ export default function Home({ onOpenBooking }: HomeProps) {
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-101"
                   />
-                  <div className="absolute top-4 right-4 bg-[#6b5b4b] px-4 py-2 rounded-full text-[11px] font-sub font-semibold text-white tracking-widest uppercase">
-                    FROM ₹{room.price}
-                  </div>
-                </div>
+                </Link>
 
                 {/* Simplified Info Block */}
                 <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
                   <div className="space-y-1.5 sm:space-y-2">
                     <h3 className="text-xl sm:text-2xl font-display font-light text-white leading-tight">
-                      {room.name}
+                      <Link to={`/rooms/${room.id}`} className="hover:text-[#e2d7c5] transition-colors">
+                        {room.name}
+                      </Link>
                     </h3>
                     <p className="text-[13px] sm:text-sm text-white/55 font-sans font-light leading-relaxed tracking-wide">
                       {room.subtitle}
                     </p>
                   </div>
 
-                  {/* Actions: One primary CTA */}
-                  <div className="mt-4">
-                    <button
-                      onClick={() => navigate(`/rooms/${room.id}`)}
+                  {/* Actions: Room details link + Enquire Now WhatsApp CTA */}
+                  <div className="mt-4 space-y-2.5">
+                    <Link
+                      to={`/rooms/${room.id}`}
+                      className="inline-flex items-center gap-1 text-[11px] font-sub font-semibold tracking-[0.14em] uppercase text-[#e2d7c5]/80 hover:text-[#e2d7c5] transition-colors"
+                    >
+                      View Room Details <ArrowRight className="w-3 h-3" />
+                    </Link>
+                    <a
+                      href={WHATSAPP_ENQUIRE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full py-3.5 bg-[#6b5b4b] text-white hover:bg-[#85725f] text-xs font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center justify-center gap-1.5"
                       id={`btn-home-book-now-${room.id}`}
                     >
-                      Book Now <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                      ENQUIRE NOW <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
                   </div>
                 </div>
               </div>

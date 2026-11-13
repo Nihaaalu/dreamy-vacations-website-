@@ -4,11 +4,14 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import Logo from './Logo';
 
+const WHATSAPP_BOOKING_URL =
+  'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability%20and%20booking.';
+
 interface NavbarProps {
-  onBookNow: () => void;
+  onBookNow?: () => void;
 }
 
-export default function Navbar({ onBookNow }: NavbarProps) {
+export default function Navbar({}: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
@@ -99,24 +102,30 @@ export default function Navbar({ onBookNow }: NavbarProps) {
 
         {/* RIGHT SIDE BUTTON (DESKTOP) */}
         <div className="hidden md:flex items-center gap-4">
-          <button
-            onClick={onBookNow}
-            className="px-8 py-3.5 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center gap-1.5"
+          <a
+            href={WHATSAPP_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book now via WhatsApp"
+            className="px-8 py-3.5 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e2d7c5]"
             id="btn-nav-book"
           >
-            Book Now <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+            Book Now <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </a>
         </div>
 
         {/* MOBILE MENU TOGGLE */}
         <div className="flex items-center md:hidden gap-3">
-          <button
-            onClick={onBookNow}
-            className="px-5 py-2 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center gap-1"
+          <a
+            href={WHATSAPP_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book via WhatsApp"
+            className="px-5 py-2 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e2d7c5]"
             id="btn-nav-book-mobile"
           >
-            Book <ArrowRight className="w-3 h-3 flex-shrink-0" />
-          </button>
+            Book <ArrowRight className="w-3 h-3 flex-shrink-0" aria-hidden="true" />
+          </a>
           
           <button
             onClick={() => setIsMobileOpen(prev => !prev)}

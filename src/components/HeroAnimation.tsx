@@ -1,11 +1,32 @@
 import { motion } from 'motion/react';
-import { MessageCircle, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
-interface HeroAnimationProps {
-  onBookNow: () => void;
+const WHATSAPP_BOOKING_URL =
+  'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability%20and%20booking.';
+
+function WhatsAppIcon({ className = 'w-4 h-4' }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+      <path d="M9.5 9.2c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2.1.5-.1.7l-.4.5c-.1.1-.2.3-.1.5.3.7.9 1.4 1.6 1.8.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.7-.1l1.3.6c.3.1.4.3.4.6v.5c0 .4-.3.8-.8.9-.6.1-1.7.1-3-.6-1.5-.8-2.7-2-3.4-3.4-.7-1.2-.7-2.2-.6-2.8z" />
+    </svg>
+  );
 }
 
-export default function HeroAnimation({ onBookNow }: HeroAnimationProps) {
+interface HeroAnimationProps {
+  onBookNow?: () => void;
+}
+
+export default function HeroAnimation({}: HeroAnimationProps) {
   return (
     <div 
       className="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center text-center font-sans select-none bg-[#0d0d0d]" 
@@ -122,37 +143,40 @@ export default function HeroAnimation({ onBookNow }: HeroAnimationProps) {
           Comfortable family and group accommodation in Kushalnagar, Coorg.
         </motion.p>
 
-        {/* BOOK NOW ACTION BUTTON (Fades in at 1.4s) */}
-        {/* HERO BOOKING BUTTONS */}
-<motion.div
-  initial={{ opacity: 0, y: 10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    delay: 1.4,
-    duration: 0.5,
-    ease: 'easeOut'
-  }}
-  className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
-  id="hero-book-now-container"
->
-  <a
-    href="https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability%20and%20booking."
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-8 py-3.5 bg-[#6b5b4b] text-white font-sub font-semibold rounded-full text-[11px] tracking-[0.18em] uppercase transition-all duration-300 ease-out hover:bg-[#85725f] shadow-md flex items-center justify-center gap-2 cursor-pointer"
-  >
-    <MessageCircle className="w-4 h-4" />
-    BOOK NOW
-  </a>
+        {/* HERO BOOKING BUTTONS (Fade in at 1.4s) */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 1.4,
+            duration: 0.5,
+            ease: 'easeOut'
+          }}
+          className="mt-8 sm:mt-12 w-full max-w-[260px] sm:max-w-none flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4"
+          id="hero-book-now-container"
+        >
+          <a
+            href={WHATSAPP_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book now via WhatsApp with Dreamy Vacations"
+            className="w-full sm:w-auto min-w-[184px] h-[46px] px-7 bg-[#6b5b4b] hover:bg-[#85725f] text-white border border-[#e2d7c5]/20 font-sub font-semibold rounded-full text-[11px] tracking-[0.18em] uppercase transition-all duration-300 ease-out shadow-md flex items-center justify-center gap-2.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e2d7c5]"
+            id="hero-book-now-btn"
+          >
+            <WhatsAppIcon className="w-4 h-4 shrink-0" />
+            <span>BOOK NOW</span>
+          </a>
 
-  <a
-    href="tel:+919902960484"
-    className="px-8 py-3.5 bg-[#6b5b4b] text-white font-sub font-semibold rounded-full text-[11px] tracking-[0.18em] uppercase transition-all duration-300 ease-out hover:bg-[#85725f] shadow-md flex items-center justify-center gap-2 cursor-pointer"
-  >
-    <Phone className="w-4 h-4" />
-    CALL NOW
-  </a>
-</motion.div>
+          <a
+            href="tel:+919902960484"
+            aria-label="Call Dreamy Vacations at +91 99029 60484"
+            className="w-full sm:w-auto min-w-[184px] h-[46px] px-7 bg-[#6b5b4b] hover:bg-[#85725f] text-white border border-[#e2d7c5]/20 font-sub font-semibold rounded-full text-[11px] tracking-[0.18em] uppercase transition-all duration-300 ease-out shadow-md flex items-center justify-center gap-2.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e2d7c5]"
+            id="hero-call-now-btn"
+          >
+            <Phone className="w-4 h-4 shrink-0" aria-hidden="true" />
+            <span>CALL NOW</span>
+          </a>
+        </motion.div>
       </div>
     </div>
   );

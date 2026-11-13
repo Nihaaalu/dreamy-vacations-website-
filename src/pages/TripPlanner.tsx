@@ -1026,7 +1026,7 @@ export default function TripPlanner() {
                     className="w-full sm:w-auto px-6 py-3.5 bg-[#6b5b4b] hover:bg-[#85725f] text-white rounded-xl text-xs font-mono tracking-wider uppercase transition-colors text-center flex items-center justify-center gap-1.5 font-semibold"
                     id="btn-success-book"
                   >
-                    Explore Rooms &amp; Rates <ArrowRight className="w-4 h-4" />
+                    Explore Rooms <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
 

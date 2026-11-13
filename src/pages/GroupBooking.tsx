@@ -34,7 +34,7 @@ ${foodPreference === 'with-food' ? 'With food' : 'Without food'}${foodPreference
 Separate Rooms for Couples:
 ${separateCouples ? `Yes (${couplesCount || 'N/A'} couples)` : 'No'}
 
-Please share availability and pricing.`;
+Please share availability for our group stay.`;
 
     const encodedText = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/919902960484?text=${encodedText}`;
@@ -360,7 +360,7 @@ Please share availability and pricing.`;
                 className="w-full py-3.5 px-8 bg-[#6b5b4b] hover:bg-[#85725f] text-white font-sub font-semibold text-[11px] tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center justify-center gap-2"
                 id="btn-group-reserve-submit"
               >
-                INQUIRE VIA WHATSAPP <ArrowRight className="w-3.5 h-3.5" />
+                ENQUIRE NOW <ArrowRight className="w-3.5 h-3.5" />
               </button>
 
               <p className="text-[9px] text-center text-white/40 font-light mt-2 tracking-wide leading-none">

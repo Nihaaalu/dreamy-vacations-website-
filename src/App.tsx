@@ -1,7 +1,8 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import SEOManager from './components/SEOManager';
+import FloatingContactButtons from './components/FloatingContactButtons';
 
 // Eagerly loaded for instant initial render
 import Home from './pages/Home';
@@ -30,8 +31,6 @@ function ScrollToTop() {
 }
 
 function AppContent() {
-  const navigate = useNavigate();
-
   return (
     <div className="flex flex-col min-h-screen bg-[#0d0d0d] selection:bg-[#6b5b4b] selection:text-white text-white">
       {/* ACCESSIBLE SKIP TO CONTENT */}
@@ -43,13 +42,7 @@ function AppContent() {
       </a>
 
       {/* NAVBAR */}
-      <Navbar onBookNow={() => {
-        window.open(
-          'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability%20and%20booking.',
-          '_blank',
-          'noopener,noreferrer'
-        );
-      }} />
+      <Navbar />
 
       {/* MAIN ROUTER BODY */}
       <main id="main-content" className="flex-grow">
@@ -173,6 +166,9 @@ function AppContent() {
         </div>
 
       </footer>
+
+      {/* FLOATING CALL & WHATSAPP BUTTONS (All routes except Homepage) */}
+      <FloatingContactButtons />
 
     </div>
   );

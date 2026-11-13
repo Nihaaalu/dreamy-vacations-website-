@@ -255,18 +255,20 @@ export default function BlogPostDetail() {
               </p>
 
               <div className="space-y-2 pt-2">
-                <button
-                  onClick={() => navigate('/booking')}
-                  className="w-full py-3 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[10px] font-mono tracking-wider uppercase rounded-xl transition-colors cursor-pointer font-medium"
+                <a
+                  href="https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full py-3 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[10px] font-mono tracking-wider uppercase rounded-xl transition-colors cursor-pointer font-medium text-center"
                   id="btn-sidebar-book"
                 >
-                  Check Availability
-                </button>
+                  ENQUIRE NOW
+                </a>
                 <Link
                   to="/rooms"
                   className="block text-[11px] font-medium text-white/40 hover:text-white transition-colors"
                 >
-                  Explore Rooms &amp; Rates
+                  Explore Rooms
                 </Link>
               </div>
 

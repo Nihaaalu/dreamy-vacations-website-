@@ -1,15 +1,17 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Check, Users, ShieldAlert, Sparkles, Home as HomeIcon, MapPin, Compass, AlertCircle, MessageSquare, Phone } from 'lucide-react';
+import { useParams, Link } from 'react-router-dom';
+import { ArrowLeft, Check, Users, ShieldAlert, Sparkles, MapPin, Compass, AlertCircle, MessageSquare, Phone } from 'lucide-react';
 import { ROOMS } from '../data';
 import DynamicRoomGallery from '../components/DynamicRoomGallery';
+
+const WHATSAPP_ENQUIRE_URL =
+  'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability.';
 
 interface RoomDetailProps {
   onOpenBooking?: (roomName: string) => void;
 }
 
-export default function RoomDetail({ onOpenBooking }: RoomDetailProps) {
+export default function RoomDetail({}: RoomDetailProps) {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
 
   // Find the exact room matching the id (robust fallback to handle -room suffix differences)
   const room = ROOMS.find(r => {
@@ -127,18 +129,14 @@ export default function RoomDetail({ onOpenBooking }: RoomDetailProps) {
           {/* RIGHT COLUMN: Sticky Reservation Sidebar Card */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-6">
             
-            {/* STICKY RATE CARD */}
+            {/* STICKY ENQUIRY CARD */}
             <div className="bg-[#121212] rounded-2xl p-6 md:p-8 border border-white/5 shadow-xl space-y-6">
               
-              <div className="border-b border-white/5 pb-5">
-                <span className="text-[10px] font-mono text-white/40 uppercase block tracking-wider">Estimated room rate</span>
-                <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-3xl md:text-4xl font-display font-semibold text-white">₹{room.price}</span>
-                  <span className="text-sm text-white/50 font-medium">/ night</span>
-                </div>
-                <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono uppercase font-bold">
-                  Free Cancellation Available
-                </div>
+              <div className="border-b border-white/5 pb-4">
+                <span className="text-[10px] font-mono text-[#e2d7c5] uppercase block tracking-wider">Suite Specifications</span>
+                <h2 className="text-xl md:text-2xl font-display font-light text-white mt-1">
+                  {room.name}
+                </h2>
               </div>
 
               {/* Specs parameters */}
@@ -157,26 +155,27 @@ export default function RoomDetail({ onOpenBooking }: RoomDetailProps) {
                 </div>
               </div>
 
-              {/* Booking CTA Section */}
+              {/* Enquiry CTA Section */}
               <div className="space-y-3">
-                <button
-                  onClick={() => navigate('/booking', { state: { roomId: room.id } })}
+                <a
+                  href={WHATSAPP_ENQUIRE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full h-12 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.15em] uppercase rounded-xl transition-all duration-300 ease-out cursor-pointer text-center flex items-center justify-center gap-2"
                   id="btn-detail-reserve-now"
                 >
-                  Book Now
-                </button>
+                  <MessageSquare className="w-4 h-4" />
+                  ENQUIRE NOW
+                </a>
                 <div className="grid grid-cols-2 gap-3">
-                  <a
-                    href={`https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations,%20I'd%20like%20to%20reserve%20the%20${encodeURIComponent(room.name)}.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/booking"
+                    state={{ roomId: room.id }}
                     className="w-full h-12 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white text-[11px] font-sub font-semibold tracking-[0.15em] uppercase rounded-xl transition-all duration-300 ease-out text-center flex items-center justify-center gap-2"
                     id="btn-detail-whatsapp"
                   >
-                    <MessageSquare className="w-4 h-4 text-[#25D366]" />
-                    WhatsApp
-                  </a>
+                    Stay Enquiry
+                  </Link>
                   <a
                     href="tel:+919902960484"
                     className="w-full h-12 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white text-[11px] font-sub font-semibold tracking-[0.15em] uppercase rounded-xl transition-all duration-300 ease-out text-center flex items-center justify-center gap-2"

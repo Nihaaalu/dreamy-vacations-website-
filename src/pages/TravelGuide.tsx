@@ -189,15 +189,19 @@ const RELATED_ARTICLES = [
   { name: 'Best Resorts & Attractions Near Kushalnagar', path: '/travel-guide/resorts-near-kushalnagar' }
 ];
 
+const WHATSAPP_ENQUIRE_URL =
+  'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability.';
+
 interface PremiumBookingCardProps {
   label: string;
   title: string;
   description: string;
   buttonText: string;
   targetPath?: string;
+  externalUrl?: string;
 }
 
-function PremiumBookingCard({ label, title, description, buttonText, targetPath = '/booking' }: PremiumBookingCardProps) {
+function PremiumBookingCard({ label, title, description, buttonText, targetPath = '/booking', externalUrl }: PremiumBookingCardProps) {
   const navigate = useNavigate();
   return (
     <div className="bg-[#121212] border border-white/5 rounded-[24px] p-6 sm:p-8 relative overflow-hidden text-center sm:text-left shadow-2xl flex flex-col sm:flex-row justify-between items-center gap-6 my-12 max-w-4xl mx-auto">
@@ -213,12 +217,23 @@ function PremiumBookingCard({ label, title, description, buttonText, targetPath 
           {description}
         </p>
       </div>
-      <button
-        onClick={() => navigate(targetPath)}
-        className="w-full sm:w-auto px-6 py-3 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[10px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full transition-all duration-300 ease-out shadow-md shrink-0 flex items-center justify-center gap-1.5 cursor-pointer"
-      >
-        {buttonText} <ArrowRight className="w-3.5 h-3.5" />
-      </button>
+      {externalUrl ? (
+        <a
+          href={externalUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto px-6 py-3 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[10px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full transition-all duration-300 ease-out shadow-md shrink-0 flex items-center justify-center gap-1.5 cursor-pointer"
+        >
+          {buttonText} <ArrowRight className="w-3.5 h-3.5" />
+        </a>
+      ) : (
+        <button
+          onClick={() => navigate(targetPath)}
+          className="w-full sm:w-auto px-6 py-3 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[10px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full transition-all duration-300 ease-out shadow-md shrink-0 flex items-center justify-center gap-1.5 cursor-pointer"
+        >
+          {buttonText} <ArrowRight className="w-3.5 h-3.5" />
+        </button>
+      )}
     </div>
   );
 }
@@ -678,9 +693,9 @@ export default function TravelGuide() {
       <PremiumBookingCard 
         label="Strategic Location"
         title="A Central Hub for Your Whole Family"
-        description="Stay in one beautiful villa rather than changing hotels. Enjoy 12-minute access to the Golden Temple, 15 minutes to Nisargadhama, and 20 minutes to Dubare Elephants."
-        buttonText="Check Availability"
-        targetPath="/booking"
+        description="Stay in one peaceful resort rather than changing hotels. Enjoy 12-minute access to the Golden Temple, 15 minutes to Nisargadhama, and 20 minutes to Dubare Elephants."
+        buttonText="ENQUIRE NOW"
+        externalUrl={WHATSAPP_ENQUIRE_URL}
       />
       <section className="bg-[#0a0a0a] border-y border-white/5 py-12 sm:py-20" id="guide-itinerary">
         <div className="max-w-3xl mx-auto px-6">
@@ -901,8 +916,8 @@ export default function TravelGuide() {
         label="Durable Poolside Comfort"
         title="Your Perfect Coorg Base Awaits"
         description="Spend your days exploring pristine reservoirs and misty peaks, and your afternoons relaxing by our luxury outdoor swimming pool with your family."
-        buttonText="Book Your Experience"
-        targetPath="/booking"
+        buttonText="ENQUIRE NOW"
+        externalUrl={WHATSAPP_ENQUIRE_URL}
       />
       <section className="bg-[#0a0a0a] border-y border-white/5 py-12 sm:py-20" id="guide-comparison">
         <div className="max-w-3xl mx-auto px-6">
@@ -1068,9 +1083,9 @@ export default function TravelGuide() {
       <PremiumBookingCard 
         label="Durable Transit Choice"
         title="Make the Smarter Base Choice"
-        description="Bypassing Madikeri's heavy traffic gridlocks ensures a peaceful, restorative Coorg getaway. Secure your stay at Dreamy Vacations in Kushalnagar today."
-        buttonText="Reserve Your Villa"
-        targetPath="/booking"
+        description="Bypassing Madikeri's heavy traffic gridlocks ensures a peaceful, restorative Coorg getaway. Enquire about your stay at Dreamy Vacations in Kushalnagar today."
+        buttonText="ENQUIRE NOW"
+        externalUrl={WHATSAPP_ENQUIRE_URL}
       />
 
       {/* EXPERT ACCORDION FAQ SECTION */}
