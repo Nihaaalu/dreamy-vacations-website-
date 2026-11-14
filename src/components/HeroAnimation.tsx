@@ -40,7 +40,7 @@ export default function HeroAnimation({}: HeroAnimationProps) {
         playsInline
         loop
         preload="metadata"
-        poster="/images/rooms/sf1/sf1.jpeg"
+        poster="/images/rooms/df1/df1.jpeg"
         aria-label="Cinematic video tour of Dreamy Vacations resort grounds, pool, and accommodations in Kushalnagar, Coorg"
         className="absolute inset-0 w-full h-full object-cover z-0"
         style={{

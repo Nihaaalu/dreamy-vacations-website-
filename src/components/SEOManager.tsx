@@ -54,7 +54,7 @@ export default function SEOManager() {
       'name': 'Dreamy Vacations',
       'url': origin,
       'logo': `${origin}/images/logo/logo.png`,
-      'image': `${origin}/images/rooms/sf1/sf1.jpeg`,
+      'image': `${origin}/images/rooms/df1/df1.jpeg`,
       'description': description,
       'telephone': '+91 99029 60484',
       'address': {
@@ -121,7 +121,7 @@ export default function SEOManager() {
     } else if (path === '/rooms') {
       title = 'Accommodations & Suites | Dreamy Vacations Kushalnagar, Coorg';
       description = 'Explore comfortable rooms and family accommodations at Dreamy Vacations, Kushalnagar. Standard family suites, deluxe rooms, and group accommodation options.';
-      ogImage = `${origin}/images/rooms/sf1/sf1.jpeg`;
+      ogImage = `${origin}/images/rooms/df1/df1.jpeg`;
 
       const roomsBreadcrumb = {
         '@context': 'https://schema.org',
@@ -146,13 +146,13 @@ export default function SEOManager() {
           title: 'Rooms for Families | Dreamy Vacations Kushalnagar, Coorg',
           desc: 'Spacious single, twin, and triple-bed family accommodations in Kushalnagar with sofa seating, swimming pool, rain dance, and indoor games.',
           name: 'Rooms for Families',
-          img: `${origin}/images/rooms/sd2/sd2.jpeg`,
+          img: `${origin}/images/gallery/unnamed (1).webp`,
         },
         '/rooms/group-booking': {
           title: 'Group Booking & Cottage Blocks | Dreamy Vacations Coorg',
           desc: 'Group accommodations in Kushalnagar, Coorg for friends, reunions, and corporate teams with adjoining cottages, custom dining, campfire, and coach parking.',
           name: 'Group Booking',
-          img: `${origin}/images/rooms/t3/t3.jpeg`,
+          img: `${origin}/images/gallery/unnamed (3).webp`,
         },
       };
       const catMeta = categoryMetaMap[path];
@@ -216,7 +216,7 @@ export default function SEOManager() {
     } else if (path === '/group-booking') {
       title = 'Corporate Retreats & Group Stays | Dreamy Vacations Coorg';
       description = 'Get custom group accommodation and corporate packages at Dreamy Vacations, Kushalnagar. Custom traditional meals, private bonfires, and rain dance access.';
-      ogImage = `${origin}/images/rooms/sf1/sf1.jpeg`;
+      ogImage = `${origin}/images/gallery/unnamed (3).webp`;
 
     } else if (path === '/gallery') {
       title = 'Resort Photo Gallery | Dreamy Vacations Kushalnagar';
@@ -238,7 +238,7 @@ export default function SEOManager() {
     } else if (path === '/booking') {
       title = 'Direct Reservation & Availability | Dreamy Vacations Coorg';
       description = 'Check room availability and book your family or group stay at Dreamy Vacations, Kushalnagar, Coorg. Instant WhatsApp confirmation with zero booking fee.';
-      ogImage = `${origin}/images/rooms/sf1/sf1.jpeg`;
+      ogImage = `${origin}/images/rooms/df1/df1.jpeg`;
 
     } else if (path === '/travel-guide' || path.startsWith('/travel-guide/')) {
       title = 'Coorg Travel Guide & Attractions | Dreamy Vacations';

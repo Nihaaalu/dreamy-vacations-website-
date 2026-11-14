@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, type SyntheticEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Maximize2, X, Image as ImageIcon } from 'lucide-react';
+import { ROOM_FALLBACK_IMAGE, handleRoomImageError } from '../data';
 
 interface DynamicRoomGalleryProps {
   roomId: string;
@@ -9,11 +10,17 @@ interface DynamicRoomGalleryProps {
 }
 
 export default function DynamicRoomGallery({ roomId, roomName, localImages }: DynamicRoomGalleryProps) {
-  // Use the dynamically passed localImages from data.ts
-  const [images, setImages] = useState<string[]>(localImages);
+  const safeInitial = localImages.length > 0 ? localImages : [ROOM_FALLBACK_IMAGE];
+  const [images, setImages] = useState<string[]>(safeInitial);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    setImages(localImages.length > 0 ? localImages : [ROOM_FALLBACK_IMAGE]);
+    setActiveIndex(0);
+    setLightboxIndex(null);
+  }, [roomId, localImages]);
 
   const handlePrev = () => {
     setActiveIndex(prev => (prev === 0 ? images.length - 1 : prev - 1));
@@ -23,15 +30,15 @@ export default function DynamicRoomGallery({ roomId, roomName, localImages }: Dy
     setActiveIndex(prev => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  const handleImageError = (index: number) => {
-    // If a local image fails to load, remove it from the state array so it handles missing files dynamically
+  const handleImageError = (index: number, e: SyntheticEvent<HTMLImageElement>) => {
+    const imgEl = e.currentTarget;
+    if (imgEl.dataset.fallbackApplied === 'true') return;
+    imgEl.dataset.fallbackApplied = 'true';
+    imgEl.src = ROOM_FALLBACK_IMAGE;
     setImages(prev => {
+      if (prev[index] === ROOM_FALLBACK_IMAGE) return prev;
       const updated = [...prev];
-      updated.splice(index, 1);
-      // Ensure activeIndex is valid
-      if (activeIndex >= updated.length) {
-        setActiveIndex(Math.max(0, updated.length - 1));
-      }
+      updated[index] = ROOM_FALLBACK_IMAGE;
       return updated;
     });
   };
@@ -55,7 +62,7 @@ export default function DynamicRoomGallery({ roomId, roomName, localImages }: Dy
               height={500}
               decoding="async"
               referrerPolicy="no-referrer"
-              onError={() => handleImageError(activeIndex)}
+              onError={(e) => handleImageError(activeIndex, e)}
               className="main-gallery-image w-full h-full object-cover select-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -169,6 +176,7 @@ export default function DynamicRoomGallery({ roomId, roomName, localImages }: Dy
                 loading="lazy"
                 decoding="async"
                 referrerPolicy="no-referrer"
+                onError={(e) => handleImageError(idx, e)}
                 className="w-full h-full object-cover rounded-[11px]" 
               />
               <div className="absolute inset-0 bg-black/5" />
@@ -218,6 +226,7 @@ export default function DynamicRoomGallery({ roomId, roomName, localImages }: Dy
                   src={images[lightboxIndex]}
                   alt={`${roomName} - Expanded`}
                   referrerPolicy="no-referrer"
+                  onError={handleRoomImageError}
                   className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}

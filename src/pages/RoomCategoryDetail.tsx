@@ -20,40 +20,18 @@ import {
   Info,
   Building2,
 } from 'lucide-react';
-import { ROOMS } from '../data';
+import {
+  ROOMS,
+  resolveRoomPhoto,
+  resolveGalleryPhoto,
+  handleRoomImageError,
+} from '../data';
 
 const WHATSAPP_ENQUIRE_URL =
   'https://wa.me/919902960484?text=Hello%20Dreamy%20Vacations%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability.';
 
-const globDf1Images = (import.meta as any).glob(
-  '../../images/rooms/df1/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
-  { eager: true }
-);
-
-const globGalleryImages = (import.meta as any).glob(
-  '../../images/gallery/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
-  { eager: true }
-);
-
-function resolveGlobImage(
-  globMap: Record<string, any>,
-  filename: string,
-  fallbackPath: string
-): string {
-  const entry = Object.entries(globMap).find(([key]) =>
-    key.toLowerCase().endsWith(`/${filename.toLowerCase()}`)
-  );
-  if (entry) {
-    const mod = entry[1];
-    return mod?.default || mod;
-  }
-  return fallbackPath;
-}
-
-const df1Img = (name: string) =>
-  resolveGlobImage(globDf1Images, name, `/images/rooms/df1/${name}`);
-const galleryImg = (name: string) =>
-  resolveGlobImage(globGalleryImages, name, `/images/gallery/${name}`);
+const df1Img = resolveRoomPhoto;
+const galleryImg = resolveGalleryPhoto;
 
 export type CategorySlug = 'couples' | 'families' | 'group-booking';
 
@@ -138,15 +116,21 @@ const CATEGORY_DATA: Record<CategorySlug, CategoryConfig> = {
         orientation: 'portrait',
       },
       {
-        src: '/images/rooms/sf1/sf1.jpeg',
-        alt: 'Spacious two-guest room featuring double bed, seating chairs, and coffee table',
-        caption: 'Lounge Seating Suite',
+        src: df1Img('604426750.jpg'),
+        alt: 'Double bedroom interior with ambient ceiling glow lighting and wooden cabinetry',
+        caption: 'Evening Room Ambiance',
         orientation: 'portrait',
       },
       {
         src: galleryImg('unnamed (1).webp'),
         alt: 'Outdoor cottage porch sit-out with two wooden chairs framed by bougainvillea',
         caption: 'Private Porch Sit-Out',
+        orientation: 'landscape',
+      },
+      {
+        src: galleryImg('WhatsApp Image 2026-07-14 at 9.44.27 AM (2).jpeg'),
+        alt: 'Private black-brick resort cottage nestled beside garden palms in Kushalnagar',
+        caption: 'Private Cottage Exterior',
         orientation: 'landscape',
       },
       {
@@ -208,33 +192,33 @@ const CATEGORY_DATA: Record<CategorySlug, CategoryConfig> = {
     ],
     photos: [
       {
-        src: '/images/rooms/sd2/sd2.jpeg',
-        alt: 'Family suite featuring two double beds, green sofa seating lounge, and lush window view',
-        caption: 'Two-Bed Family Suite',
+        src: df1Img('604426481.jpg'),
+        alt: 'Spacious bedroom opening directly onto sunlit green resort pathways for easy family movement',
+        caption: 'Spacious Courtyard Suite',
         orientation: 'portrait',
       },
       {
-        src: '/images/rooms/t3/t3.jpeg',
-        alt: 'Spacious family room with three double beds, living area sofa, and garden windows',
-        caption: 'Three-Bed Family Option',
-        orientation: 'portrait',
-      },
-      {
-        src: '/images/rooms/sf1/sf1.jpeg',
-        alt: 'Ground-level family room with double bed, wooden chairs, tea setup, and A/C',
-        caption: 'Spacious Lounge Bedroom',
-        orientation: 'portrait',
+        src: galleryImg('WhatsApp Image 2026-07-14 at 12.07.31 PM (1).jpeg'),
+        alt: 'Ground-level family cottage exterior framed by palms and landscaped garden',
+        caption: 'Family Cottage Facade',
+        orientation: 'landscape',
       },
       {
         src: df1Img('df1.jpeg'),
-        alt: 'Clean double bedroom with wooden false ceiling, wardrobe, and crisp linens',
-        caption: 'Wooden-Ceiling Room',
+        alt: 'Clean double bedroom with wooden false ceiling, wardrobe, mirror, and crisp linens',
+        caption: 'Wooden-Ceiling Interior',
         orientation: 'portrait',
       },
       {
-        src: df1Img('604426481.jpg'),
-        alt: 'Direct doorway opening onto sunny courtyard pathways for easy family movement',
-        caption: 'Courtyard Entry',
+        src: df1Img('604426551.jpg'),
+        alt: 'Comfortable double bedding with curtained window and wooden TV panel',
+        caption: 'Bedroom & TV Console',
+        orientation: 'portrait',
+      },
+      {
+        src: galleryImg('WhatsApp Image 2026-07-14 at 12.07.29 PM.jpeg'),
+        alt: 'Shaded outdoor veranda bench seating overlooking the resort garden',
+        caption: 'Veranda Family Sit-Out',
         orientation: 'portrait',
       },
       {
@@ -244,9 +228,9 @@ const CATEGORY_DATA: Record<CategorySlug, CategoryConfig> = {
         orientation: 'portrait',
       },
       {
-        src: galleryImg('WhatsApp Image 2026-07-14 at 12.07.29 PM.jpeg'),
-        alt: 'Shaded outdoor veranda bench seating overlooking the resort garden',
-        caption: 'Veranda Family Sit-Out',
+        src: galleryImg('WhatsApp Image 2026-07-14 at 12.07.22 PM.jpeg'),
+        alt: 'Indoor recreation zone with table tennis, carrom, and family dining tables',
+        caption: 'Indoor Games Hall',
         orientation: 'portrait',
       },
     ],
@@ -324,21 +308,27 @@ const CATEGORY_DATA: Record<CategorySlug, CategoryConfig> = {
         orientation: 'landscape',
       },
       {
-        src: '/images/rooms/t3/t3.jpeg',
-        alt: 'Three-double-bed room with sofa lounge and bright windows for group stays',
-        caption: 'Triple Room (3 Double Beds)',
+        src: galleryImg('WhatsApp Image 2026-07-14 at 9.44.27 AM (3).jpeg'),
+        alt: 'Row of adjoining cottages along landscaped garden walkway for group stays',
+        caption: 'Adjoining Cottage Row',
+        orientation: 'landscape',
+      },
+      {
+        src: df1Img('df1.jpeg'),
+        alt: 'Clean guest cottage bedroom interior with wooden false ceiling and wardrobe',
+        caption: 'Guest Cottage Interior',
         orientation: 'portrait',
       },
       {
-        src: '/images/rooms/sd2/sd2.jpeg',
-        alt: 'Twin double-bed accommodation with living area seating',
-        caption: 'Twin Double Suite',
+        src: galleryImg('WhatsApp Image 2026-07-14 at 12.07.25 PM.jpeg'),
+        alt: 'Evening group campfire gathering lit up in the central resort courtyard',
+        caption: 'Evening Courtyard Campfire',
         orientation: 'portrait',
       },
       {
         src: galleryImg('WhatsApp Image 2026-07-14 at 12.07.24 PM.jpeg'),
         alt: 'Charcoal grill and warm fire ambiance for evening group gatherings',
-        caption: 'Evening Grill & Campfire Setup',
+        caption: 'Outdoor Grill Setup',
         orientation: 'portrait',
       },
       {
@@ -506,6 +496,7 @@ export default function RoomCategoryDetail({ category }: RoomCategoryDetailProps
                       alt={currentPhoto.alt}
                       decoding="async"
                       referrerPolicy="no-referrer"
+                      onError={handleRoomImageError}
                       className="w-full h-full object-cover select-none"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -575,6 +566,7 @@ export default function RoomCategoryDetail({ category }: RoomCategoryDetailProps
                           loading="lazy"
                           decoding="async"
                           referrerPolicy="no-referrer"
+                          onError={handleRoomImageError}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
@@ -823,6 +815,7 @@ export default function RoomCategoryDetail({ category }: RoomCategoryDetailProps
                   src={config.photos[lightboxIndex]?.src}
                   alt={config.photos[lightboxIndex]?.alt}
                   referrerPolicy="no-referrer"
+                  onError={handleRoomImageError}
                   className="max-w-full max-h-[78vh] object-contain rounded-xl shadow-2xl"
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}

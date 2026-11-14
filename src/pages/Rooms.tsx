@@ -1,61 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, HelpCircle } from 'lucide-react';
-
-const globDf1Images = (import.meta as any).glob(
-  '../../images/rooms/df1/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
-  { eager: true }
-);
-
-function resolveDf1Image(filename: string): string {
-  const entry = Object.entries(globDf1Images).find(([key]) =>
-    key.toLowerCase().endsWith(`/${filename.toLowerCase()}`)
-  );
-  if (entry) {
-    const mod = entry[1] as any;
-    return mod.default || mod;
-  }
-  return `/images/rooms/df1/${filename}`;
-}
-
-interface AccommodationCategoryCard {
-  id: string;
-  title: string;
-  intro: string;
-  image: string;
-  imageAlt: string;
-  route: string;
-}
-
-const CATEGORY_CARDS: AccommodationCategoryCard[] = [
-  {
-    id: 'couples',
-    title: 'Rooms for Couples',
-    intro:
-      'Private cottages with king-size double bedding, warm wood finishes, and serene garden surroundings tailored for two.',
-    image: resolveDf1Image('df1.jpeg'),
-    imageAlt: 'Double bedroom for couples with warm wooden ceiling and crisp linens at Dreamy Vacations Coorg',
-    route: '/rooms/couples',
-  },
-  {
-    id: 'families',
-    title: 'Rooms for Families',
-    intro:
-      'Spacious multi-bed accommodations with cozy sofa lounges and ground-level access steps from our pool and play areas.',
-    image: '/images/rooms/sd2/sd2.jpeg',
-    imageAlt: 'Spacious family suite with two double beds and seating lounge at Dreamy Vacations',
-    route: '/rooms/families',
-  },
-  {
-    id: 'group-booking',
-    title: 'Group Booking',
-    intro:
-      'Adjoining cottages and multi-bed units arranged around our private courtyard with custom Coorg dining and evening campfires.',
-    image: resolveDf1Image('WhatsApp Image 2026-07-14 at 12.07.32 PM (4).jpeg'),
-    imageAlt: 'Aerial view of Dreamy Vacations cottage cluster and open central courtyard for group stays in Coorg',
-    route: '/rooms/group-booking',
-  },
-];
+import { ACCOMMODATION_CATEGORIES, handleRoomImageError } from '../data';
 
 interface RoomsProps {
   onOpenBooking?: (roomName: string) => void;
@@ -86,7 +32,7 @@ export default function Rooms({}: RoomsProps) {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-9"
           id="rooms-feed"
         >
-          {CATEGORY_CARDS.map((card, index) => (
+          {ACCOMMODATION_CATEGORIES.map((card, index) => (
             <motion.article
               key={card.id}
               id={`room-category-card-${card.id}`}
@@ -103,13 +49,14 @@ export default function Rooms({}: RoomsProps) {
                 aria-label={`Explore ${card.title}`}
               >
                 <img
-                  src={card.image}
-                  alt={card.imageAlt}
+                  src={card.coverImage}
+                  alt={card.coverAlt}
                   width={480}
                   height={360}
                   loading={index === 0 ? 'eager' : 'lazy'}
                   decoding="async"
                   referrerPolicy="no-referrer"
+                  onError={handleRoomImageError}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
@@ -127,7 +74,7 @@ export default function Rooms({}: RoomsProps) {
                     </Link>
                   </h2>
                   <p className="text-sm text-white/65 font-sans font-light leading-relaxed">
-                    {card.intro}
+                    {card.roomsPageIntro}
                   </p>
                 </div>
 

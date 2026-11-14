@@ -7,23 +7,11 @@ import {
   Wifi, Heart, Bed
 } from 'lucide-react';
 import HeroAnimation from '../components/HeroAnimation';
-import { GALLERY_ITEMS } from '../data';
-
-const globDf1Images = (import.meta as any).glob(
-  '../../images/rooms/df1/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
-  { eager: true }
-);
-
-function resolveDf1Image(filename: string): string {
-  const entry = Object.entries(globDf1Images).find(([key]) =>
-    key.toLowerCase().endsWith(`/${filename.toLowerCase()}`)
-  );
-  if (entry) {
-    const mod = entry[1] as any;
-    return mod.default || mod;
-  }
-  return `/images/rooms/df1/${filename}`;
-}
+import {
+  GALLERY_ITEMS,
+  ACCOMMODATION_CATEGORIES,
+  handleRoomImageError,
+} from '../data';
 
 interface HomeProps {
   onOpenBooking?: (roomName: string) => void;
@@ -65,35 +53,7 @@ export default function Home({}: HomeProps) {
     }
   ];
 
-  const accommodationCategories = [
-    {
-      id: 'couples',
-      title: 'Rooms for Couples',
-      description:
-        'Private cottages with king-size double bedding, warm wood finishes, and peaceful garden surroundings for two.',
-      image: resolveDf1Image('df1.jpeg'),
-      alt: 'Double bedroom for couples with warm wooden ceiling and crisp linens at Dreamy Vacations Coorg',
-      route: '/rooms/couples',
-    },
-    {
-      id: 'families',
-      title: 'Rooms for Families',
-      description:
-        'Spacious multi-bed suites with cozy sofa lounges and easy ground access steps from our pool and play areas.',
-      image: '/images/rooms/sd2/sd2.jpeg',
-      alt: 'Spacious family suite with two double beds and seating lounge at Dreamy Vacations Coorg',
-      route: '/rooms/families',
-    },
-    {
-      id: 'group-booking',
-      title: 'Group Booking',
-      description:
-        'Adjoining cottages and multi-bed stays around our central courtyard with custom Coorg dining and campfires.',
-      image: resolveDf1Image('WhatsApp Image 2026-07-14 at 12.07.32 PM (4).jpeg'),
-      alt: 'Aerial view of Dreamy Vacations cottages and open courtyard for group stays in Kushalnagar, Coorg',
-      route: '/rooms/group-booking',
-    },
-  ];
+  const accommodationCategories = ACCOMMODATION_CATEGORIES;
 
   const scrollLeft = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
@@ -182,13 +142,14 @@ export default function Home({}: HomeProps) {
                   aria-label={`Explore ${category.title}`}
                 >
                   <img
-                    src={category.image}
-                    alt={category.alt}
+                    src={category.coverImage}
+                    alt={category.coverAlt}
                     width={480}
                     height={360}
                     loading={idx === 0 ? "eager" : "lazy"}
                     decoding="async"
                     referrerPolicy="no-referrer"
+                    onError={handleRoomImageError}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
@@ -203,7 +164,7 @@ export default function Home({}: HomeProps) {
                       </Link>
                     </h3>
                     <p className="text-[13px] sm:text-sm text-white/60 font-sans font-light leading-relaxed tracking-wide">
-                      {category.description}
+                      {category.homeDescription}
                     </p>
                   </div>
 

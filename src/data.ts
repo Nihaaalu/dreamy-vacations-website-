@@ -1,18 +1,111 @@
+import type { SyntheticEvent } from 'react';
 import { RoomType, Facility, GalleryItem } from './types';
 
-// Scan all room images and gallery images dynamically
-const globRoomImages = (import.meta as any).glob('../images/rooms/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}', { eager: true });
-const globGalleryImages = (import.meta as any).glob('../images/gallery/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}', { eager: true });
+// Scan all room images and gallery images dynamically from verified project folders
+const globRoomImages = (import.meta as any).glob(
+  '../images/rooms/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
+  { eager: true }
+);
+const globGalleryImages = (import.meta as any).glob(
+  '../images/gallery/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
+  { eager: true }
+);
+
+function findAssetUrl(
+  globMap: Record<string, any>,
+  filename: string
+): string | undefined {
+  const target = filename.toLowerCase();
+  const entry = Object.entries(globMap).find(([key]) =>
+    key.toLowerCase().endsWith(`/${target}`)
+  );
+  if (!entry) return undefined;
+  const mod = entry[1];
+  return mod?.default || mod;
+}
+
+export const ROOM_FALLBACK_IMAGE: string =
+  findAssetUrl(globRoomImages, 'df1.jpeg') || '/images/rooms/df1/df1.jpeg';
+
+export function resolveRoomPhoto(filename: string): string {
+  return (
+    findAssetUrl(globRoomImages, filename) ||
+    findAssetUrl(globGalleryImages, filename) ||
+    ROOM_FALLBACK_IMAGE
+  );
+}
+
+export function resolveGalleryPhoto(filename: string): string {
+  return (
+    findAssetUrl(globGalleryImages, filename) ||
+    findAssetUrl(globRoomImages, filename) ||
+    ROOM_FALLBACK_IMAGE
+  );
+}
+
+export function handleRoomImageError(e: SyntheticEvent<HTMLImageElement>): void {
+  const img = e.currentTarget;
+  if (img.dataset.fallbackApplied === 'true') return;
+  img.dataset.fallbackApplied = 'true';
+  img.src = ROOM_FALLBACK_IMAGE;
+}
+
+export interface RoomCategoryCardData {
+  id: 'couples' | 'families' | 'group-booking';
+  title: string;
+  homeDescription: string;
+  roomsPageIntro: string;
+  coverImage: string;
+  coverAlt: string;
+  route: string;
+}
+
+export const ACCOMMODATION_CATEGORIES: RoomCategoryCardData[] = [
+  {
+    id: 'couples',
+    title: 'Rooms for Couples',
+    homeDescription:
+      'Private cottages with king-size double bedding, warm wood finishes, and peaceful garden surroundings for two.',
+    roomsPageIntro:
+      'Private cottages with king-size double bedding, warm wood finishes, and serene garden surroundings tailored for two.',
+    coverImage: resolveRoomPhoto('df1.jpeg'),
+    coverAlt:
+      'Double bedroom for couples with warm wooden ceiling and crisp linens at Dreamy Vacations Coorg',
+    route: '/rooms/couples',
+  },
+  {
+    id: 'families',
+    title: 'Rooms for Families',
+    homeDescription:
+      'Spacious ground-level cottages with cozy interiors and easy access steps from our pool and play areas.',
+    roomsPageIntro:
+      'Spacious ground-level cottages with comfortable sleeping layouts steps away from our pool and play areas.',
+    coverImage: resolveGalleryPhoto('WhatsApp Image 2026-07-14 at 12.07.31 PM (1).jpeg'),
+    coverAlt:
+      'Ground-level family cottage facade surrounded by tropical palms at Dreamy Vacations Coorg',
+    route: '/rooms/families',
+  },
+  {
+    id: 'group-booking',
+    title: 'Group Booking',
+    homeDescription:
+      'Adjoining cottages and multi-bed stays around our central courtyard with custom Coorg dining and campfires.',
+    roomsPageIntro:
+      'Adjoining cottages and multi-bed units arranged around our private courtyard with custom Coorg dining and evening campfires.',
+    coverImage: resolveRoomPhoto('WhatsApp Image 2026-07-14 at 12.07.32 PM (4).jpeg'),
+    coverAlt:
+      'Aerial view of Dreamy Vacations cottages and open central courtyard for group stays in Kushalnagar, Coorg',
+    route: '/rooms/group-booking',
+  },
+];
 
 export function getRoomImages(folderName: string, coverFilename: string): string[] {
-  // Support both short folder names (sf1, df1, sd2, t3) and more descriptive ones
   const possibleFolders = [folderName];
   if (folderName === 'sf1') possibleFolders.push('standard-family', 'standard-family-room');
   if (folderName === 'df1') possibleFolders.push('deluxe-family', 'deluxe-family-room');
   if (folderName === 'sd2') possibleFolders.push('superior-deluxe', 'superior-deluxe-double');
   if (folderName === 't3') possibleFolders.push('triple', 'triple-room');
 
-  // Find all matched images for this folder
   const matchingUrls = Object.keys(globRoomImages)
     .filter(key => {
       const parts = key.split('/');
@@ -26,17 +119,41 @@ export function getRoomImages(folderName: string, coverFilename: string): string
       return mod.default || mod;
     });
 
-  // If no matching images found in the glob, return the fallback static coverPath
+  // Fallback to verified existing room & cottage photographs if folder is empty
   if (matchingUrls.length === 0) {
-    return [`/images/rooms/${folderName}/${coverFilename}`];
+    if (folderName === 'sf1') {
+      return [
+        resolveRoomPhoto('604426551.jpg'),
+        resolveRoomPhoto('df1.jpeg'),
+        resolveRoomPhoto('604426481.jpg'),
+        resolveGalleryPhoto('unnamed (1).webp'),
+      ];
+    }
+    if (folderName === 'sd2') {
+      return [
+        resolveRoomPhoto('604426481.jpg'),
+        resolveRoomPhoto('df1.jpeg'),
+        resolveRoomPhoto('604426551.jpg'),
+        resolveGalleryPhoto('WhatsApp Image 2026-07-14 at 12.07.31 PM (1).jpeg'),
+        resolveGalleryPhoto('unnamed (4).webp'),
+      ];
+    }
+    if (folderName === 't3') {
+      return [
+        resolveRoomPhoto('WhatsApp Image 2026-07-14 at 12.07.32 PM (4).jpeg'),
+        resolveGalleryPhoto('WhatsApp Image 2026-07-14 at 9.44.27 AM (3).jpeg'),
+        resolveRoomPhoto('df1.jpeg'),
+        resolveRoomPhoto('604426551.jpg'),
+        resolveGalleryPhoto('WhatsApp Image 2026-07-14 at 12.07.22 PM.jpeg'),
+      ];
+    }
+    return [ROOM_FALLBACK_IMAGE];
   }
 
-  // Deduplicate and naturally sort all matching URLs alphabetically
   const sorted = Array.from(new Set(matchingUrls)).sort((a, b) => {
     return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
   });
 
-  // Find the cover image in the sorted list to place it at the very beginning
   const coverLower = coverFilename.toLowerCase();
   const coverBase = coverLower.split('.')[0];
   const coverIndex = sorted.findIndex(url => {

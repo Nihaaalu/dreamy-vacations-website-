@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Users, Building, Flame, UtensilsCrossed, Music, ArrowRight, Apple, Check } from 'lucide-react';
+import { handleRoomImageError } from '../data';
 
 export default function GroupBooking() {
   const [totalGuests, setTotalGuests] = useState<number>(15);
@@ -81,9 +82,9 @@ Please share availability for our group stay.`;
   const groupImages = allRealImages.length >= 3 
     ? allRealImages.slice(0, 3) 
     : [
-        '/images/rooms/sd2/sd2.jpeg',
-        '/images/rooms/sf1/sf1.jpeg',
-        '/images/rooms/df1/df1.jpeg'
+        '/images/rooms/df1/df1.jpeg',
+        '/images/gallery/unnamed (1).webp',
+        '/images/gallery/unnamed (4).webp'
       ];
 
   const isValidationMismatch = totalGuests !== (adults + children);
@@ -115,7 +116,7 @@ Please share availability for our group stay.`;
             <div className="grid grid-cols-3 gap-3">
               {groupImages.map((img, idx) => (
                 <div key={idx} className="aspect-square rounded-2xl overflow-hidden bg-zinc-900 shadow-premium">
-                  <img src={img} alt="Group stay" referrerPolicy="no-referrer" className="w-full h-full object-cover transition-transform duration-500 hover:scale-101" />
+                  <img src={img} alt="Group stay" referrerPolicy="no-referrer" onError={handleRoomImageError} className="w-full h-full object-cover transition-transform duration-500 hover:scale-101" />
                 </div>
               ))}
             </div>
