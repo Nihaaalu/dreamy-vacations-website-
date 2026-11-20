@@ -60,7 +60,7 @@ export const GUIDES_DATA: Record<string, GuideData> = {
             order: 2,
             time: '09:00 AM',
             title: 'Tibetan Serenity at the Namdroling Golden Temple',
-            desc: 'Start your Coorg journey at the majestic Namdroling Monastery (frequently called the Golden Temple) in Bylakuppe. Sited just 8 km from your room, this stunning Tibetan sanctuary is home to spectacular 40-foot golden statues of Lord Buddha and intricate murals. Visiting early in the morning lets you beat the afternoon crowds and hear the soothing, meditative chanting of the resident monks. For visitors looking for a peaceful cultural experience, this is the premier highlight near Kushalnagar.',
+            desc: 'Start your Coorg journey at the majestic Namdroling Monastery (frequently called the Golden Temple) in Bylakuppe. Sited roughly 6–8 km from Kushalnagar, this renowned Tibetan sanctuary is home to towering 60-foot and 58-foot gilded statues of Lord Buddha, Guru Padmasambhava, and Buddha Amitayus surrounded by intricate murals. Visiting early in the morning lets you experience quieter courtyards and listen to the meditative chanting of resident monks.',
             icon: '📍'
           },
           {
@@ -180,7 +180,7 @@ export const GUIDES_DATA: Record<string, GuideData> = {
       },
       {
         q: 'Should I stay in Kushalnagar or Madikeri?',
-        a: 'While Madikeri is a well-known hill town, it suffers from intense seasonal gridlocks, narrow roads, and expensive, cramped hotels. Kushalnagar offers spacious, premium resorts like Dreamy Vacations with luxury amenities like swimming pools, campfires, and flat terrains, while still allowing easy 45-minute day trips to Madikeri.'
+        a: 'Both areas offer distinct strengths. Madikeri is Coorg\'s misty hill capital close to Raja\'s Seat, Abbey Falls, and Mandalpatti, while Kushalnagar sits on gentler eastern plateau roads with spacious family grounds, easier highway arrival from Bangalore and Mysore, and quick access to Bylakuppe and Dubare while remaining about 45 minutes from Madikeri.'
       },
       {
         q: 'Which resort is near the Golden Temple?',
@@ -388,21 +388,21 @@ export const GUIDES_DATA: Record<string, GuideData> = {
         ]
       },
       {
-        day: 'Madikeri: The Congested Mountain Peak',
-        title: 'A High-Altitude Base with Mountain Gridlocks',
+        day: 'Madikeri: The Misty Hill Capital',
+        title: 'High-Altitude Views, Cooler Evenings & Western Sightseeing Access',
         activities: [
           {
             order: 1,
             time: 'Best For',
-            title: 'Solo Backpackers & Couples seeking steep ridge views',
-            desc: 'While Madikeri offers scenic valley views, the properties are often cramped, built on steep slopes with very limited parking. Driving a personal vehicle through Madikeri\'s narrow, winding lanes during peak holiday weekends can be extremely challenging and exhausting.',
+            title: 'Travellers prioritising misty ridge views and central hill-town proximity',
+            desc: 'Madikeri offers higher elevation, cool misty mornings, and direct access to Raja\'s Seat, Madikeri Fort, Omkareshwara Temple, Abbey Falls, and Talacauvery. Hilltop lanes are steeper and busier on peak long weekends, so allowing extra parking and drive time helps.',
             icon: '⛰️'
           },
           {
             order: 2,
-            time: 'Crowds',
-            title: 'Heavy Holiday Congestion',
-            desc: 'As the commercial center, Madikeri town suffers from intense tourist crowds. Traffic bottlenecks around the main circle can add up to an hour of travel time for even short 5-kilometer commutes.',
+            time: 'Peak Weekends',
+            title: 'Plan Sightseeing Starts Early',
+            desc: 'Because Madikeri is Coorg\'s best-known hill hub, weekend traffic builds up around midday near town junctions. Starting sightseeing early in the morning or staying in Kushalnagar for an eastern base makes day trips much smoother.',
             icon: '👥'
           }
         ]

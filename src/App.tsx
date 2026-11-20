@@ -100,7 +100,10 @@ function AppContent() {
               Resort
             </h3>
             <ul className="space-y-3 text-xs font-light text-white/60">
-              <li><Link to="/rooms" className="hover:text-white transition-colors">Rooms</Link></li>
+              <li><Link to="/rooms" className="hover:text-white transition-colors">All Rooms</Link></li>
+              <li><Link to="/rooms/families" className="hover:text-white transition-colors">Family Rooms</Link></li>
+              <li><Link to="/rooms/couples" className="hover:text-white transition-colors">Couple Rooms</Link></li>
+              <li><Link to="/rooms/group-booking" className="hover:text-white transition-colors">Group Stays</Link></li>
               <li><Link to="/gallery" className="hover:text-white transition-colors">Gallery</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
@@ -110,17 +113,17 @@ function AppContent() {
           {/* Column 3: Travel Guides & Planners (span 3) */}
           <div className="md:col-span-3 space-y-5" id="footer-col-travel">
             <h3 className="font-display font-medium text-[11px] tracking-[0.22em] text-[#e2d7c5] uppercase">
-              Travel & Planning
+              Travel &amp; Planning
             </h3>
             <ul className="space-y-3 text-xs font-light text-white/60">
               <li><Link to="/blog" className="hover:text-white transition-colors">Travel Guides</Link></li>
               <li><Link to="/trip-planner" className="hover:text-white font-semibold text-[#e2d7c5] transition-colors">Trip Planner</Link></li>
-              <li><Link to="/blog/complete-coorg-travel-guide" className="hover:text-white transition-colors">Complete Coorg Guide</Link></li>
+              <li><Link to="/blog/places-to-visit-in-coorg" className="hover:text-white transition-colors">Best Places to Visit in Coorg</Link></li>
+              <li><Link to="/blog/coorg-trip-plan-2-days" className="hover:text-white transition-colors">2-Day Coorg Trip Plan</Link></li>
+              <li><Link to="/blog/best-time-to-visit-coorg" className="hover:text-white transition-colors">Best Time to Visit Coorg</Link></li>
+              <li><Link to="/blog/where-to-stay-in-coorg" className="hover:text-white transition-colors">Where to Stay in Coorg</Link></li>
               <li><Link to="/blog/bylakuppe-tibetan-settlement-guide" className="hover:text-white transition-colors">Bylakuppe &amp; Golden Temple</Link></li>
-              <li><Link to="/blog/2-day-coorg-itinerary" className="hover:text-white transition-colors">2 Day Itinerary</Link></li>
-              <li><Link to="/blog/3-day-coorg-itinerary" className="hover:text-white transition-colors">3 Day Itinerary</Link></li>
-              <li><Link to="/blog/where-to-stay-in-coorg" className="hover:text-white transition-colors">Where to Stay</Link></li>
-              <li><Link to="/blog/kushalnagar-tourist-places" className="hover:text-white transition-colors">Nearby Attractions</Link></li>
+              <li><Link to="/blog/kushalnagar-tourist-places" className="hover:text-white transition-colors">Kushalnagar Attractions</Link></li>
             </ul>
           </div>
 

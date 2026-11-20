@@ -198,9 +198,9 @@ const CATEGORY_DATA: Record<CategorySlug, CategoryConfig> = {
         orientation: 'portrait',
       },
       {
-        src: galleryImg('WhatsApp Image 2026-07-14 at 12.07.31 PM (1).jpeg'),
-        alt: 'Ground-level family cottage exterior framed by palms and landscaped garden',
-        caption: 'Family Cottage Facade',
+        src: galleryImg('WhatsApp Image 2026-07-14 at 9.44.27 AM (3).jpeg'),
+        alt: 'Ground-level family cottages framed by palms and landscaped garden walkway in Kushalnagar',
+        caption: 'Family Cottage Walkway',
         orientation: 'landscape',
       },
       {
@@ -259,8 +259,8 @@ const CATEGORY_DATA: Record<CategorySlug, CategoryConfig> = {
     ],
     enquiryHeading: 'Plan Your Family Stay',
     enquiryNotes: [
-      'Share your travel dates and number of adults and children directly on WhatsApp for tailored family room recommendations.',
-      'Custom home-style meals with dedicated vegetarian cooking arrangements can be requested for your stay.',
+      'Share your travel dates, number of adults and children, and preferred room layout directly on WhatsApp or by phone (+91 99029 60484) to check real-time availability.',
+      'Check-in is 12:00 PM and check-out is 11:00 AM. Home-style meals with dedicated vegetarian cooking arrangements can be pre-coordinated for families.',
     ],
     enquiryActionPath: '/booking',
     enquiryActionLabel: 'Family Stay Enquiry',
@@ -654,6 +654,68 @@ export default function RoomCategoryDetail({ category }: RoomCategoryDetailProps
                 ))}
               </div>
             </section>
+
+            {/* SUITABILITY BY FAMILY / GROUP SIZE */}
+            {config.slug === 'families' && (
+              <section className="bg-[#121212] rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+                <h2 className="text-xl font-display font-light text-white flex items-center gap-2">
+                  <Users className="w-5 h-5 text-[#e2d7c5]" /> Choosing the Right Family Room in Coorg
+                </h2>
+                <p className="text-xs sm:text-sm text-white/65 font-light leading-relaxed">
+                  Match your family size to our verified room layouts in Chikkathur Village near Kushalnagar so everyone sleeps comfortably without cramped floor mattresses:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
+                  <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
+                    <span className="text-[#e2d7c5] font-mono text-[11px] uppercase">2 Adults (+ Small Child)</span>
+                    <p className="text-white font-medium">Standard or Deluxe Family Room</p>
+                    <p className="text-white/60 font-light">1 double bed (380–420 sq.ft.), quiet ground-floor or balcony access.</p>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
+                    <span className="text-[#e2d7c5] font-mono text-[11px] uppercase">Families of 3 – 4 Adults</span>
+                    <p className="text-white font-medium">Superior Deluxe Double</p>
+                    <p className="text-white/60 font-light">2 double beds + sofa lounge in one shared family room.</p>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1 sm:col-span-2">
+                    <span className="text-[#e2d7c5] font-mono text-[11px] uppercase">Joint Families of 5 – 6 Adults</span>
+                    <p className="text-white font-medium">Triple Room (or Adjoining Family Cottages)</p>
+                    <p className="text-white/60 font-light">3 double beds in a single 350 sq.ft. unit, or pair adjoining cottages for multi-generational privacy with parents and grandparents.</p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* NEARBY ATTRACTIONS & COORG TRAVEL GUIDES */}
+            <section className="bg-[#121212] rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+              <h2 className="text-xl font-display font-light text-white flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#e2d7c5]" /> Nearby Attractions &amp; Coorg Travel Guides
+              </h2>
+              <p className="text-xs sm:text-sm text-white/65 font-light leading-relaxed">
+                Explore eastern Coorg right from our gate—Kaveri Nisargadhama (~4 km), Namdroling Monastery / Golden Temple (~6 km), Harangi Dam (~9 km), Dubare Elephant Camp (~14 km), and Chiklihole Reservoir (~16 km)—and continue ~30 km west along NH 275 toward Madikeri’s waterfalls and viewpoints.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-1">
+                {[
+                  { label: '25 Best Places to Visit in Coorg', to: '/blog/places-to-visit-in-coorg' },
+                  { label: 'Coorg Trip Plan for 2 Days', to: '/blog/coorg-trip-plan-2-days' },
+                  { label: 'Best Time to Visit Coorg', to: '/blog/best-time-to-visit-coorg' },
+                  { label: 'Where to Stay in Coorg', to: '/blog/where-to-stay-in-coorg' },
+                  { label: 'Kushalnagar Tourist Places', to: '/blog/kushalnagar-tourist-places' },
+                  ...(config.slug === 'families'
+                    ? [{ label: 'Coorg Family Trip Guide', to: '/blog/coorg-family-trip' }]
+                    : config.slug === 'couples'
+                    ? [{ label: 'Coorg Couple Trip Guide', to: '/blog/coorg-couple-trip' }]
+                    : [{ label: '3-Day Coorg Itinerary', to: '/blog/3-day-coorg-itinerary' }]),
+                ].map((lnk) => (
+                  <Link
+                    key={lnk.to}
+                    to={lnk.to}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#e2d7c5]/40 text-xs text-white/80 hover:text-[#e2d7c5] transition-colors"
+                  >
+                    <span>{lnk.label}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                ))}
+              </div>
+            </section>
           </div>
 
           {/* RIGHT COLUMN: STICKY ENQUIRY & SPECIFICATIONS SIDEBAR */}
@@ -742,8 +804,16 @@ export default function RoomCategoryDetail({ category }: RoomCategoryDetailProps
                     Dreamy Vacations Location
                   </h3>
                   <p className="text-[11px] text-white/60 leading-relaxed font-light">
-                    Chikkathur Village, Kushalnagar, Coorg. Easy access near Golden Temple Bylakuppe &amp; Kaveri Nisargadhama.
+                    #51/5, Behind Chikkathur Govt School, Chikkathur Village, Kushalnagar, Kudumangalore, Karnataka 571232. Easy access near Golden Temple Bylakuppe &amp; Kaveri Nisargadhama.
                   </p>
+                  <a
+                    href="https://maps.app.goo.gl/4BtwEt1ggcWm6x5v9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] text-[#e2d7c5] hover:underline pt-1"
+                  >
+                    Open Google Maps Directions <ArrowRight className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
 

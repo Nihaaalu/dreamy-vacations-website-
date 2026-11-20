@@ -12,7 +12,7 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
     heroAlt: 'Namdroling Monastery Golden Temple rising under warm eastern Coorg skies',
     heroCaption: 'With only one day in Coorg, centering your route in Kushalnagar and Bylakuppe replaces four hours of mountain traffic with five close-knit stops.',
     publishedDate: '2026-08-20',
-    updatedDate: '2026-11-12',
+    updatedDate: '2026-11-20',
     readTime: '9 min read',
     intro: [
       'When you only have one full day for Coorg—perhaps driving over from Mysuru or squeezing in a day stop along a Karnataka loop—trying to race up to Mandalpatti, Abbey Falls, and Raja’s Seat in a single afternoon creates exhaustion instead of enjoyment.',
@@ -26,41 +26,47 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
           {
             heading: '8:30 AM – 10:45 AM: Dubare Elephant Camp (Morning Session)',
             paragraphs: [
-              'Start on the Cauvery riverbank at Dubare right around 8:30 AM to cross early and witness elephants during the morning 9:00–11:00 AM mahout bathing and care routine. Skip lengthy afternoon queues and depart by 10:45 AM.'
+              'Start on the Cauvery riverbank at Dubare (about 14 km from Kushalnagar) right around 8:30 AM to cross early and witness elephants during the morning 9:00–11:00 AM mahout bathing and care routine. Skip lengthy afternoon queues and depart by 10:45 AM.'
             ]
           },
           {
             heading: '11:15 AM – 1:45 PM: Namdroling Monastery (Golden Temple) & Tibetan Lunch',
             paragraphs: [
-              'Drive northeast along flat roads to Bylakuppe (about 25 minutes from Dubare). Step quietly inside the Padmasambhava Buddhist Vihara and Zangdok Palri Temple, walk the prayer gardens, browse cooperative handicraft shops, and sit down for hot momos and thukpa at The Tibet Kitchen or Kongpo Kitchen.'
+              'Drive northeast along flat roads to Bylakuppe (about 18 km / 25 minutes from Dubare, or 6 km from Kushalnagar). Step quietly inside the Padmasambhava Buddhist Vihara and Zangdok Palri Temple, walk the prayer gardens, browse cooperative handicraft shops, and sit down for hot momos and thukpa at The Tibet Kitchen or Kongpo Kitchen.'
             ]
           },
           {
             heading: '2:15 PM – 3:45 PM: Shaded Walk at Kaveri Nisargadhama',
             paragraphs: [
-              'Head 15 minutes back west into Kaveri Nisargadhama. Walking beneath thick bamboo groves after lunch avoids midday sun while crossing the iconic rope-and-steel hanging bridge over the Cauvery.'
+              'Head 15 minutes back west into Kaveri Nisargadhama (4 km from Kushalnagar). Walking beneath thick bamboo groves after lunch avoids midday sun while crossing the iconic hanging bridge over the Cauvery.'
             ]
           },
           {
             heading: '4:15 PM – 5:45 PM: Quiet Reservoir Finale (Harangi Dam or Chiklihole)',
             paragraphs: [
-              'Choose Harangi Dam & Tree Park (for landscaped riverside lawns) or Chiklihole Reservoir (for quiet semi-circular masonry spillway views along forest borders) before returning to Mysuru or checking in for the night in Kushalnagar.'
+              'Choose Harangi Dam & Tree Park (9 km from Kushalnagar, for landscaped riverside lawns) or Chiklihole Reservoir (16 km from Kushalnagar, for quiet semi-circular masonry spillway views along forest borders) before returning to Mysuru or checking in for the night in Kushalnagar.'
             ]
           }
+        ],
+        links: [
+          { label: '2-Day Coorg Trip Plan', to: '/blog/coorg-trip-plan-2-days' },
+          { label: '25 Best Places to Visit in Coorg', to: '/blog/places-to-visit-in-coorg' },
+          { label: 'Best Time to Visit Coorg', to: '/blog/best-time-to-visit-coorg' }
         ]
       }
     ],
     highlights: [
       { label: 'Focus Zone', value: 'Eastern Coorg (Kushalnagar & Bylakuppe)' },
-      { label: 'Total Local Driving', value: 'Under 45 km loop across all stops' },
+      { label: 'Total Local Driving', value: 'Under 45 km loop across all stops from Kushalnagar' },
       { label: 'Must-Hit Morning Window', value: 'Dubare (8:30 AM arrival)' }
     ],
     relatedSlugs: [
+      'coorg-trip-plan-2-days',
+      'places-to-visit-in-coorg',
       'kushalnagar-tourist-places',
       'bylakuppe-tibetan-settlement-guide',
       'dubare-elephant-camp-guide',
-      'coorg-from-mysore',
-      '2-day-coorg-itinerary'
+      'coorg-from-mysore'
     ],
     conclusion: 'If your calendar only stretches to one day, skip Madikeri’s hairpins altogether—Kushalnagar and Bylakuppe deliver riverside wildlife, Buddhist architecture, Tibetan cuisine, and serene dam views in one compact circuit.',
     faqs: [
@@ -72,121 +78,268 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
     structuredType: 'Article'
   },
 
-  '2-day-coorg-itinerary': {
-    title: 'Coorg Itinerary for 2 Days: Eastern Wonders & Madikeri Highlands from One Base',
-    seoTitle: 'Coorg Itinerary for 2 Days: Realistic Route, Timings & Base Guide',
-    metaDesc: 'Plan the smartest 2-day Coorg itinerary: Day 1 around Kushalnagar, Bylakuppe and Dubare; Day 2 ascending early to Mandalpatti, Abbey Falls and Raja’s Seat.',
-    primaryKeyword: 'Coorg itinerary for 2 days',
-    secondaryKeywords: ['2 day Coorg trip plan', 'Coorg weekend itinerary', 'Kushalnagar 2 day Coorg plan'],
+  'coorg-trip-plan-2-days': {
+    title: 'Coorg Trip Plan for 2 Days: Complete Itinerary, Timings & Route Guide',
+    seoTitle: 'Coorg Trip Plan for 2 Days: Complete Itinerary & Travel Guide',
+    metaDesc: 'Plan a 2-day Coorg trip with Kushalnagar, Bylakuppe, Dubare, Nisargadhama, Mandalpatti, Abbey Falls and Raja’s Seat.',
+    primaryKeyword: 'Coorg trip plan',
+    secondaryKeywords: [
+      'Coorg trip plan for 2 days',
+      '2 day Coorg itinerary',
+      'Coorg weekend trip plan',
+      'Kushalnagar and Madikeri 2 day itinerary'
+    ],
     category: 'Itineraries',
     heroImg: '/images/places/md.jpeg',
-    heroAlt: 'Green Western Ghats valleys framed by drifting white morning clouds from Mandalpatti Peak',
-    heroCaption: 'Saving Mandalpatti Peak for Day 2 morning gives you crisp visibility before returning west to Kushalnagar.',
+    heroAlt: 'Green Western Ghats valleys framed by drifting white morning clouds from Mandalpatti Peak in Coorg',
+    heroCaption: 'Spend Day 1 exploring Kushalnagar and Bylakuppe on gentle eastern roads, then head west into Madikeri’s hills and waterfalls fresh on Day 2.',
     publishedDate: '2026-07-15',
-    updatedDate: '2026-11-12',
+    updatedDate: '2026-11-20',
     readTime: '12 min read',
-    featuredRank: 7,
+    featuredRank: 2,
+    discoverPoints: [
+      'A realistic hour-by-hour 2-day Coorg itinerary that avoids unnecessary backtracking.',
+      'Exact starting-point distances and visit times for Dubare, Golden Temple, Nisargadhama, Mandalpatti, Abbey Falls, and Raja’s Seat.',
+      'How to get around by self-drive car, local cab, or KSRTC bus.',
+      'Easy swaps for monsoon rain, summer afternoons, kids, and senior travellers.',
+    ],
+    quickSummary: {
+      heading: 'Planning Your 2-Day Coorg Trip?',
+      subtitle: 'A quick snapshot before you lock in your weekend route.',
+      items: [
+        { label: 'Best for', value: 'Weekend road trippers, families, couples, and first-time Coorg visitors.' },
+        { label: 'Recommended duration', value: '2 full days (1 or 2 nights at a single stay).' },
+        { label: 'Main starting point', value: 'Kushalnagar (easy arrival from Bengaluru and Mysuru).' },
+        { label: 'Best travel approach', value: 'Eastern Coorg on Day 1, Madikeri hills on Day 2—no changing hotels.' },
+        { label: 'Important note', value: 'Driving times and jeep waits vary with weekend crowds and weather.' },
+      ],
+    },
     intro: [
-      'Two days—often Saturday morning through Sunday evening—is the classic weekend window for Coorg. Most travelers follow the same hurried script: fight expressway exits straight up to Madikeri Saturday noon, sit in afternoon town traffic, pack early Sunday, and climb back down feeling tired.',
-      'Flipping the geography makes all the difference. By staying at a single base in Kushalnagar throughout your trip, Day 1 covers Bylakuppe, Dubare, and eastern Coorg’s river islands along flat plateau lanes right after arrival, while Day 2 tackles Mandalpatti Peak, Abbey Falls, and Raja’s Seat completely fresh.'
+      'Two days in Coorg can feel either wonderfully unhurried or exhausting—and the difference usually comes down to the order in which you visit things. Most travellers arriving from Bengaluru or Mysuru drive straight past Kushalnagar into Madikeri’s afternoon town traffic, only to drive all the way back east the next morning for Dubare and the Golden Temple.',
+      'Flip that order and your weekend immediately opens up. Start in eastern Coorg around Kushalnagar on Day 1—where Dubare, Bylakuppe’s Golden Temple, Kaveri Nisargadhama, and Harangi Dam sit minutes apart—then climb west into Madikeri’s hills, waterfalls, and viewpoints completely fresh on Day 2.',
     ],
     sections: [
       {
-        id: 'day-1-kushalnagar',
-        heading: 'Day 1: Kushalnagar, Tibetan Heritage & Cauvery River Sanctuaries',
+        id: 'quick-2-day-overview',
+        heading: '2-Day Coorg Trip Plan at a Glance (Timings, Distances & Pacing)',
         paragraphs: [
-          'Arriving along the Hunsur–Periyapatna highway puts Bylakuppe and Kushalnagar directly in your path—meaning zero extra hill climb is needed right after a highway drive from Mysuru or Bengaluru. Drop heavy bags at your Kushalnagar stay or begin straight along the flat eastern circuit.'
+          'The table below maps out realistic drive distances and recommended visit durations assuming a single overnight base near Kushalnagar. Distances always note their exact starting reference point so you can estimate fuel, cab time, and rest breaks accurately.'
         ],
-        subsections: [
-          {
-            heading: '8:30 AM – 10:30 AM (Option A): Dubare Elephant Camp Morning Session',
-            paragraphs: [
-              'If observing elephant care on the river shore is a priority for children or wildlife enthusiasts, head directly to Dubare Elephant Camp before 8:30 AM. The primary morning care, river bathing, and feeding program runs between 9:00 AM and 11:00 AM. Boat crossings run swiftly before 10:00 AM queues build.'
-            ]
-          },
-          {
-            heading: '11:00 AM – 1:45 PM: Namdroling Monastery (Golden Temple) & Tibetan Lunch',
-            paragraphs: [
-              'Drive northeast along flat rural roads to Bylakuppe (about 25 minutes from Dubare, or 12 minutes straight from Kushalnagar). Step quietly inside the Padmasambhava Buddhist Vihara to admire the 60-foot Buddha Shakyamuni and companion 58-foot gilded statues, walk across to Zangdok Palri Temple, and browse cooperative craft stalls for bronze singing bowls, wooden prayer beads, and woven textiles.',
-              'Around 12:45 PM, walk out along the monastery road or neighboring Camp 1 lanes for steamed vegetable or meat momos, hand-torn thenthuk noodle soup, and tingmo steamed bread at The Tibet Kitchen or Kongpo Kitchen Family Restaurant.'
-            ]
-          },
-          {
-            heading: '2:15 PM – 5:45 PM: Kaveri Nisargadhama & Harangi Dam / Chiklihole Sunset',
-            paragraphs: [
-              'Beat afternoon heat beneath the towering bamboo canopy of Kaveri Nisargadhama—located just 4 km from Kushalnagar town across a swaying hanging bridge over the Cauvery. Stroll shaded trails past spotted deer enclosures for 60–75 minutes.',
-              'In the calm golden hour around 4:30 PM, choose either Harangi Dam & Tree Park (manicured riverside gardens) or quiet Chiklihole Reservoir (forest-bordered semi-circular weir) before checking back into Chikkathur for a refreshing evening swim and campfire.'
-            ]
-          }
+        table: {
+          caption: 'Day-by-Day Route Sequence, Starting-Point Distances & Visit Durations',
+          headers: ['Day & Time Window', 'Attraction / Stop', 'Distance From Reference Point', 'Suggested Time'],
+          rows: [
+            ['Day 1 · 8:30 AM – 10:45 AM', 'Dubare Elephant Camp (Morning Session)', '14 km from Kushalnagar (20–25 min)', '2 hours'],
+            ['Day 1 · 11:15 AM – 1:45 PM', 'Namdroling Monastery (Golden Temple) & Tibetan Lunch', '18 km from Dubare / 6 km from Kushalnagar', '2.5 hours (incl. lunch)'],
+            ['Day 1 · 2:15 PM – 3:45 PM', 'Kaveri Nisargadhama Bamboo Island', '9 km from Bylakuppe / 4 km from Kushalnagar', '1–1.5 hours'],
+            ['Day 1 · 4:15 PM – 5:45 PM', 'Harangi Dam Tree Park or Chiklihole Reservoir', '9 km (Harangi) or 16 km (Chiklihole) from Kushalnagar', '1–1.5 hours'],
+            ['Day 2 · 6:30 AM – 10:30 AM', 'Mandalpatti Peak (via registered 4x4 jeep)', '30 km Kushalnagar to Madikeri + ~18 km to Mandalpatti gate', '3–3.5 hours (incl. jeep)'],
+            ['Day 2 · 11:15 AM – 12:45 PM', 'Abbey Falls', '8 km from Madikeri town (~20 min)', '1–1.5 hours'],
+            ['Day 2 · 1:00 PM – 4:15 PM', 'Kodava Lunch, Madikeri Fort & Omkareshwara Temple', 'Central Madikeri (within 2 km radius)', '2.5–3 hours'],
+            ['Day 2 · 4:45 PM – 6:00 PM', 'Raja’s Seat Sunset Garden', '1 km from Madikeri Fort', '1 hour']
+          ]
+        },
+        links: [
+          { label: '25 Best Places to Visit in Coorg', to: '/blog/places-to-visit-in-coorg' },
+          { label: 'Best Time to Visit Coorg', to: '/blog/best-time-to-visit-coorg' },
+          { label: 'Where to Stay in Coorg', to: '/blog/where-to-stay-in-coorg' }
         ]
       },
       {
-        id: 'day-2-madikeri',
-        heading: 'Day 2: Early Morning Mandalpatti, Abbey Falls & Raja’s Seat',
+        id: 'day-1-kushalnagar-bylakuppe',
+        regionLabel: 'Day 01 · Eastern Coorg',
+        heading: 'Day 1: Dubare, Bylakuppe Golden Temple, Nisargadhama & Reservoirs',
         paragraphs: [
-          'After a restful night in Kushalnagar with zero mid-trip hotel repacking, depart early along smooth NH 275 west toward Madikeri. Thirty kilometers of gentle ascent delivers you straight into the Western Ghats ridge belt fresh and ready.'
+          'Driving in via Mysuru and Hunsur brings you straight into Bylakuppe and Kushalnagar on smooth, wide roads. Beginning your trip here lets you drop your bags, skip uphill traffic on arrival day, and explore four or five memorable spots within 10 to 25 minutes of each other.'
         ],
+        pullQuote: {
+          text: 'Stick to one stay for a 2-day Coorg trip. Checking out and packing mid-weekend easily eats up three hours of prime sightseeing.',
+          note: 'Kushalnagar and Madikeri sit only ~30 km apart along NH 275.',
+        },
+        image: {
+          src: '/images/places/gold.jpeg',
+          alt: 'Golden roofs and courtyard of Namdroling Monastery in Bylakuppe near Kushalnagar',
+          caption: 'Pair Namdroling Monastery with a relaxed Tibetan lunch in Bylakuppe before heading to shaded Kaveri Nisargadhama.',
+        },
         subsections: [
           {
-            heading: '6:30 AM – 10:45 AM: Early Highway Climb & Mandalpatti Peak 4x4 Safari',
+            heading: '8:30 AM – 10:45 AM: Dubare Elephant Camp (Morning River Session)',
             paragraphs: [
-              'Leaving Kushalnagar around 6:30 AM puts your vehicle at the Mandalpatti forest gate well ahead of midday crowds while valley cloud decks still sit sharp beneath the Pushpagiri foothills. Park personal cars or taxis at the checkpost and board a registered local 4x4 jeep for the rough final rock-and-earth climb.',
-              'Note for families and monsoon travelers: Pack a light windbreaker even in summer. If heavy July–August rain pauses jeeps or elders prefer avoiding bumpy tracks, swap this slot for a calm 8:30 AM visit to Omkareshwara Temple and Madikeri Fort inside town.'
+              'If observing Asian elephants along the Cauvery riverbank is on your list, arrive at Dubare (14 km from Kushalnagar) by 8:30 AM. The primary morning care and bathing window runs roughly 9:00 AM to 11:00 AM. Arriving early reduces ferry wait times when river flow requires boats; in drier winter/summer months visitors cross via shallow walking paths.',
+              'If you are arriving from Bengaluru around 10:30 AM–11:30 AM on Day 1, skip Dubare for Day 1 morning—start instead at Namdroling Monastery before lunch and move Dubare to an early morning slot if you have extra time, or enjoy a calmer afternoon at Kaveri Nisargadhama and Chiklihole.'
             ]
           },
           {
-            heading: '11:30 AM – 3:30 PM: Madikeri Lunch & Shaded Walk to Abbey Falls',
+            heading: '11:15 AM – 1:45 PM: Namdroling Monastery (Golden Temple) & Bylakuppe Tibetan Lunch',
             paragraphs: [
-              'Head down to Abbey Falls roughly 8 km from Madikeri town, walking the shaded concrete staircase lined with shade trees, black pepper vines, and cardamom bushes to reach the hanging footbridge opposite the 70-foot waterfall.',
-              'Return to Madikeri center around 1:30 PM for traditional Kodava lunch staples—try akki otti, steamed kadambuttu, or pandi curry—plus a quick browse of Madikeri market for estate-roasted filter coffee powder and spices.'
+              'Drive along level countryside lanes into Bylakuppe, India’s second-largest Tibetan settlement (6 km from Kushalnagar). Step respectfully inside the Padmasambhava Buddhist Vihara (Golden Temple) to view the towering 60-foot Buddha Shakyamuni and companion 58-foot Padmasambhava and Amitayus gilded statues, muraled walls, and Zangdok Palri Temple.',
+              'Around 12:45 PM, walk out to Camp 1 or the monastery approach lanes for authentic Tibetan lunch: freshly steamed vegetable or meat momos, comforting hand-torn thenthuk noodle soup, thukpa, and tingmo steamed bread at established local kitchens such as The Tibet Kitchen, Kongpo Kitchen, or Peace Restaurant.'
             ]
           },
           {
-            heading: '4:45 PM – 6:15 PM: Sunset at Raja’s Seat & Smooth Return',
+            heading: '2:15 PM – 3:45 PM: Shaded Stroll at Kaveri Nisargadhama',
             paragraphs: [
-              'Conclude your highland loop among Raja’s Seat’s cliffside gardens as warm light settles into the western valleys. By 6:30 PM, cruise effortlessly 45 minutes back down to Kushalnagar for your final dinner or connect straight onto NH 275 eastbound if heading toward Mysuru and Bengaluru.'
+              'Just 4 km west of Kushalnagar town sits Kaveri Nisargadhama, a 64-acre river island wrapped by tall bamboo groves. Visiting right after lunch works smartly because the dense bamboo canopy shades the footpaths naturally during warmer afternoon hours. Cross the hanging bridge, spot deer and rabbits with children, and take unhurried photographs along the calm river edge.'
+            ]
+          },
+          {
+            heading: '4:15 PM – 5:45 PM: Harangi Dam Tree Park or Chiklihole Reservoir',
+            paragraphs: [
+              'Close Day 1 with one of two peaceful waterbodies depending on your mood: Harangi Dam & Tree Park (9 km from Kushalnagar) offers paved embankments, landscaped riverside gardens, and children’s play corners, while Chiklihole Reservoir (16 km from Kushalnagar) rewards couples and photographers with a quiet, uncrowded semi-circular masonry spillway framed by forest.'
             ]
           }
+        ],
+        links: [
+          { label: 'Kushalnagar Tourist Places Guide', to: '/blog/kushalnagar-tourist-places' },
+          { label: 'Namdroling Monastery Golden Temple Guide', to: '/blog/namdroling-monastery-golden-temple-guide' },
+          { label: 'Dubare Elephant Camp Timing Guide', to: '/blog/dubare-elephant-camp-guide' }
         ]
       },
       {
-        id: 'why-one-base-wins',
-        heading: 'Why One Base Beats Splitting Hotels on a 2-Day Trip',
+        id: 'day-2-madikeri-highlands',
+        regionLabel: 'Day 02 · Madikeri Hills',
+        heading: 'Day 2: Mandalpatti Peak, Abbey Falls, Madikeri Heritage & Raja’s Seat',
         paragraphs: [
-          'Checking out Saturday morning only to haul bags across hills and wait until afternoon check-in elsewhere steals three hours of valuable daylight. Keeping one room in Kushalnagar lets your family travel light with daypacks on Day 2, return safely before nightfall, and avoid steep urban street parking jams inside Madikeri.'
+          'Leave Kushalnagar around 6:30 AM and head west along NH 275 toward Madikeri (roughly 30 km). Starting early gives you crisp valley views before afternoon clouds build and helps you slip ahead of weekend hill traffic.'
+        ],
+        image: {
+          src: '/images/places/ab.jpeg',
+          alt: 'Abbey Falls cascading over dark rock ledges surrounded by coffee plantations near Madikeri',
+          caption: 'Abbey Falls sits just 8 km outside Madikeri town along a shaded spice-estate walkway.',
+        },
+        subsections: [
+          {
+            heading: '6:30 AM – 10:30 AM: Mandalpatti Peak 4x4 Jeep Drive',
+            paragraphs: [
+              'Continue past Madikeri town roughly 18 km toward the Mandalpatti forest checkpost. Personal hatchbacks and sedans cannot safely negotiate the rocky final hillside track; park at the designated base point and hire a registered local 4x4 jeep for the scenic ascent into the Pushpagiri foothills.',
+              'Family & senior note: The 4x4 track is intentionally bumpy. Travelers with infants, expectant mothers, or elders with back discomfort should skip Mandalpatti and begin Day 2 at a relaxed 8:30 AM with Omkareshwara Temple and Madikeri Fort instead.'
+            ]
+          },
+          {
+            heading: '11:15 AM – 12:45 PM: Abbey Falls Through Coffee & Spice Lanes',
+            paragraphs: [
+              'Descend toward Abbey Falls (8 km from Madikeri town). From the parking area, follow the paved downward staircase (roughly 200 steps with handrails) lined with coffee bushes, cardamom, and black pepper vines to reach the viewing footbridge facing the 70-foot waterfall. Swimming is prohibited for safety; enjoy the cool spray from the bridge.'
+            ]
+          },
+          {
+            heading: '1:00 PM – 4:15 PM: Kodava Lunch, Madikeri Fort & Omkareshwara Temple',
+            paragraphs: [
+              'Break in central Madikeri for traditional Kodava lunch staples—try akki otti (rice flatbread), kadambuttu (steamed rice dumplings), bamboo shoot curry (seasonal), or pandi curry alongside estate-roasted filter coffee. Afterward, visit the 17th-century Madikeri Fort complex (note that its inner chapel museum typically closes on Mondays/public holidays) and the serene 1820 Omkareshwara Temple with its central pond.'
+            ]
+          },
+          {
+            heading: '4:45 PM – 6:00 PM: Sunset Over the Western Valleys at Raja’s Seat',
+            paragraphs: [
+              'Wrap up your Madikeri loop at Raja’s Seat, a cliffside terraced garden overlooking rolling green slopes and cloud banks. Arrive by 4:45 PM before sunset crowds peak. From here, drive 45 minutes back east to Kushalnagar for dinner and rest—or connect directly onto NH 275 eastbound if heading straight back to Mysuru or Bengaluru.'
+            ]
+          }
+        ],
+        links: [
+          { label: 'Mandalpatti Jeep & Timing Guide', to: '/blog/mandalpatti-guide' },
+          { label: 'Abbey Falls Practical Guide', to: '/blog/abbey-falls-guide' },
+          { label: 'Raja’s Seat Madikeri Guide', to: '/blog/rajas-seat-madikeri-guide' }
+        ]
+      },
+      {
+        id: 'transport-and-logistics',
+        heading: 'Getting Around Coorg on a 2-Day Trip: Self-Drive, Day Cab or Bus',
+        bullets: [
+          'Self-Drive Car (Most Flexible): Driving your own car from Bengaluru (~225 km to Kushalnagar via Bengaluru–Mysuru Expressway + NH 275) or Mysuru (~85 km to Kushalnagar) makes Day 1’s flat eastern roads effortless. On Day 2, simply park at the Mandalpatti base checkpost and switch to a local 4x4 jeep for the final climb.',
+          'Private Local Cab / Outstation Taxi: Ideal if you prefer relaxing while a local driver handles Madikeri’s steeper inclines and narrow town parking. Ask your stay desk in advance to coordinate reliable local day cabs or Mandalpatti jeep contacts.',
+          'KSRTC Bus + Local Auto/Cab: Direct KSRTC Airavat, Rajahamsa, and express buses drop passengers right at Kushalnagar bus stand. From Kushalnagar, local autos easily cover Bylakuppe, Nisargadhama, and Harangi, while a booked half-day or full-day cab covers Dubare and the Day 2 Madikeri loop.'
+        ],
+        links: [
+          { label: 'Coorg from Bangalore Road Guide', to: '/blog/coorg-from-bangalore' },
+          { label: 'How to Reach Coorg (Bus, Train, Car)', to: '/blog/how-to-reach-coorg' }
+        ]
+      },
+      {
+        id: 'seasonal-and-family-adjustments',
+        heading: 'Seasonal Alternatives & Family-Friendly Pacing Adjustments',
+        subsections: [
+          {
+            heading: 'Winter & Post-Monsoon (October – February)',
+            paragraphs: [
+              'Ideal for following the full 2-day plan exactly as written. Morning fog hangs over Mandalpatti and Dubare, waterfalls still carry brisk water through November–December, and evening temperatures invite a light jacket.'
+            ]
+          },
+          {
+            heading: 'Summer (March – May)',
+            paragraphs: [
+              'Start Dubare and Mandalpatti early before midday warmth builds. Keep 12:30 PM – 3:30 PM indoors or under shade—Tibetan lunch in Bylakuppe, the shaded bamboo paths of Kaveri Nisargadhama, or an afternoon swim back at your Kushalnagar resort pool.'
+            ]
+          },
+          {
+            heading: 'Monsoon (June – September)',
+            paragraphs: [
+              'Heavy July–August rains frequently suspend Mandalpatti 4x4 jeeps and Dubare river ferries, while Abbey Falls roars at full power and Harangi Dam fills dramatically. In peak rain, swap Mandalpatti for unhurried monastery courtyard walks in Bylakuppe, coffee-estate rain drives, and indoor board games or warm snacks back at your stay.'
+            ]
+          },
+          {
+            heading: 'Traveling with Toddlers or Senior Citizens',
+            paragraphs: [
+              'Limit each day to 3 primary stops rather than 5. Prioritize level, paved attractions—Namdroling Monastery, Kaveri Nisargadhama, Harangi Dam gardens, and Raja’s Seat—and skip Mandalpatti’s rough 4x4 track so everyone ends the weekend genuinely rested.'
+            ]
+          }
+        ],
+        links: [
+          { label: 'Coorg Family Trip Pacing Guide', to: '/blog/coorg-family-trip' },
+          { label: 'Explore Family Rooms in Coorg', to: '/rooms/families' }
+        ]
+      },
+      {
+        id: 'where-to-stay-2-days',
+        heading: 'Where to Stay on a 2-Day Coorg Trip: Why One Base Beats Splitting Hotels',
+        paragraphs: [
+          'On a short 2-day schedule, checking out on Day 2 morning to haul luggage up to a second hotel burns three hours of prime sightseeing daylight. Keeping a single base near Kushalnagar means smooth highway arrival on Day 1, 10–20 minute drives to all eastern attractions, luggage-free touring to Madikeri on Day 2, and a clean eastbound departure without steep hill bottlenecks.',
+          'If your priority is waking up directly in misty hillside air beside Mandalpatti or Talacauvery, basing near Madikeri outskirts works equally well—just reverse Day 1 and Day 2 so you visit Bylakuppe and Nisargadhama on your way in or out along NH 275.'
+        ],
+        links: [
+          { label: 'Compare Areas: Where to Stay in Coorg', to: '/blog/where-to-stay-in-coorg' },
+          { label: 'Kushalnagar vs Madikeri Comparison', to: '/blog/kushalnagar-vs-madikeri' }
         ]
       }
     ],
     highlights: [
-      { label: 'Day 1 Cluster', value: 'Golden Temple, Bylakuppe Food, Nisargadhama, Harangi / Dubare' },
-      { label: 'Day 2 Cluster', value: 'Mandalpatti Peak (AM), Abbey Falls (PM), Raja’s Seat (Sunset)' },
-      { label: 'Recommended Accommodation Style', value: 'Single base in Kushalnagar (zero hotel hopping)' }
+      { label: 'Day 1 Cluster (East)', value: 'Dubare (AM), Golden Temple & Tibetan Lunch, Nisargadhama, Harangi / Chiklihole' },
+      { label: 'Day 2 Cluster (West)', value: 'Mandalpatti Peak (AM), Abbey Falls, Madikeri Heritage, Raja’s Seat (Sunset)' },
+      { label: 'Recommended Base Strategy', value: 'Single base in Kushalnagar (no mid-trip hotel hopping)' },
+      { label: 'Best Months for Full Route', value: 'October to March (check monsoon jeep advisories in June–August)' }
     ],
     relatedSlugs: [
+      'places-to-visit-in-coorg',
+      'best-time-to-visit-coorg',
+      'where-to-stay-in-coorg',
       '3-day-coorg-itinerary',
       '1-day-coorg-itinerary',
-      'kushalnagar-tourist-places',
-      'mandalpatti-guide',
-      'abbey-falls-guide',
-      'where-to-stay-in-coorg'
+      'kushalnagar-tourist-places'
     ],
     stayRecommendation: {
-      heading: 'A Seamless Weekend Base at Dreamy Vacations',
-      text: 'Positioned in quiet Chikkathur Village near Kushalnagar, Dreamy Vacations places you 12 minutes from Namdroling Monastery for Day 1 and 45 minutes along highway roads from Madikeri for Day 2—with swimming pool, rain dance, and campfire comfort waiting when you return.',
+      heading: 'A Practical 2-Day Base at Dreamy Vacations, Kushalnagar',
+      text: 'Located in quiet Chikkathur Village near Kushalnagar (6 km from Namdroling Monastery and 30 km along NH 275 from Madikeri), Dreamy Vacations offers rooms for couples, multi-bed family rooms, and group stays alongside an outdoor swimming pool, rain dance area, indoor games, campfire (where available), Wi-Fi, and on-site parking.',
       links: [
-        { label: 'Browse Rooms & Suites', to: '/rooms' },
+        { label: 'View Family Rooms', to: '/rooms/families' },
+        { label: 'Explore All Accommodation', to: '/rooms' },
         { label: 'Custom Trip Planner', to: '/trip-planner' }
       ]
     },
-    conclusion: 'Pair Day 1’s flat eastern Coorg highlights with Day 2’s morning climb to Mandalpatti and Abbey Falls, and 48 hours in Coorg feels remarkably full yet completely manageable.',
+    conclusion: 'Pair Day 1’s flat eastern Coorg highlights around Kushalnagar and Bylakuppe with Day 2’s early morning climb to Mandalpatti, Abbey Falls, and Raja’s Seat—and a 2-day Coorg trip plan feels remarkably rich without ever feeling rushed.',
     faqs: [
       {
-        q: 'Can I swap Day 1 and Day 2 in this 2-day Coorg itinerary?',
-        a: 'Yes, though doing Kushalnagar first matches highway arrival naturally from Bangalore and Mysore so you do not drive tiring mountain climbs immediately after highway travel.'
+        q: 'Is 2 days enough to see Coorg?',
+        a: 'Yes. Two well-structured days cover Coorg’s core highlights comfortably if you group Eastern Coorg (Dubare, Bylakuppe Golden Temple, Kaveri Nisargadhama, Harangi/Chiklihole) on Day 1 and Madikeri (Mandalpatti, Abbey Falls, Madikeri Fort, Raja’s Seat) on Day 2. Add a 3rd or 4th day if you want Talacauvery, Iruppu Falls, or Nagarhole.'
       },
       {
-        q: 'If I want to attend Dubare elephant bathing at 9:00 AM, how should I adjust Day 1?',
-        a: 'Start Day 1 at Dubare Elephant Camp at 8:30 AM, move to Namdroling Monastery around 11:15 AM for architecture and Tibetan lunch, and visit Kaveri Nisargadhama or Harangi Dam afterward.'
+        q: 'Can I swap Day 1 and Day 2 in this 2-day Coorg itinerary?',
+        a: 'Yes. However, doing Kushalnagar and Bylakuppe on Day 1 fits highway arrivals from Bengaluru and Mysuru naturally, saving mountain roads for Day 2 morning when you are rested.'
+      },
+      {
+        q: 'If I want to catch Dubare elephant bathing at 9:00 AM, what time should I reach?',
+        a: 'Aim to reach the Dubare riverbank by 8:30 AM so you cross early before ferry queues build for the 9:00 AM – 11:00 AM morning elephant bathing and care session.'
+      },
+      {
+        q: 'How far is Madikeri from Kushalnagar for Day 2 sightseeing?',
+        a: 'Madikeri is approximately 30 km west of Kushalnagar along NH 275—typically a 45 to 55-minute scenic drive.'
       }
     ],
     structuredType: 'Article'
@@ -203,7 +356,7 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
     heroAlt: 'Elephants gathered by the river edge at Dubare Elephant Camp in Kushalnagar',
     heroCaption: 'With three days in Coorg, you never need to choose between catching morning Dubare routines and enjoying unhurried afternoons.',
     publishedDate: '2026-07-15',
-    updatedDate: '2026-11-12',
+    updatedDate: '2026-11-20',
     readTime: '13 min read',
     featuredRank: 8,
     intro: [
@@ -215,9 +368,9 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
         id: 'day-1-river-and-culture',
         heading: 'Day 1: Dubare Elephant Camp, Kaveri Nisargadhama & Bylakuppe Evenings',
         paragraphs: [
-          'Arrive fresh or wake early in Kushalnagar for Dubare’s best morning care window: reach the riverbank by 8:30 AM, cross the Cauvery via ferry or shallow dry-season walkway, and observe Asian elephants bathed and fed by mahouts between 9:00 AM and 11:00 AM. When post-monsoon or winter river flow allows, add a calm family still-water raft ride downstream before lunch.',
+          'Arrive fresh or wake early in Kushalnagar for Dubare’s best morning care window: reach the riverbank (14 km from Kushalnagar) by 8:30 AM, cross the Cauvery via ferry or shallow dry-season walkway, and observe Asian elephants bathed and fed by mahouts between 9:00 AM and 11:00 AM. When post-monsoon or winter river flow allows, add a calm family still-water raft ride downstream before lunch.',
           'Break for a relaxing midday meal in Kushalnagar town, then head barely 4 km to Kaveri Nisargadhama around 2:00 PM. Tall bamboo avenues shade the 64-acre river island naturally during warm afternoons as you stroll across the hanging bridge past spotted deer enclosures.',
-          'Round off Day 1 around 4:15 PM at Namdroling Monastery (Golden Temple) in Bylakuppe, when afternoon tour buses thin out and golden courtyard light settles quietly before an evening campfire back at your resort.'
+          'Round off Day 1 around 4:15 PM at Namdroling Monastery (Golden Temple) in Bylakuppe (6 km from Kushalnagar), when afternoon tour buses thin out and golden courtyard light settles quietly before an evening campfire back at your resort.'
         ]
       },
       {
@@ -226,7 +379,7 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
         paragraphs: [
           'Day 2 intentionally slows the clock—the secret that separates restorative vacations from exhausting car marathons. After an unhurried breakfast on-site, revisit Bylakuppe’s quieter Camp 1 and Camp 4 lanes, cooperative craft arcades, or outer Sera Jey / Sera Mey courtyards respectfully without rushing.',
           'Sit down around noon at The Tibet Kitchen, Kongpo Kitchen, or Peace Restaurant for piping-hot steamed momos, comforting hand-pulled thukpa, and butter tea before returning to your resort during peak afternoon sun. Spend 2:00 PM to 4:15 PM swimming in the outdoor pool, enjoying family rain dance sessions, or challenging kids to carrom and chess indoors.',
-          'Around 4:30 PM, take the serene countryside road toward Chiklihole Reservoir (about 16 km from Kushalnagar) or Harangi Dam Tree Park for uncrowded golden-hour reflection beside the water, returning cleanly before dinner.'
+          'Around 4:30 PM, take the serene countryside road toward Chiklihole Reservoir (about 16 km from Kushalnagar) or Harangi Dam Tree Park (9 km from Kushalnagar) for uncrowded golden-hour reflection beside the water, returning cleanly before dinner.'
         ],
         image: {
           src: '/images/gallery/unnamed (4).webp',
@@ -238,9 +391,14 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
         id: 'day-3-madikeri-highlands',
         heading: 'Day 3: Mandalpatti Peak, Abbey Falls, Madikeri Heritage & Raja’s Seat',
         paragraphs: [
-          'Depart Kushalnagar early around 6:30 AM up the gentle highway climb toward Madikeri to board a local 4x4 jeep at Mandalpatti checkpost while mountain air stays crisp and clear. Descending by 10:45 AM, drive directly to Abbey Falls along cool coffee-and-spice lanes and descend the paved steps to the hanging bridge opposite the waterfall.',
-          'After an unhurried Kodava lunch in Madikeri town, spend 60 minutes exploring two walkable town landmarks: 17th-century Madikeri Fort (including its heritage chapel museum, verifying Tuesday holidays) and the serene 1820 Omkareshwara Temple.',
+          'Depart Kushalnagar early around 6:30 AM up the gentle 30 km highway climb toward Madikeri to board a local 4x4 jeep at Mandalpatti checkpost while mountain air stays crisp and clear. Descending by 10:45 AM, drive directly to Abbey Falls (8 km from Madikeri) along cool coffee-and-spice lanes and descend the paved steps to the hanging bridge opposite the waterfall.',
+          'After an unhurried Kodava lunch in Madikeri town, spend 60 minutes exploring two walkable town landmarks: 17th-century Madikeri Fort (including its heritage chapel museum, verifying Monday/public holiday closures) and the serene 1820 Omkareshwara Temple.',
           'Finish at Raja’s Seat around 5:00 PM as golden dusk settles across the western valleys—or, if Sunday marks your journey back to Bengaluru or Mysuru, place this Madikeri circuit on Day 2 and keep Day 3 local in Kushalnagar so your afternoon highway exit starts effortlessly at 2:30 PM.'
+        ],
+        links: [
+          { label: '2-Day Coorg Trip Plan', to: '/blog/coorg-trip-plan-2-days' },
+          { label: '25 Best Places to Visit in Coorg', to: '/blog/places-to-visit-in-coorg' },
+          { label: 'Best Time to Visit Coorg', to: '/blog/best-time-to-visit-coorg' }
         ]
       },
       {
@@ -257,17 +415,18 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
       { label: 'Day 3', value: 'Mandalpatti Peak, Abbey Falls, Madikeri Fort & Raja’s Seat' }
     ],
     relatedSlugs: [
-      '2-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
+      'places-to-visit-in-coorg',
+      'best-time-to-visit-coorg',
       '4-day-coorg-itinerary',
       'bylakuppe-tibetan-settlement-guide',
-      'tibetan-food-in-bylakuppe',
-      'mandalpatti-guide',
       'where-to-stay-in-coorg'
     ],
     stayRecommendation: {
       heading: 'Ideal for Slow 3-Day Family Stays',
       text: 'At Dreamy Vacations in Kushalnagar, multi-bed rooms like Superior Deluxe Double (4 adults) and Triple Room (6 adults) pair naturally with outdoor pool afternoons, indoor games, and evening campfires between sightseeing days.',
       links: [
+        { label: 'Family Rooms in Coorg', to: '/rooms/families' },
         { label: 'Superior Deluxe Double', to: '/rooms/superior-deluxe-double' },
         { label: 'Triple Room for Groups', to: '/rooms/triple-room' }
       ]
@@ -297,7 +456,7 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
     heroAlt: 'Water cascading over dark stone tiers surrounded by forest canopy at Abbey Falls in Coorg',
     heroCaption: 'A four-day schedule stretches effortlessly past Madikeri into the western Brahmagiri valleys of Bhagamandala and Talacauvery.',
     publishedDate: '2026-08-22',
-    updatedDate: '2026-11-12',
+    updatedDate: '2026-11-20',
     readTime: '11 min read',
     intro: [
       'When your calendar gives you four full days in Kodagu, you finally have the runway to connect the full east-to-west arc of the River Cauvery: from its spiritual headwaters high in the Brahmagiri hills at Talacauvery all the way down to Kaveri Nisargadhama and Dubare in Kushalnagar.'
@@ -310,38 +469,45 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
           {
             heading: 'Days 1 & 2: Eastern Coorg Gateway (Kushalnagar & Bylakuppe)',
             paragraphs: [
-              'Spend Day 1 at Dubare Elephant Camp, Kaveri Nisargadhama, and Chiklihole Reservoir, and dedicate Day 2 to Namdroling Monastery, Bylakuppe Tibetan food and handicrafts, Harangi Dam, and peaceful resort leisure.'
+              'Spend Day 1 at Dubare Elephant Camp (14 km from Kushalnagar), Kaveri Nisargadhama (4 km), and Chiklihole Reservoir (16 km), and dedicate Day 2 to Namdroling Monastery (6 km), Bylakuppe Tibetan food and handicrafts, Harangi Dam (9 km), and peaceful resort leisure.'
             ]
           },
           {
             heading: 'Day 3: Madikeri Adventure (Mandalpatti, Abbey Falls & Raja’s Seat)',
             paragraphs: [
-              'Dedicate Day 3 morning to Mandalpatti Peak by 4x4 jeep, afternoon coffee-trail walks down to Abbey Falls, Madikeri Fort, and evening sunset at Raja’s Seat.'
+              'Dedicate Day 3 morning to Mandalpatti Peak by 4x4 jeep, afternoon coffee-trail walks down to Abbey Falls (8 km from Madikeri), Madikeri Fort, and evening sunset at Raja’s Seat.'
             ]
           },
           {
             heading: 'Day 4: Bhagamandala Sangam, Talacauvery & Estate Drives',
             paragraphs: [
-              'Allow a dedicated morning-to-afternoon run southwest past Madikeri to Bhagamandala (Triveni Sangam confluence and Sri Bhagandeshwara Temple) and continue ascending the winding Brahmagiri slope to Talacauvery, revered as the source of the Cauvery River. Return through scenic Siddapur–Kushalnagar coffee corridors.'
+              'Allow a dedicated morning-to-afternoon run southwest past Madikeri to Bhagamandala (36 km from Madikeri / ~66 km from Kushalnagar) for the Triveni Sangam confluence and Sri Bhagandeshwara Temple, then ascend 8 km up the Brahmagiri slope to Talacauvery, revered as the source of the Cauvery River. Return through scenic Siddapur–Kushalnagar coffee corridors.'
             ]
           }
+        ],
+        links: [
+          { label: '25 Best Places to Visit in Coorg', to: '/blog/places-to-visit-in-coorg' },
+          { label: '2-Day Coorg Trip Plan', to: '/blog/coorg-trip-plan-2-days' },
+          { label: 'Where to Stay in Coorg', to: '/blog/where-to-stay-in-coorg' }
         ]
       },
       {
         id: 'single-base-vs-split-stay',
         heading: 'One Base vs Splitting Stay on a 4-Day Trip',
         paragraphs: [
-          'For most travelers prioritizing comfort over checking out midway, keeping one base in Kushalnagar still works cleanly—simply plan Day 4 as a pleasant full-day western drive (~75 km each way to Talacauvery). However, if you intend to trek South Coorg (Iruppu Falls or Brahmagiri sanctuary trails near Virajpet/Kutta) after Day 3, moving to a southern homestay for the final night makes sense.'
+          'For most travelers prioritizing comfort over checking out midway, keeping one base in Kushalnagar still works cleanly—simply plan Day 4 as a pleasant full-day western drive (~75 km each way to Talacauvery). However, if you intend to explore South Coorg (Iruppu Falls or Nagarhole Tiger Reserve near Virajpet/Kutta) after Day 3, moving to a southern stay for the final night reduces driving time.'
         ]
       }
     ],
     highlights: [
       { label: 'Eastern Base Stops', value: 'Bylakuppe, Dubare, Nisargadhama, Harangi, Chiklihole' },
       { label: 'Western Circuit', value: 'Mandalpatti, Abbey Falls, Madikeri Fort, Raja’s Seat' },
-      { label: 'Day 4 Extension', value: 'Bhagamandala & Talacauvery (Brahmagiri hills)' }
+      { label: 'Day 4 Extension', value: 'Bhagamandala & Talacauvery (~75 km from Kushalnagar)' }
     ],
     relatedSlugs: [
       '3-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
+      'places-to-visit-in-coorg',
       'talacauvery-and-bhagamandala-travel-guide',
       'madikeri-fort-and-omkareshwara-temple-guide',
       'coffee-estates-and-scenic-drives-coorg'
@@ -367,7 +533,7 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
     heroAlt: 'Peaceful pastel cottage entrance with timber porch chairs beneath pink bougainvillea at Dreamy Vacations',
     heroCaption: 'Starting your weekend in Kushalnagar lets you step straight out onto quiet garden porches without Friday night mountain climbs.',
     publishedDate: '2026-07-15',
-    updatedDate: '2026-11-12',
+    updatedDate: '2026-11-20',
     readTime: '7 min read',
     intro: [
       'A great 2-night weekend break leaves you refreshed on Monday rather than sore from fighting tight mountain hairpin traffic. The secret to an effortless Coorg weekend trip is anchoring Friday evening and Saturday inside flat, accessible Kushalnagar before rising early Sunday for a crisp Madikeri morning loop.'
@@ -380,6 +546,10 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
           'Friday Evening: Leave Bengaluru/Mysuru early afternoon, arrive smoothly along NH 275 in Kushalnagar before late night, unwind by a campfire.',
           'Saturday Morning–Evening: Dubare Elephant Camp at 8:30 AM, Namdroling Monastery & Tibetan lunch at noon, Kaveri Nisargadhama or Chiklihole sunset, followed by evening swimming pool & dinner.',
           'Sunday Morning–Afternoon: Early 6:30 AM drive to Mandalpatti Peak & Abbey Falls, Madikeri lunch, then smooth afternoon descent back east via Kushalnagar.'
+        ],
+        links: [
+          { label: 'Complete 2-Day Coorg Trip Plan', to: '/blog/coorg-trip-plan-2-days' },
+          { label: '25 Best Places to Visit in Coorg', to: '/blog/places-to-visit-in-coorg' }
         ]
       }
     ],
@@ -389,10 +559,10 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
       { label: 'Sunday Focus', value: 'Early Mandalpatti & Abbey Falls + smooth highway exit' }
     ],
     relatedSlugs: [
+      'coorg-trip-plan-2-days',
       'coorg-from-bangalore',
-      '2-day-coorg-itinerary',
       'kushalnagar-vs-madikeri',
-      'best-resorts-in-kushalnagar'
+      'where-to-stay-in-coorg'
     ],
     conclusion: 'Putting Kushalnagar first on Friday keeps weekend fatigue low while fitting Coorg’s top cultural, wildlife, and peak highlights cleanly into 48 hours.',
     faqs: [
@@ -415,7 +585,7 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
     heroAlt: 'Spacious wooden-ceiling Deluxe Family Room at Dreamy Vacations in Kushalnagar',
     heroCaption: 'Spacious rooms, level lawns, and short driving loops help kids, parents, and grandparents travel together comfortably.',
     publishedDate: '2026-07-15',
-    updatedDate: '2026-11-12',
+    updatedDate: '2026-11-20',
     readTime: '9 min read',
     intro: [
       'Traveling through Kodagu with grandparents, teenagers, and young children calls for a very different itinerary from a solo backpacker route. Long serpentine hill drives can trigger motion sickness, steep waterfall steps tire aging knees, and cramped town hotel rooms leave families stuck indoors once rain or dusk sets in.',
@@ -426,10 +596,10 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
         id: 'comfort-first-attractions',
         heading: 'Accessible Sights Every Age Group Enjoys',
         bullets: [
-          'Kaveri Nisargadhama: Flat shaded footpaths, spotted deer enclosures, and gentle Cauvery views suitable for both strollers and unhurried walking.',
-          'Namdroling Monastery (Golden Temple): Wide level courtyards, peaceful temple interiors, and clean nearby Tibetan/South Indian dining.',
-          'Harangi Dam & Tree Park: Paved dam viewing gardens with shaded benches and simple children’s swings.',
-          'Dubare Elephant Camp: High excitement for kids watching morning elephant bathing; note the brief riverboat transfer and sandy slope.'
+          'Kaveri Nisargadhama (4 km from Kushalnagar): Flat shaded footpaths, spotted deer enclosures, and gentle Cauvery views suitable for both strollers and unhurried walking.',
+          'Namdroling Monastery / Golden Temple (6 km from Kushalnagar): Wide level courtyards, peaceful temple interiors, and clean nearby Tibetan/South Indian dining.',
+          'Harangi Dam & Tree Park (9 km from Kushalnagar): Paved dam viewing gardens with shaded benches and simple children’s swings.',
+          'Dubare Elephant Camp (14 km from Kushalnagar): High excitement for kids watching morning elephant bathing; note the brief riverboat transfer and sandy slope.'
         ]
       },
       {
@@ -437,6 +607,11 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
         heading: 'Handling Madikeri Viewpoints Gently',
         paragraphs: [
           'Raja’s Seat’s paved summit gardens are very welcoming for seniors and children at sunset. Conversely, skip bumpy Mandalpatti 4x4 jeep climbs if elderly relatives have back issues or travel with infants—Abbey Falls (about 200 concrete steps with handrails) can be taken slowly or enjoyed selectively by energetic family members.'
+        ],
+        links: [
+          { label: 'Explore Family Rooms in Coorg', to: '/rooms/families' },
+          { label: '2-Day Coorg Trip Plan', to: '/blog/coorg-trip-plan-2-days' },
+          { label: '25 Best Places to Visit in Coorg', to: '/blog/places-to-visit-in-coorg' }
         ]
       }
     ],
@@ -447,14 +622,16 @@ export const ITINERARY_POSTS: Record<string, BlogPost> = {
     ],
     relatedSlugs: [
       'coorg-with-kids',
-      'best-place-to-stay-in-coorg',
+      'where-to-stay-in-coorg',
+      'coorg-trip-plan-2-days',
       '3-day-coorg-itinerary',
       'best-hotels-in-kushalnagar'
     ],
     stayRecommendation: {
       heading: 'Multi-Bed Family Accommodations at Dreamy Vacations',
-      text: 'Dreamy Vacations in Chikkathur offers Standard Family Rooms, balcony-equipped Deluxe Family Rooms, Superior Deluxe Double rooms (2 double beds for 4 adults), and spacious Triple Rooms (3 double beds for up to 6 adults), paired with freshly prepared meals, shallow pool zone, indoor games, and evening campfires.',
+      text: 'Dreamy Vacations in Chikkathur near Kushalnagar offers Standard Family Rooms, balcony-equipped Deluxe Family Rooms, Superior Deluxe Double rooms (2 double beds for 4 adults), and spacious Triple Rooms (3 double beds for up to 6 adults), paired with outdoor swimming pool access, rain dance, indoor games, Wi-Fi, on-site parking, and evening campfires.',
       links: [
+        { label: 'View Family Rooms in Coorg', to: '/rooms/families' },
         { label: 'Superior Deluxe Double', to: '/rooms/superior-deluxe-double' },
         { label: 'Triple Room (6 Adults)', to: '/rooms/triple-room' }
       ]

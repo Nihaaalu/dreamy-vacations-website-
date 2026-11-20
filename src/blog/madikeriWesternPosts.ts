@@ -43,7 +43,7 @@ export const MADIKERI_WESTERN_POSTS: Record<string, BlogPost> = {
     relatedSlugs: [
       'abbey-falls-guide',
       'rajas-seat-madikeri-guide',
-      '2-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
       'best-time-to-visit-coorg'
     ],
     conclusion: 'Pair an early morning Mandalpatti climb with afternoon Abbey Falls and sunset Raja’s Seat before cruising gently back down to Kushalnagar.',
@@ -150,7 +150,7 @@ export const MADIKERI_WESTERN_POSTS: Record<string, BlogPost> = {
     relatedSlugs: [
       'madikeri-fort-and-omkareshwara-temple-guide',
       'abbey-falls-guide',
-      '2-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
       '3-day-coorg-itinerary'
     ],
     conclusion: 'Gentle paths make Raja’s Seat welcoming for grandparents and young kids alike—the quintessential calm closing note to any Madikeri day excursion.',

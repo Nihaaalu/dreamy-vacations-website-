@@ -183,9 +183,11 @@ const ATTRACTIONS: Attraction[] = [
 
 // Related articles list
 const RELATED_ARTICLES = [
-  { name: 'Complete Coorg Travel Guide', path: '/blog/complete-coorg-travel-guide' },
+  { name: '25 Best Places to Visit in Coorg', path: '/blog/places-to-visit-in-coorg' },
+  { name: 'Coorg Trip Plan for 2 Days', path: '/blog/coorg-trip-plan-2-days' },
+  { name: 'Best Time to Visit Coorg', path: '/blog/best-time-to-visit-coorg' },
+  { name: 'Where to Stay in Coorg', path: '/blog/where-to-stay-in-coorg' },
   { name: 'Bylakuppe & Tibetan Settlement Guide', path: '/blog/bylakuppe-tibetan-settlement-guide' },
-  { name: '2-Day Coorg Itinerary', path: '/blog/2-day-coorg-itinerary' },
   { name: '3-Day Coorg Itinerary', path: '/blog/3-day-coorg-itinerary' }
 ];
 
@@ -492,22 +494,6 @@ export default function TravelGuide() {
 
   return (
     <div className="w-full bg-[#0d0d0d] text-white font-sans min-h-screen relative overflow-x-hidden" id="travel-guide-root" onClick={handleContainerClick}>
-      
-      {/* JSON-LD FAQ SCHEMA FOR SEO ACCREDITATION */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": faqs.map(faq => ({
-            "@type": "Question",
-            "name": faq.q,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": faq.a
-            }
-          }))
-        })}
-      </script>
 
       {/* STICKY MINI PLANNER (Desktop Only) */}
       <div className="hidden lg:block fixed top-32 right-6 xl:right-12 w-60 bg-[#121212]/95 backdrop-blur-md border border-[#6b5b4b]/30 rounded-[24px] p-5 shadow-[0_20px_40px_rgba(0,0,0,0.5)] z-40">

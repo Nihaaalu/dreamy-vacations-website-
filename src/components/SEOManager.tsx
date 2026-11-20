@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { BLOG_POSTS, CANONICAL_BLOG_POSTS, resolveCanonicalBlogSlug } from '../blogData';
+import { GUIDES_DATA } from '../guidesData';
 import { decodeTrip } from '../lib/tripHelper';
 import { ROOMS } from '../data';
 
 const PRIMARY_ORIGIN = 'https://www.dreamyvacations.in';
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/4BtwEt1ggcWm6x5v9';
 
 export function getProductionOrigin(): string {
   return PRIMARY_ORIGIN;
@@ -40,117 +42,113 @@ export default function SEOManager() {
     let canonical = `${origin}${cleanPath || '/'}`;
 
     // Defaults
-    let title = 'Dreamy Vacations | Family Resort in Kushalnagar, Coorg';
-    let description = 'Dreamy Vacations offers comfortable family and group accommodation in Kushalnagar, Coorg with swimming pool, rain dance, spacious rooms, and serene surroundings.';
-    let ogImage = `${origin}/images/logo/logo.png`;
+    let title = 'Dreamy Vacations | Family & Group Resort in Kushalnagar, Coorg';
+    let description =
+      'Dreamy Vacations is a quiet family and group accommodation property in Chikkathur Village near Kushalnagar, Coorg with swimming pool, rain dance, indoor games, and spacious rooms.';
+    let ogImage = `${origin}/images/rooms/df1/df1.jpeg`;
     let ogType = 'website';
-    let schemas: any[] = [];
+    let schemas: Record<string, unknown>[] = [];
 
-    // Base Resort & Organization Schema
-    const baseResortSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Resort',
-      '@id': `${origin}/#resort`,
-      'name': 'Dreamy Vacations',
-      'url': origin,
-      'logo': `${origin}/images/logo/logo.png`,
-      'image': `${origin}/images/rooms/df1/df1.jpeg`,
-      'description': description,
-      'telephone': '+91 99029 60484',
-      'address': {
+    const organizationSchema = {
+      '@type': 'Organization',
+      '@id': `${origin}/#organization`,
+      name: 'Dreamy Vacations',
+      url: `${origin}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${origin}/images/logo/logo.png`,
+      },
+      telephone: '+91 99029 60484',
+    };
+
+    const websiteSchema = {
+      '@type': 'WebSite',
+      '@id': `${origin}/#website`,
+      url: `${origin}/`,
+      name: 'Dreamy Vacations',
+      publisher: { '@id': `${origin}/#organization` },
+      inLanguage: 'en-IN',
+    };
+
+    const lodgingBusinessSchema = {
+      '@type': 'LodgingBusiness',
+      '@id': `${origin}/#lodging`,
+      name: 'Dreamy Vacations',
+      url: `${origin}/`,
+      logo: `${origin}/images/logo/logo.png`,
+      image: [
+        `${origin}/images/rooms/df1/df1.jpeg`,
+        `${origin}/images/gallery/unnamed (1).webp`,
+        `${origin}/images/gallery/unnamed (4).webp`,
+      ],
+      description:
+        'Family and group accommodation property in Chikkathur Village near Kushalnagar, Coorg with couples rooms, multi-bed family rooms, group stays, outdoor swimming pool, rain dance, indoor games, Wi-Fi, and on-site parking.',
+      telephone: '+91 99029 60484',
+      hasMap: GOOGLE_MAPS_URL,
+      checkinTime: '12:00',
+      checkoutTime: '11:00',
+      address: {
         '@type': 'PostalAddress',
-        'streetAddress': '#51/5, Behind Chikkathur Govt School, Chikkathur Village',
-        'addressLocality': 'Kushalnagar, Kudumangalore',
-        'addressRegion': 'Karnataka',
-        'postalCode': '571232',
-        'addressCountry': 'IN'
+        streetAddress: '#51/5, Behind Chikkathur Govt School, Chikkathur Village',
+        addressLocality: 'Kushalnagar, Kudumangalore',
+        addressRegion: 'Karnataka',
+        postalCode: '571232',
+        addressCountry: 'IN',
       },
-      'geo': {
+      geo: {
         '@type': 'GeoCoordinates',
-        'latitude': 12.486260,
-        'longitude': 75.940539
+        latitude: 12.48626,
+        longitude: 75.940539,
       },
-      'amenityFeature': [
-        { '@type': 'LocationFeatureSpecification', 'name': 'Swimming Pool', 'value': true },
-        { '@type': 'LocationFeatureSpecification', 'name': 'Rain Dance', 'value': true },
-        { '@type': 'LocationFeatureSpecification', 'name': 'Indoor Games', 'value': true },
-        { '@type': 'LocationFeatureSpecification', 'name': 'Free Wi-Fi', 'value': true },
-        { '@type': 'LocationFeatureSpecification', 'name': 'Free On-site Parking', 'value': true }
-      ]
+      amenityFeature: [
+        { '@type': 'LocationFeatureSpecification', name: 'Outdoor Swimming Pool', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Rain Dance Area', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Indoor Games', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Campfire Area (Subject to Weather & Availability)', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Free Wi-Fi', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Free On-site Parking', value: true },
+      ],
     };
 
     // Route-specific configurations
     if (path === '/') {
-      title = 'Dreamy Vacations | Family Resort in Kushalnagar, Coorg';
-      description = 'Dreamy Vacations offers comfortable family and group accommodation in Kushalnagar, Coorg with swimming pool, rain dance, spacious rooms, and serene surroundings.';
-      ogImage = `${origin}/images/logo/logo.png`;
-
-      const homeFaqSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        'mainEntity': [
-          {
-            '@type': 'Question',
-            'name': 'What accommodations are available at Dreamy Vacations, Kushalnagar?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'We offer Standard Family Rooms, Deluxe Family Rooms with balconies, Superior Deluxe Double bedrooms, and Triple Bed Rooms suitable for families, couples, and corporate groups.'
-            }
-          },
-          {
-            '@type': 'Question',
-            'name': 'Does Dreamy Vacations have a swimming pool and campfire?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'Yes, Dreamy Vacations features a clean outdoor swimming pool, high-tech rain dance arena with ambient sound, and evening campfire setups.'
-            }
-          },
-          {
-            '@type': 'Question',
-            'name': 'How far is the resort from the Golden Temple and Dubare Camp?',
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': 'Namdroling Golden Temple in Bylakuppe is approximately 12 minutes drive (6 km), and Dubare Elephant Camp is approximately 20 minutes drive (14 km).'
-            }
-          }
-        ]
-      };
-
-      schemas = [baseResortSchema, homeFaqSchema];
-
+      title = 'Dreamy Vacations | Family & Group Resort in Kushalnagar, Coorg';
+      description =
+        'Stay at Dreamy Vacations in Chikkathur Village near Kushalnagar, Coorg. Explore rooms for couples, families, and groups with swimming pool, rain dance, and access to Bylakuppe, Dubare, and Madikeri.';
+      ogImage = `${origin}/images/rooms/df1/df1.jpeg`;
+      schemas = [organizationSchema, websiteSchema, lodgingBusinessSchema];
     } else if (path === '/rooms') {
-      title = 'Accommodations & Suites | Dreamy Vacations Kushalnagar, Coorg';
-      description = 'Explore comfortable rooms and family accommodations at Dreamy Vacations, Kushalnagar. Standard family suites, deluxe rooms, and group accommodation options.';
+      title = 'Coorg Resort & Accommodation Near Kushalnagar | Dreamy Vacations';
+      description =
+        'Explore couples rooms, spacious family suites, and group accommodations at Dreamy Vacations near Kushalnagar, Coorg—with swimming pool, rain dance, indoor games, and easy access to Bylakuppe and Madikeri.';
       ogImage = `${origin}/images/rooms/df1/df1.jpeg`;
 
       const roomsBreadcrumb = {
-        '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
-        'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': origin },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Rooms', 'item': `${origin}/rooms` }
-        ]
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+          { '@type': 'ListItem', position: 2, name: 'Rooms', item: `${origin}/rooms` },
+        ],
       };
 
-      schemas = [baseResortSchema, roomsBreadcrumb];
-
+      schemas = [lodgingBusinessSchema, roomsBreadcrumb];
     } else if (path === '/rooms/couples' || path === '/rooms/families' || path === '/rooms/group-booking') {
       const categoryMetaMap: Record<string, { title: string; desc: string; name: string; img: string }> = {
         '/rooms/couples': {
-          title: 'Rooms for Couples | Dreamy Vacations Kushalnagar, Coorg',
-          desc: 'Peaceful cottages for couples in Kushalnagar, Coorg with double beds, private ensuite bathrooms, swimming pool access, and green courtyard views.',
+          title: 'Rooms for Couples in Coorg | Dreamy Vacations, Kushalnagar',
+          desc: 'Peaceful double-bed cottages for couples near Kushalnagar, Coorg with private ensuite bathrooms, swimming pool access, and calm Chikkathur village surroundings.',
           name: 'Rooms for Couples',
           img: `${origin}/images/rooms/df1/df1.jpeg`,
         },
         '/rooms/families': {
-          title: 'Rooms for Families | Dreamy Vacations Kushalnagar, Coorg',
-          desc: 'Spacious single, twin, and triple-bed family accommodations in Kushalnagar with sofa seating, swimming pool, rain dance, and indoor games.',
-          name: 'Rooms for Families',
+          title: 'Family Rooms in Coorg | Dreamy Vacations, Kushalnagar',
+          desc: 'Explore family accommodation at Dreamy Vacations near Kushalnagar, Coorg, with spacious room options, pool access and family-friendly facilities.',
+          name: 'Family Rooms in Coorg',
           img: `${origin}/images/gallery/unnamed (1).webp`,
         },
         '/rooms/group-booking': {
-          title: 'Group Booking & Cottage Blocks | Dreamy Vacations Coorg',
-          desc: 'Group accommodations in Kushalnagar, Coorg for friends, reunions, and corporate teams with adjoining cottages, custom dining, campfire, and coach parking.',
+          title: 'Group Accommodation & Cottage Stays in Coorg | Dreamy Vacations',
+          desc: 'Group accommodations near Kushalnagar, Coorg for friends, reunions, and corporate teams with multi-bed rooms, adjoining cottages, custom dining, campfire, and coach parking.',
           name: 'Group Booking',
           img: `${origin}/images/gallery/unnamed (3).webp`,
         },
@@ -161,113 +159,199 @@ export default function SEOManager() {
       ogImage = catMeta.img;
 
       const catBreadcrumbs = {
-        '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
-        'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': origin },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Rooms', 'item': `${origin}/rooms` },
-          { '@type': 'ListItem', 'position': 3, 'name': catMeta.name, 'item': canonical }
-        ]
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+          { '@type': 'ListItem', position: 2, name: 'Rooms', item: `${origin}/rooms` },
+          { '@type': 'ListItem', position: 3, name: catMeta.name, item: canonical },
+        ],
       };
 
-      schemas = [baseResortSchema, catBreadcrumbs];
-
+      schemas = [lodgingBusinessSchema, catBreadcrumbs];
     } else if (path.startsWith('/rooms/')) {
       const roomId = path.split('/rooms/')[1]?.toLowerCase();
-      const matchedRoom = ROOMS.find(r => {
+      const matchedRoom = ROOMS.find((r) => {
         const nId = r.id.toLowerCase();
         return nId === roomId || nId.replace('-room', '') === roomId || roomId.replace('-room', '') === nId;
       });
 
       if (matchedRoom) {
-        title = `${matchedRoom.name} | Dreamy Vacations Kushalnagar Coorg`;
-        description = `${matchedRoom.description} Capacity: ${matchedRoom.occupancy}. Enquire via WhatsApp for availability at Dreamy Vacations in Kushalnagar.`;
-        ogImage = matchedRoom.images[0]?.startsWith('http') ? matchedRoom.images[0] : `${origin}${matchedRoom.images[0]}`;
+        title = `${matchedRoom.name} | Dreamy Vacations Kushalnagar, Coorg`;
+        description = `${matchedRoom.description} Capacity: ${matchedRoom.occupancy}. Enquire via WhatsApp for availability at Dreamy Vacations in Kushalnagar, Coorg.`;
+        ogImage = matchedRoom.images[0]?.startsWith('http')
+          ? matchedRoom.images[0]
+          : `${origin}${matchedRoom.images[0]}`;
 
         const roomSchema = {
-          '@context': 'https://schema.org',
           '@type': 'HotelRoom',
-          'name': matchedRoom.name,
-          'description': matchedRoom.longDescription,
-          'image': ogImage,
-          'occupancy': {
+          name: matchedRoom.name,
+          description: matchedRoom.longDescription,
+          image: ogImage,
+          occupancy: {
             '@type': 'QuantitativeValue',
-            'value': matchedRoom.occupancy
+            value: matchedRoom.occupancy,
           },
-          'floorSize': {
+          floorSize: {
             '@type': 'QuantitativeValue',
-            'value': matchedRoom.size
-          }
+            value: matchedRoom.size,
+          },
+          containedInPlace: {
+            '@id': `${origin}/#lodging`,
+          },
         };
 
         const breadcrumbs = {
-          '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
-          'itemListElement': [
-            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': origin },
-            { '@type': 'ListItem', 'position': 2, 'name': 'Rooms', 'item': `${origin}/rooms` },
-            { '@type': 'ListItem', 'position': 3, 'name': matchedRoom.name, 'item': canonical }
-          ]
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'Rooms', item: `${origin}/rooms` },
+            { '@type': 'ListItem', position: 3, name: matchedRoom.name, item: canonical },
+          ],
         };
 
         schemas = [roomSchema, breadcrumbs];
       }
-
     } else if (path === '/group-booking') {
-      title = 'Corporate Retreats & Group Stays | Dreamy Vacations Coorg';
-      description = 'Get custom group accommodation and corporate packages at Dreamy Vacations, Kushalnagar. Custom traditional meals, private bonfires, and rain dance access.';
+      title = 'Group Booking & Corporate Retreats in Coorg | Dreamy Vacations';
+      description =
+        'Enquire for group stays, family reunions, and corporate retreats at Dreamy Vacations near Kushalnagar, Coorg—with multi-bed rooms, custom dining, campfire, and coach parking.';
       ogImage = `${origin}/images/gallery/unnamed (3).webp`;
-
+      schemas = [
+        lodgingBusinessSchema,
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'Group Booking', item: `${origin}/group-booking` },
+          ],
+        },
+      ];
     } else if (path === '/gallery') {
-      title = 'Resort Photo Gallery | Dreamy Vacations Kushalnagar';
-      description = 'Browse photos of Dreamy Vacations in Kushalnagar, Coorg. View our swimming pool, family rooms, rain dance arena, green landscapes, and ambient night views.';
+      title = 'Photo Gallery | Dreamy Vacations Kushalnagar, Coorg';
+      description =
+        'Browse real photographs of Dreamy Vacations in Chikkathur Village near Kushalnagar, Coorg—including guest rooms, cottages, outdoor swimming pool, indoor games, and evening courtyard views.';
       ogImage = `${origin}/images/gallery/unnamed.webp`;
-
+      schemas = [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'Gallery', item: `${origin}/gallery` },
+          ],
+        },
+      ];
     } else if (path === '/about') {
-      title = 'About Us | Heritage & Hospitality at Dreamy Vacations Coorg';
-      description = 'Discover Dreamy Vacations in Chikkathur Village, Kushalnagar. Learn about our peaceful family accommodation, hospitality philosophy, and prime Coorg location.';
-      ogImage = `${origin}/images/logo/logo.png`;
-      schemas = [baseResortSchema];
-
+      title = 'About Dreamy Vacations | Kushalnagar, Coorg Stay';
+      description =
+        'Learn about Dreamy Vacations in Chikkathur Village near Kushalnagar, Coorg—our family-friendly accommodation, on-site facilities, and location near Bylakuppe and Madikeri.';
+      ogImage = `${origin}/images/gallery/unnamed (1).webp`;
+      schemas = [
+        organizationSchema,
+        lodgingBusinessSchema,
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'About', item: `${origin}/about` },
+          ],
+        },
+      ];
     } else if (path === '/contact') {
-      title = 'Contact & GPS Location | Dreamy Vacations Kushalnagar Coorg';
-      description = 'Find Dreamy Vacations in Kushalnagar, Coorg. Get phone numbers (+91 99029 60484), WhatsApp support, Google Maps directions, and GPS coordinates.';
+      title = 'Contact & Directions | Dreamy Vacations Kushalnagar, Coorg';
+      description =
+        'Contact Dreamy Vacations in Chikkathur Village, Kushalnagar, Coorg. Phone and WhatsApp (+91 99029 60484), full address, GPS coordinates, and Google Maps directions.';
       ogImage = `${origin}/images/logo/logo.png`;
-      schemas = [baseResortSchema];
-
+      schemas = [
+        lodgingBusinessSchema,
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'Contact', item: `${origin}/contact` },
+          ],
+        },
+      ];
     } else if (path === '/booking') {
-      title = 'Direct Reservation & Availability | Dreamy Vacations Coorg';
-      description = 'Check room availability and book your family or group stay at Dreamy Vacations, Kushalnagar, Coorg. Instant WhatsApp confirmation with zero booking fee.';
+      title = 'Room Availability & Stay Enquiry | Dreamy Vacations Coorg';
+      description =
+        'Send a direct room availability enquiry for Dreamy Vacations in Kushalnagar, Coorg via WhatsApp or phone (+91 99029 60484) for couples, families, and groups.';
       ogImage = `${origin}/images/rooms/df1/df1.jpeg`;
-
+      schemas = [
+        lodgingBusinessSchema,
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'Stay Enquiry', item: `${origin}/booking` },
+          ],
+        },
+      ];
     } else if (path === '/travel-guide' || path.startsWith('/travel-guide/')) {
-      title = 'Coorg Travel Guide & Attractions | Dreamy Vacations';
-      description = 'Complete travel guide to Kushalnagar and Coorg. Distances, timings, and travel tips for Golden Temple, Dubare Elephant Camp, Nisargadhama, and Harangi Dam.';
+      const guideSlug = path.startsWith('/travel-guide/')
+        ? path.split('/travel-guide/')[1]?.replace(/\/$/, '')
+        : '';
+      const matchedGuide = guideSlug && GUIDES_DATA[guideSlug] ? GUIDES_DATA[guideSlug] : null;
+      title = matchedGuide
+        ? `${matchedGuide.title} | Dreamy Vacations Coorg`
+        : 'Coorg Attractions & Travel Guide | Dreamy Vacations, Kushalnagar';
+      description = matchedGuide
+        ? matchedGuide.subtitle
+        : 'Explore Kushalnagar and Coorg attractions with practical distances, best visiting hours, and travel tips for Golden Temple, Dubare Elephant Camp, Nisargadhama, Harangi Dam, and Madikeri.';
       ogImage = `${origin}/images/places/gold.jpeg`;
-
+      schemas = [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: matchedGuide
+            ? [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+                { '@type': 'ListItem', position: 2, name: 'Travel Guide', item: `${origin}/travel-guide` },
+                { '@type': 'ListItem', position: 3, name: matchedGuide.title, item: canonical },
+              ]
+            : [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+                { '@type': 'ListItem', position: 2, name: 'Travel Guide', item: `${origin}/travel-guide` },
+              ],
+        },
+      ];
     } else if (path === '/trip-planner') {
-      title = 'Custom Coorg Trip Planner & Itinerary Generator | Dreamy Vacations';
-      description = 'Generate a customized Coorg travel itinerary based on your arrival dates and group size. Download printable PDF guides and plan your vacation effortlessly.';
+      title = 'Coorg Trip Planner & Custom Itinerary Builder | Dreamy Vacations';
+      description =
+        'Build a customized Coorg travel itinerary based on your dates and group size, covering Kushalnagar, Bylakuppe, Dubare, and Madikeri with printable PDF export.';
       ogImage = `${origin}/images/places/dubare.jpeg`;
-
+      schemas = [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'Trip Planner', item: `${origin}/trip-planner` },
+          ],
+        },
+      ];
     } else if (path === '/blog') {
-      title = 'Coorg Travel Guides, Tibetan Heritage & Itineraries | Dreamy Vacations';
-      description = 'Discover the other side of Coorg with comprehensive travel guides covering Bylakuppe Tibetan culture, Kushalnagar attractions, Madikeri highlands, and realistic itineraries.';
+      title = 'Coorg Travel Guides, Itineraries & Local Research | Dreamy Vacations';
+      description =
+        'In-depth Coorg travel guides from Kushalnagar: 2-day and 3-day Coorg trip plans, 25 best places to visit, best time to visit by month, where to stay, and Bylakuppe Tibetan culture.';
       ogImage = `${origin}/images/places/gold.jpeg`;
 
       const blogListSchema = {
-        '@context': 'https://schema.org',
         '@type': 'Blog',
-        'name': 'Dreamy Vacations Coorg & Kushalnagar Travel Publication',
-        'url': `${origin}/blog`,
-        'description': description,
-        'publisher': {
-          '@id': `${origin}/#resort`
-        }
+        name: 'Dreamy Vacations Coorg & Kushalnagar Travel Publication',
+        url: `${origin}/blog`,
+        description,
+        publisher: {
+          '@id': `${origin}/#organization`,
+        },
       };
 
-      schemas = [blogListSchema];
+      const blogBreadcrumb = {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+          { '@type': 'ListItem', position: 2, name: 'Blog & Travel Guides', item: `${origin}/blog` },
+        ],
+      };
 
+      schemas = [organizationSchema, blogListSchema, blogBreadcrumb];
     } else if (path.startsWith('/blog/')) {
       const slug = path.split('/blog/')[1]?.replace(/\/$/, '');
       const resolvedSlug = resolveCanonicalBlogSlug(slug);
@@ -276,75 +360,56 @@ export default function SEOManager() {
       if (post) {
         const canonicalSlug = post.canonicalSlug || resolvedSlug;
         canonical = `${origin}/blog/${canonicalSlug}`;
-        title = `${post.seoTitle} | Dreamy Vacations`;
+        title = post.seoTitle;
         description = post.metaDesc;
         ogImage = post.heroImg.startsWith('http') ? post.heroImg : `${origin}${post.heroImg}`;
         ogType = 'article';
 
         const articleSchema = {
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          'headline': post.title,
-          'description': post.metaDesc,
-          'image': [ogImage],
-          'datePublished': `${post.publishedDate}T08:00:00+05:30`,
-          'dateModified': `${post.updatedDate}T09:00:00+05:30`,
-          'articleSection': post.category,
-          'keywords': [post.primaryKeyword, ...post.secondaryKeywords].join(', '),
-          'author': {
+          '@type': post.structuredType === 'Article' ? 'Article' : 'BlogPosting',
+          headline: post.title,
+          description: post.metaDesc,
+          image: [ogImage],
+          datePublished: `${post.publishedDate}T08:00:00+05:30`,
+          dateModified: `${post.updatedDate}T09:00:00+05:30`,
+          articleSection: post.category,
+          keywords: [post.primaryKeyword, ...post.secondaryKeywords].join(', '),
+          author: {
             '@type': 'Organization',
-            'name': 'Dreamy Vacations Editorial Team',
-            'url': origin
+            name: 'Dreamy Vacations Editorial Team',
+            url: `${origin}/`,
           },
-          'publisher': {
+          publisher: {
             '@type': 'Organization',
-            'name': 'Dreamy Vacations',
-            'logo': {
+            name: 'Dreamy Vacations',
+            logo: {
               '@type': 'ImageObject',
-              'url': `${origin}/images/logo/logo.png`
-            }
+              url: `${origin}/images/logo/logo.png`,
+            },
           },
-          'mainEntityOfPage': {
+          mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': canonical
-          }
+            '@id': canonical,
+          },
         };
 
         const breadcrumbs = {
-          '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
-          'itemListElement': [
-            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': `${origin}/` },
-            { '@type': 'ListItem', 'position': 2, 'name': 'Travel Guides', 'item': `${origin}/blog` },
-            { '@type': 'ListItem', 'position': 3, 'name': post.title, 'item': canonical }
-          ]
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'Travel Guides', item: `${origin}/blog` },
+            { '@type': 'ListItem', position: 3, name: post.title, item: canonical },
+          ],
         };
 
         schemas = [articleSchema, breadcrumbs];
-
-        if (post.faqs && post.faqs.length > 0) {
-          const faqSchema = {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            'mainEntity': post.faqs.map(f => ({
-              '@type': 'Question',
-              'name': f.q,
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': f.a
-              }
-            }))
-          };
-          schemas.push(faqSchema);
-        }
       }
-
     } else if (path.startsWith('/trip/')) {
       const code = path.split('/trip/')[1];
       const params = decodeTrip(code);
       if (params) {
         title = `Coorg Trip Itinerary (#${code}) | Dreamy Vacations Planner`;
-        description = `Custom Coorg travel itinerary for ${params.adults} Adults and ${params.children} Children, from ${params.arrivalDate} to ${params.departureDate}. Base hotel: Dreamy Vacations Kushalnagar.`;
+        description = `Custom Coorg travel itinerary for ${params.adults} Adults and ${params.children} Children, from ${params.arrivalDate} to ${params.departureDate}. Base stay: Dreamy Vacations Kushalnagar.`;
       }
     }
 
@@ -370,7 +435,7 @@ export default function SEOManager() {
     updateOrCreateMeta('name', 'twitter:description', description);
     updateOrCreateMeta('name', 'twitter:image', ogImage);
 
-    // Apply Structured Data (JSON-LD)
+    // Apply Structured Data (JSON-LD) — single clean graph, no FAQPage markup
     const existingScript = document.getElementById('dynamic-seo-jsonld');
     if (existingScript) {
       existingScript.remove();
@@ -380,13 +445,12 @@ export default function SEOManager() {
       const script = document.createElement('script');
       script.id = 'dynamic-seo-jsonld';
       script.type = 'application/ld+json';
-      script.innerHTML = JSON.stringify(schemas.length === 1 ? schemas[0] : {
+      script.innerHTML = JSON.stringify({
         '@context': 'https://schema.org',
-        '@graph': schemas
+        '@graph': schemas,
       });
       document.head.appendChild(script);
     }
-
   }, [location]);
 
   return null;

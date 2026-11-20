@@ -113,7 +113,7 @@ export const KUSHALNAGAR_TIBETAN_POSTS: Record<string, BlogPost> = {
       'tibetan-food-in-bylakuppe',
       'places-near-golden-temple',
       'kushalnagar-tourist-places',
-      '2-day-coorg-itinerary'
+      'coorg-trip-plan-2-days'
     ],
     stayRecommendation: {
       heading: 'Staying Minutes Away in Eastern Coorg',
@@ -448,7 +448,7 @@ export const KUSHALNAGAR_TIBETAN_POSTS: Record<string, BlogPost> = {
       'bylakuppe-tibetan-settlement-guide',
       'dubare-elephant-camp-guide',
       'nisargadhama-guide',
-      '2-day-coorg-itinerary'
+      'coorg-trip-plan-2-days'
     ],
     stayRecommendation: {
       heading: 'Use Kushalnagar as Your Single-Base Gateway',
@@ -675,7 +675,7 @@ export const KUSHALNAGAR_TIBETAN_POSTS: Record<string, BlogPost> = {
       'nisargadhama-guide',
       'chiklihole-guide',
       'coorg-with-kids',
-      '2-day-coorg-itinerary'
+      'coorg-trip-plan-2-days'
     ],
     stayRecommendation: {
       heading: 'Reach Dubare Ahead of Highway Crowds',

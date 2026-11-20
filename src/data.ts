@@ -80,9 +80,9 @@ export const ACCOMMODATION_CATEGORIES: RoomCategoryCardData[] = [
       'Spacious ground-level cottages with cozy interiors and easy access steps from our pool and play areas.',
     roomsPageIntro:
       'Spacious ground-level cottages with comfortable sleeping layouts steps away from our pool and play areas.',
-    coverImage: resolveGalleryPhoto('WhatsApp Image 2026-07-14 at 12.07.31 PM (1).jpeg'),
+    coverImage: resolveGalleryPhoto('WhatsApp Image 2026-07-14 at 9.44.27 AM (3).jpeg'),
     coverAlt:
-      'Ground-level family cottage facade surrounded by tropical palms at Dreamy Vacations Coorg',
+      'Ground-level family cottage row with veranda seating surrounded by tropical palms at Dreamy Vacations Coorg',
     route: '/rooms/families',
   },
   {
@@ -134,7 +134,7 @@ export function getRoomImages(folderName: string, coverFilename: string): string
         resolveRoomPhoto('604426481.jpg'),
         resolveRoomPhoto('df1.jpeg'),
         resolveRoomPhoto('604426551.jpg'),
-        resolveGalleryPhoto('WhatsApp Image 2026-07-14 at 12.07.31 PM (1).jpeg'),
+        resolveGalleryPhoto('WhatsApp Image 2026-07-14 at 9.44.27 AM (3).jpeg'),
         resolveGalleryPhoto('unnamed (4).webp'),
       ];
     }

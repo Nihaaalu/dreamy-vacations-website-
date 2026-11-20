@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { MapPin, Coffee, Trees, Waves, Users, Gamepad2, Sparkles, Clock, Compass, Car } from 'lucide-react';
+import { MapPin, Coffee, Trees, Waves, Users, Gamepad2, Compass, Car, ArrowRight } from 'lucide-react';
 
 const routes = [
   {
@@ -548,6 +549,39 @@ export default function About() {
                 </div>
               );
             })}
+          </div>
+          {/* Subtle Crawlable Exploration Strip */}
+          <div className="mt-14 pt-8 border-t border-white/5 flex flex-wrap items-center justify-center gap-3 text-xs">
+            <Link
+              to="/rooms"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6b5b4b] hover:bg-[#85725f] text-white font-sub uppercase tracking-[0.14em] text-[11px] transition-colors"
+            >
+              Explore Rooms <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link
+              to="/rooms/families"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 hover:border-[#e2d7c5]/40 text-white/80 hover:text-[#e2d7c5] transition-colors"
+            >
+              Family Rooms in Coorg
+            </Link>
+            <Link
+              to="/blog/places-to-visit-in-coorg"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 hover:border-[#e2d7c5]/40 text-white/80 hover:text-[#e2d7c5] transition-colors"
+            >
+              25 Places to Visit in Coorg
+            </Link>
+            <Link
+              to="/blog/coorg-trip-plan-2-days"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 hover:border-[#e2d7c5]/40 text-white/80 hover:text-[#e2d7c5] transition-colors"
+            >
+              2-Day Coorg Trip Plan
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 hover:border-[#e2d7c5]/40 text-white/80 hover:text-[#e2d7c5] transition-colors"
+            >
+              Directions &amp; Contact
+            </Link>
           </div>
         </div>
       </section>

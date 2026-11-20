@@ -2,91 +2,192 @@ import { BlogPost } from './types';
 
 export const STAY_POSTS: Record<string, BlogPost> = {
   'where-to-stay-in-coorg': {
-    title: 'Where to Stay in Coorg: Matching Your Base to Your Travel Style',
-    seoTitle: 'Where to Stay in Coorg: Kushalnagar vs Madikeri vs South Coorg',
-    metaDesc: 'Honest guide to where to stay in Coorg. Understand the three regions—Kushalnagar (East), Madikeri (Central) and Virajpet/Gonikoppal (South)—to pick the right base.',
+    title: 'Where to Stay in Coorg: Best Areas for Families, Couples & Groups',
+    seoTitle: 'Where to Stay in Coorg: Best Areas for Families, Couples & Groups',
+    metaDesc: 'Choosing where to stay in Coorg? Compare Kushalnagar, Madikeri and other areas based on attractions, travel routes and accommodation needs.',
     primaryKeyword: 'Where to stay in Coorg',
-    secondaryKeywords: ['best area to stay in Coorg', 'Coorg accommodation zones', 'single base stay in Coorg'],
+    secondaryKeywords: [
+      'best area to stay in Coorg',
+      'best hotel in Coorg area guide',
+      'where to stay in Coorg for families',
+      'Kushalnagar vs Madikeri stay'
+    ],
     category: 'Where to Stay',
     heroImg: '/images/gallery/unnamed (1).webp',
     heroAlt: 'Quiet cottage porch with warm wooden chairs surrounded by greenery at Dreamy Vacations Kushalnagar',
-    heroCaption: 'Choosing your base by region—rather than picking a random hill pin—shapes your daily driving rhythm in Kodagu.',
+    heroCaption: 'Where you stay in Coorg shapes your whole trip—from easy morning drives to how relaxed your evenings feel.',
     publishedDate: '2026-07-15',
-    updatedDate: '2026-11-12',
+    updatedDate: '2026-11-20',
     readTime: '11 min read',
-    featuredRank: 9,
+    featuredRank: 4,
+    discoverPoints: [
+      'An honest comparison of Kushalnagar, Madikeri, coffee-estate pockets, and South Coorg.',
+      'Which stay area fits families with kids, couples, friend groups, and senior travellers best.',
+      'Simple base-location rules for 1-, 2-, 3-, and 4-day Coorg holidays.',
+      'What to expect if you choose a quiet village base near Kushalnagar.',
+    ],
+    quickSummary: {
+      heading: 'Planning Your Coorg Trip?',
+      subtitle: 'How to pick the right neighbourhood before browsing rooms.',
+      items: [
+        { label: 'Best for families & groups', value: 'Kushalnagar & nearby villages (gentler roads, easy parking, spacious grounds).' },
+        { label: 'Best for misty hill views', value: 'Madikeri & outskirts (higher elevation, close to waterfalls and viewpoints).' },
+        { label: 'Best for quiet estate stays', value: 'Suntikoppa, Siddapur, or Virajpet coffee-plantation lanes.' },
+        { label: 'Best travel approach', value: 'Keep one single base for 1–3 day trips instead of repacking mid-holiday.' },
+        { label: 'Important note', value: 'Two stays both listed as "Coorg" can sit over an hour apart—always check the town.' },
+      ],
+    },
     intro: [
-      'Kodagu is a large agricultural and forested district rather than a compact resort town—so asking "where to stay in Coorg?" really means deciding which side of the district matches your schedule, companions, and driving appetite. Two travelers booking different corners can easily sit ninety minutes apart on winding two-lane roads.',
-      'Breaking Coorg honestly into its three primary hospitality corridors—Eastern Coorg (Kushalnagar), Central Highlands (Madikeri), and Southern Coorg (Virajpet–Gonikoppal–Kutta)—makes selecting the right base straightforward.'
+      'Choosing where to stay in Coorg matters more than most first-time visitors expect. Two stays both labelled "Coorg" on a map can easily sit 75 to 90 minutes apart on winding country roads, which makes a huge difference to how much time you spend relaxing versus driving.',
+      'Instead of hyping one town for everyone, this guide compares Coorg’s main areas honestly—Kushalnagar in the east, Madikeri in the central hills, quiet coffee estates, and South Coorg—so families, couples, and groups can pick the base that truly matches their holiday.',
     ],
     sections: [
       {
-        id: 'three-coorg-stay-regions',
-        heading: 'The Three Stay Regions of Kodagu: Strengths & Trade-Offs',
+        id: 'area-comparison-table',
+        heading: 'Coorg Stay Areas Compared at a Glance',
+        paragraphs: [
+          'Use this quick overview to match elevation, road terrain, nearby attractions, and trip duration before selecting an accommodation.'
+        ],
+        table: {
+          caption: 'Comparing Coorg’s Main Stay Zones by Route, Terrain & Traveler Fit',
+          headers: ['Stay Area', 'Elevation & Feel', 'Nearest Signature Sights', 'Best Fit For'],
+          rows: [
+            ['Kushalnagar & Chikkathur (East)', '~840 m · Flat plateau roads, warmer days, lighter monsoon', 'Golden Temple (6 km), Nisargadhama (4 km), Harangi (9 km), Dubare (14 km), Chiklihole (16 km)', 'Families, elders, 1–3 day weekenders, groups & highway road trippers'],
+            ['Madikeri & Outskirts (Central)', '~1,150 m · Misty ridges, cooler evenings, hill streets', 'Raja’s Seat, Madikeri Fort, Omkareshwara, Abbey Falls (8 km), Mandalpatti (~18 km)', 'Hill-mist lovers, viewpoints, western drives toward Talacauvery'],
+            ['Coffee Estate Belts (Suntikoppa / Siddapur / Pollibetta)', '900–1,050 m · Quiet plantation lanes, shaded greenery', 'Central corridor linking Dubare, Chiklihole & Madikeri', 'Couples & slow travelers prioritizing plantation seclusion'],
+            ['South Coorg (Virajpet / Gonikoppal / Kutta)', '850–950 m · Rural valleys & forest edges', 'Iruppu Falls, Nagarhole Tiger Reserve, Brahmagiri foothills', '4+ day trips, wildlife safaris & quiet southern retreats']
+          ]
+        }
+      },
+      {
+        id: 'staying-in-kushalnagar',
+        heading: '1. Staying in Kushalnagar & Surrounding Villages (Eastern Coorg)',
+        paragraphs: [
+          'Sitting right where the Mysuru–Bengaluru highway (NH 275) enters Kodagu, Kushalnagar is the most accessible gateway into Coorg. Travelers arriving by car or KSRTC bus reach Kushalnagar on broad, gentle roads without tackling steep evening mountain climbs after a long drive.',
+          'Explore the cultural and natural side of eastern Coorg from Kushalnagar—Namdroling Monastery (Golden Temple) in Bylakuppe, Tibetan kitchens, Kaveri Nisargadhama bamboo island, Harangi Dam, Dubare Elephant Camp, and Chiklihole Reservoir all sit within 10 to 25 minutes—and then continue 30 km west (45–55 minutes along NH 275) towards Madikeri’s waterfalls, hills, and viewpoints on a dedicated day excursion.',
+          'Tip on micro-location: Within Kushalnagar, staying slightly outside the commercial bus-stand road in quieter surrounding villages such as Chikkathur gives you calm village mornings, open grounds, and easy gated parking while remaining minutes from restaurants and highway routes.'
+        ],
+        links: [
+          { label: 'Kushalnagar Tourist Places Guide', to: '/blog/kushalnagar-tourist-places' },
+          { label: 'Bylakuppe Tibetan Settlement Guide', to: '/blog/bylakuppe-tibetan-settlement-guide' }
+        ]
+      },
+      {
+        id: 'staying-in-madikeri',
+        heading: '2. Staying in Madikeri (Central Highlands)',
+        paragraphs: [
+          'Madikeri is Kodagu’s historic district headquarters perched at roughly 1,150 meters. Staying in or on the green outskirts of Madikeri puts you immediately beside Raja’s Seat, Madikeri Fort, Omkareshwara Temple, Abbey Falls (8 km), Mandalpatti checkpost (~18 km), and the southwest road toward Bhagamandala (36 km) and Talacauvery (44 km).',
+          'Travelers who specifically love cool morning fog drifting across ridge viewpoints, misty hilltop weather, and stepping out early for western peaks naturally enjoy Madikeri’s elevated climate. The main practical trade-offs are narrow, hilly town lanes during long-weekend rushes, heavier June–August rainfall, and a 30 km descent east whenever you visit Dubare or Bylakuppe.'
+        ],
+        links: [
+          { label: 'Kushalnagar vs Madikeri Honest Comparison', to: '/blog/kushalnagar-vs-madikeri' }
+        ]
+      },
+      {
+        id: 'coffee-estates-and-rural-areas',
+        heading: '3. Staying Near Coffee Estates & Quieter Rural Areas',
+        paragraphs: [
+          'Between Kushalnagar and Madikeri—around Suntikoppa, Siddapur, and Pollibetta—and further south around Virajpet and Kutta, rural plantations offer quiet bird-filled mornings surrounded by Arabica/Robusta coffee, silver oak, and pepper vines.',
+          'Estate stays suit couples and repeat Coorg visitors who plan to spend half the day reading on a veranda rather than ticking off ten sights. Before booking an isolated rural lane, confirm approach-road surface (especially in monsoon), mobile signal strength, meal availability after dark, and driving time to your planned attractions.'
+        ],
+        links: [
+          { label: 'Coffee Estates & Scenic Drives in Coorg', to: '/blog/coffee-estates-and-scenic-drives-coorg' }
+        ]
+      },
+      {
+        id: 'choices-by-traveler-type',
+        heading: 'Choosing Accommodation for Families, Couples & Groups',
         subsections: [
           {
-            heading: '1. Eastern Coorg: Kushalnagar, Chikkathur & Bylakuppe Border',
+            heading: 'For Families with Children & Seniors',
             paragraphs: [
-              'Sited right where the Mysuru–Bengaluru highway meets Kodagu around 840 meters elevation, Kushalnagar offers flat approach roads, open village lawns, and spacious off-street parking. Because it sits on eastern river plateaus, visitors experience gentler daytime warmth ideal for pool afternoons alongside crisp nights and milder monsoon intensity.',
-              'Staying around Kushalnagar puts you 8 to 22 minutes from Namdroling Monastery (Golden Temple), Bylakuppe’s Tibetan markets and kitchens, Kaveri Nisargadhama, Harangi Dam, Dubare Elephant Camp, and Chiklihole Reservoir—while keeping Madikeri only 45 minutes west along smooth two-lane highway NH 275. Families, elders, and 1–3 night road trippers gain the lowest travel friction here.'
+              'Prioritize flat approach roads (to reduce motion sickness), multi-bed rooms so parents and kids stay comfortably together without cramped floor mattresses, reliable hot water, and on-site afternoon outlets such as a swimming pool or indoor games. Eastern Coorg around Kushalnagar pairs these practicalities naturally with short drives to Dubare, Nisargadhama, and Golden Temple.'
             ]
           },
           {
-            heading: '2. Central Highlands: Madikeri, Suntikoppa & Western Ridges',
+            heading: 'For Couples',
             paragraphs: [
-              'At roughly 1,150 meters elevation, Madikeri places you immediately beside Mandalpatti Peak checkposts, Abbey Falls, Raja’s Seat, Madikeri Fort, and western drives toward Bhagamandala and Talacauvery. Cool mist clings frequently to hilltop estates, which appeals strongly to travelers seeking misty balcony weather or early ridge treks.',
-              'The practical trade-off is terrain and traffic: hilly streets inside Madikeri town grow narrow and congested on weekends, parking around commercial center hotels is tight, and visiting eastern spots like Dubare or Bylakuppe requires climbing back down east and returning uphill later.'
+              'Look for quiet village or estate surroundings away from busy town markets, clean private balconies, and calm sunset spots nearby such as Chiklihole Reservoir or Raja’s Seat. Check whether your property offers peaceful garden corners rather than loud banquet traffic.'
             ]
           },
           {
-            heading: '3. Southern Coorg: Virajpet, Pollibetta & Kutta',
+            heading: 'For Friend Groups, Reunions & Corporate Teams',
             paragraphs: [
-              'Quiet southern coffee-estate valleys near Virajpet, Kabbe Hills, Nagarhole borders, and Iruppu Falls appeal to travelers specifically planning seclusion inside large plantation estates or wildlife safaris around Nagarhole Tiger Reserve. However, driving from southern Kutta to Abbey Falls, Dubare, or Bylakuppe spans 60–90 km across winding interior roads, making it less efficient for short first-time Coorg loops.'
+              'Verify three things before confirming: spacious on-site parking for multiple cars, tempo travellers, or coaches; multi-bed group rooms (such as 2-double-bed or 3-double-bed layouts) that keep the group together; and shared evening spaces like a campfire area, rain dance, or indoor games.'
             ]
           }
+        ],
+        links: [
+          { label: 'Rooms for Couples', to: '/rooms/couples' },
+          { label: 'Family Rooms in Coorg', to: '/rooms/families' },
+          { label: 'Group Booking Accommodation', to: '/rooms/group-booking' }
         ]
       },
       {
-        id: 'single-base-vs-changing-hotels',
-        heading: 'Should You Change Hotels Mid-Trip or Keep One Base?',
-        paragraphs: [
-          'Unless you are spending five full days combining southern Nagarhole safaris with northern Madikeri peaks, swapping accommodations mid-trip on a 2- or 3-night holiday burns three to four hours packing bags, checking out by 11:00 AM, and waiting for afternoon check-in.',
-          'Selecting Kushalnagar as a single eastern base lets guests visit Bylakuppe, Nisargadhama, and Dubare on arrival without any tiring hill climb, dedicate one calm morning-to-sunset excursion up toward Madikeri completely luggage-free, and exit smoothly back onto NH 275 on departure afternoon.'
+        id: 'choosing-base-by-trip-length',
+        heading: 'How to Choose a Base for 1, 2, 3, or 4 Days in Coorg',
+        bullets: [
+          '1-Day Trip: Focus entirely on Eastern Coorg (Kushalnagar & Bylakuppe) so you spend your daylight sightseeing instead of sitting in hill traffic.',
+          '2-Day Trip: Choose a single base—avoid splitting hotels on a 2-day holiday because midday check-out and check-in waste 3–4 hours. Kushalnagar gives you Day 1 locally and Day 2 up to Madikeri cleanly.',
+          '3-Day Trip: One Kushalnagar base remains ideal (2 relaxed eastern days + 1 full Madikeri excursion), or base near Madikeri outskirts if western misty viewpoints are your main goal.',
+          '4+ Day Trip: Either keep one base and add Talacauvery & Bhagamandala as a Day 4 western drive, or split 2 nights in Kushalnagar/Madikeri with 2 nights in South Coorg (Virajpet/Kutta) if combining Iruppu Falls and Nagarhole Tiger Reserve.'
+        ],
+        links: [
+          { label: '2-Day Coorg Trip Plan', to: '/blog/coorg-trip-plan-2-days' },
+          { label: '3-Day Coorg Itinerary', to: '/blog/3-day-coorg-itinerary' },
+          { label: '4-Day Coorg Itinerary', to: '/blog/4-day-coorg-itinerary' }
         ]
       },
       {
-        id: 'room-and-property-format',
-        heading: 'Comparing Property Formats: Town Hotels, Homestays & Family Resorts',
+        id: 'dreamy-vacations-factual-overview',
+        heading: 'Considering Dreamy Vacations Near Kushalnagar',
         paragraphs: [
-          'Before locking a neighborhood, match the property type to your group dynamic: commercial roadside town hotels often lack lawns or safe children’s play spaces; remote estate homestays offer silence yet may require slow narrow estate approaches after dark; quiet village resorts around Chikkathur near Kushalnagar combine gated grounds, multi-bed family rooms, swimming pools, indoor games, and easy highway access.'
+          'If Eastern Coorg fits your itinerary, Dreamy Vacations is our family and group accommodation property located in quiet Chikkathur Village near Kushalnagar (#51/5, Behind Chikkathur Govt School, Kudumangalore, Karnataka 571232).',
+          'We focus on clean, spacious rooms rather than flashy gimmicks: Standard Family Rooms and balcony-equipped Deluxe Family Rooms for couples and small families, Superior Deluxe Double rooms (2 double beds for up to 4 adults), and Triple Rooms (3 double beds for up to 6 adults). On-site facilities include an outdoor swimming pool, rain dance area, indoor games, campfire (where available), Wi-Fi, and ample gated parking for cars, tempo travellers, and tourist buses.',
+          'From our gate, Kaveri Nisargadhama is ~4 km, Namdroling Monastery (Golden Temple) is ~6 km, Harangi Dam is ~9 km, Dubare Elephant Camp is ~14 km, and Madikeri is ~30 km west along NH 275. Check-in is 12:00 PM and check-out is 11:00 AM, and you can confirm current availability directly with our team via WhatsApp or phone.'
+        ],
+        links: [
+          { label: 'Explore Accommodation Categories', to: '/rooms' },
+          { label: 'Complete Coorg Travel Guide', to: '/blog/complete-coorg-travel-guide' }
         ]
       }
     ],
     highlights: [
-      { label: 'Eastern Base (Kushalnagar)', value: 'Best for Golden Temple, Dubare, families & highway convenience' },
-      { label: 'Central Base (Madikeri)', value: 'Best for immediate proximity to Mandalpatti & Talacauvery' },
-      { label: 'Southern Base (Virajpet/Kutta)', value: 'Best for Nagarhole safaris & secluded plantation stays' }
+      { label: 'Eastern Base (Kushalnagar)', value: 'Best for Golden Temple, Dubare, families, groups & NH 275 access' },
+      { label: 'Central Base (Madikeri)', value: 'Best for ridge mist, Mandalpatti, Abbey Falls & Talacauvery' },
+      { label: 'Southern Base (Virajpet/Kutta)', value: 'Best for Nagarhole safaris, Iruppu Falls & estate seclusion' },
+      { label: '2–3 Day Rule of Thumb', value: 'Stick to one single base instead of changing hotels mid-trip' }
     ],
     relatedSlugs: [
       'kushalnagar-vs-madikeri',
-      'best-place-to-stay-in-coorg',
-      '2-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
+      'places-to-visit-in-coorg',
+      'best-time-to-visit-coorg',
       '3-day-coorg-itinerary',
       'coorg-family-trip'
     ],
     stayRecommendation: {
-      heading: 'Stay at Dreamy Vacations in Kushalnagar',
-      text: 'Set back in quiet Chikkathur Village near Kushalnagar, Dreamy Vacations provides four room layouts for couples, families, and groups alongside an outdoor pool, rain dance area, indoor games, and evening campfires.',
+      heading: 'Direct Stay Enquiries at Dreamy Vacations, Kushalnagar',
+      text: 'Choose between couples rooms, multi-bed family rooms, and group stays in quiet Chikkathur Village—minutes from Bylakuppe and Nisargadhama, and an easy morning drive to Madikeri.',
       links: [
-        { label: 'Compare Room Options', to: '/rooms' },
-        { label: 'Make an Enquiry', to: '/booking' }
+        { label: 'Rooms for Couples', to: '/rooms/couples' },
+        { label: 'Family Rooms in Coorg', to: '/rooms/families' },
+        { label: 'Group Booking', to: '/rooms/group-booking' }
       ]
     },
-    conclusion: 'Match your stay zone to the places you want to spend mornings: pick Kushalnagar when river camps, Tibetan heritage, family comfort, and single-base simplicity lead your list.',
+    conclusion: 'There is no single "best hotel area" for every traveler—choose Kushalnagar when smooth highway arrival, Bylakuppe and Dubare proximity, and family or group comfort lead your plan, or choose Madikeri and South Coorg when ridge mist or deep plantation seclusion is your main priority.',
     faqs: [
       {
+        q: 'Which area in Coorg is best for families with kids and senior citizens?',
+        a: 'Kushalnagar and surrounding villages like Chikkathur are widely preferred by families because roads are flatter, highway arrival from Mysuru and Bengaluru is straightforward, and flat attractions like Golden Temple, Kaveri Nisargadhama, and Harangi Dam sit within 10–15 minutes.'
+      },
+      {
+        q: 'Should I stay in Kushalnagar or Madikeri on a 2-day Coorg trip?',
+        a: 'Staying in Kushalnagar lets you cover Bylakuppe, Dubare, and Nisargadhama on arrival day without mountain climbs and take a luggage-free day trip 30 km west to Madikeri on Day 2. Choose Madikeri if your top priority is waking up directly in misty hill air near Raja’s Seat and Mandalpatti.'
+      },
+      {
         q: 'How far apart are Kushalnagar and Madikeri?',
-        a: 'About 30 km along NH 275—usually a 45-to-55-minute highway drive depending on daytime weekend traffic.'
+        a: 'About 30 km along NH 275—usually a 45-to-55-minute highway drive depending on weekend traffic.'
       }
     ],
     structuredType: 'Article'
@@ -151,7 +252,7 @@ export const STAY_POSTS: Record<string, BlogPost> = {
     heroAlt: 'Tree-shaded island walkway at Kaveri Nisargadhama near Kushalnagar',
     heroCaption: 'Kushalnagar offers gentler river plains in the east while Madikeri commands steeper ridge-top scenery 30 km west.',
     publishedDate: '2026-07-15',
-    updatedDate: '2026-11-12',
+    updatedDate: '2026-11-20',
     readTime: '10 min read',
     featuredRank: 10,
     intro: [
@@ -211,7 +312,7 @@ export const STAY_POSTS: Record<string, BlogPost> = {
     relatedSlugs: [
       'where-to-stay-in-coorg',
       'best-place-to-stay-in-coorg',
-      '2-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
       'kushalnagar-tourist-places'
     ],
     stayRecommendation: {

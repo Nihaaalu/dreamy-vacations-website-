@@ -323,7 +323,7 @@ export default function Home({}: HomeProps) {
               <span className="text-[10px] font-mono text-[#e2d7c5] uppercase tracking-wider block">12 MINS DRIVE (6 KM)</span>
               <h3 className="text-lg font-display font-light text-white">Namdroling Golden Temple</h3>
               <p className="text-xs text-white/60 font-light leading-relaxed">
-                South India's largest Tibetan settlement in Bylakuppe with 40-foot golden Buddha statues, tranquil prayer halls, and traditional Tibetan handicraft markets.
+                South India's iconic Tibetan settlement in Bylakuppe with 60-foot and 58-foot gilded Buddha statues, tranquil prayer halls, and traditional Tibetan handicraft markets.
               </p>
             </div>
 
@@ -354,16 +354,37 @@ export default function Home({}: HomeProps) {
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
-              to="/travel-guide"
+              to="/blog/places-to-visit-in-coorg"
               className="px-8 py-3.5 bg-[#6b5b4b] hover:bg-[#85725f] text-white text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out flex items-center gap-2 cursor-pointer"
             >
-              Explore Travel Guide <ArrowRight className="w-3.5 h-3.5" />
+              25 Places to Visit in Coorg <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link
+              to="/blog/coorg-trip-plan-2-days"
+              className="px-8 py-3.5 border border-[#e2d7c5]/30 hover:border-[#e2d7c5] text-[#e2d7c5] hover:bg-[#e2d7c5]/5 text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-sm transition-all duration-300 ease-out flex items-center gap-2 cursor-pointer"
+            >
+              2-Day Coorg Trip Plan <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               to="/trip-planner"
-              className="px-8 py-3.5 border border-[#e2d7c5]/30 hover:border-[#e2d7c5] text-[#e2d7c5] hover:bg-[#e2d7c5]/5 text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-sm transition-all duration-300 ease-out flex items-center gap-2 cursor-pointer"
+              className="px-8 py-3.5 border border-white/15 hover:border-[#e2d7c5] text-white/85 hover:text-[#e2d7c5] text-[11px] font-sub font-semibold tracking-[0.18em] uppercase rounded-full shadow-sm transition-all duration-300 ease-out flex items-center gap-2 cursor-pointer"
             >
               Custom Trip Planner <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs text-white/55">
+            <Link to="/blog/best-time-to-visit-coorg" className="hover:text-[#e2d7c5] transition-colors">
+              Best Time to Visit Coorg &rarr;
+            </Link>
+            <Link to="/blog/where-to-stay-in-coorg" className="hover:text-[#e2d7c5] transition-colors">
+              Where to Stay in Coorg &rarr;
+            </Link>
+            <Link to="/blog/bylakuppe-tibetan-settlement-guide" className="hover:text-[#e2d7c5] transition-colors">
+              Bylakuppe &amp; Golden Temple Guide &rarr;
+            </Link>
+            <Link to="/blog" className="hover:text-[#e2d7c5] transition-colors">
+              All Coorg Guides &rarr;
             </Link>
           </div>
 

@@ -27,12 +27,81 @@ export interface BlogSubsection {
   bullets?: string[];
 }
 
+export interface BlogTable {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+}
+
+export interface BlogAttraction {
+  id: string;
+  number?: number;
+  name: string;
+  tagline: string;
+  summary: string;
+  whyVisit?: string;
+  image?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  };
+  details: {
+    location: string;
+    distance: string;
+    duration: string;
+    bestTime: string;
+  };
+  tip: string;
+  layout?: 'split-left' | 'split-right' | 'wide' | 'editorial';
+}
+
+export interface BlogRouteGroup {
+  region: string;
+  title: string;
+  stops: string[];
+  note: string;
+  distanceNote: string;
+}
+
+export interface BlogRoutePlanner {
+  intro?: string;
+  disclaimer: string;
+  regions: BlogRouteGroup[];
+}
+
+export interface BlogTocGroup {
+  region: string;
+  subtitle?: string;
+  sectionId: string;
+  items: { id: string; label: string }[];
+}
+
+export interface BlogQuickSummary {
+  heading?: string;
+  subtitle?: string;
+  items: { label: string; value: string }[];
+}
+
 export interface BlogSection {
   id: string;
+  regionLabel?: string;
   heading: string;
   paragraphs?: string[];
   subsections?: BlogSubsection[];
+  attractions?: BlogAttraction[];
   bullets?: string[];
+  table?: BlogTable;
+  routePlanner?: BlogRoutePlanner;
+  pullQuote?: {
+    text: string;
+    note?: string;
+  };
+  sectionBanner?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  };
+  links?: BlogLink[];
   callout?: {
     title: string;
     text: string;
@@ -58,6 +127,9 @@ export interface BlogPost {
   updatedDate: string;
   readTime: string;
   featuredRank?: number;
+  discoverPoints?: string[];
+  quickSummary?: BlogQuickSummary;
+  tocGroups?: BlogTocGroup[];
   intro: string[];
   sections: BlogSection[];
   highlights?: BlogHighlight[];

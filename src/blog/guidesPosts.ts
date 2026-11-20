@@ -10,22 +10,39 @@ export const GUIDES_POSTS: Record<string, BlogPost> = {
     category: 'Complete Travel Guides',
     heroImg: '/images/places/md.jpeg',
     heroAlt: 'Panoramic green ridges of Mandalpatti rising above morning valley mist in Coorg',
-    heroCaption: 'Kodagu spans two distinct landscapes: mist-draped Western Ghats highlands around Madikeri and gently rolling river plateaus around Kushalnagar.',
+    heroCaption: 'Coorg blends misty hills around Madikeri with gentle river plateaus and Tibetan monasteries around Kushalnagar.',
     publishedDate: '2026-07-15',
-    updatedDate: '2026-11-12',
-    readTime: '14 min read',
-    featuredRank: 1,
+    updatedDate: '2026-11-20',
+    readTime: '12 min read',
+    featuredRank: 5,
+    discoverPoints: [
+      'How Eastern Coorg (Kushalnagar) and Western Coorg (Madikeri) differ in landscape and vibe.',
+      'What to experience in Kodava culture and Bylakuppe’s Tibetan monasteries.',
+      'Essential places grouped by route, local food to try, and when to visit.',
+      'Simple advice on getting to Coorg and choosing one comfortable base.',
+    ],
+    quickSummary: {
+      heading: 'Planning Your Coorg Trip?',
+      subtitle: 'The big-picture essentials before you book.',
+      items: [
+        { label: 'Best for', value: 'First-time visitors, families, couples, and weekend road trippers.' },
+        { label: 'Recommended duration', value: '2 to 3 days (4 days if adding Talacauvery or South Coorg).' },
+        { label: 'Main starting point', value: 'Kushalnagar (closest gateway from Bengaluru and Mysuru).' },
+        { label: 'Best travel approach', value: 'Split your days by region—eastern Coorg first, Madikeri hills second.' },
+        { label: 'Important note', value: 'Weather and driving times shift with elevation, season, and weekend traffic.' },
+      ],
+    },
     intro: [
-      'Spread across the lush slopes and foothills of Karnataka’s Western Ghats, Kodagu—widely called Coorg—is far more nuanced than a single misty hill town. While many itineraries treat Madikeri as synonymous with the entire district, Coorg spans distinct geographical belts, from the Brahmagiri high ridges of the west to the flat Cauvery river valleys and Tibetan monastic settlements around Kushalnagar and Bylakuppe in the east.',
-      'This complete Coorg travel guide brings together verified geography, seasonal realities, highway logistics, Tibetan and Kodava cultural insights, and practical itinerary blueprints so first-time visitors and returning road trippers can experience both sides of Coorg without unnecessary backtracking.'
+      'Ask ten people about Coorg and you will get ten different pictures—misty viewpoints above Madikeri, quiet coffee lanes, steaming Tibetan momos in Bylakuppe, or elephants splashing in the River Cauvery near Kushalnagar. Coorg (officially Kodagu) is not a single hill town; it is a sprawling green district with two very different sides.',
+      'This complete Coorg travel guide brings everything together in plain, practical language—how the regions fit together, what to see and eat, which season matches your style, and how to enjoy both sides of Coorg without wasting hours backtracking.',
     ],
     sections: [
       {
         id: 'geography-two-sides-of-coorg',
-        heading: 'Understanding Coorg’s Geography: Eastern Plateaus vs Western Highlands',
+        regionLabel: 'Getting Oriented',
+        heading: 'Two Sides of Coorg: Kushalnagar in the East vs Madikeri in the Hills',
         paragraphs: [
-          'The single biggest mistake travelers make when planning a Coorg trip is plotting attractions onto a short itinerary as though all sights sit ten minutes apart. Kodagu covers more than 4,100 square kilometers of forest corridors, coffee-and-pepper estates, river valleys, and steep mountain watersheds, and travel speed on two-lane estate roads rarely matches expressway averages.',
-          'Viewing the district along an east–west axis immediately simplifies your planning and removes unnecessary car hours:'
+          'The easiest mistake on a short Coorg holiday is assuming every waterfall, monastery, and viewpoint sits ten minutes apart. Country roads here wind through estates and hills, so grouping places by east and west immediately makes your days feel lighter and more enjoyable.',
         ],
         subsections: [
           {
@@ -121,7 +138,7 @@ export const GUIDES_POSTS: Record<string, BlogPost> = {
       { label: 'Primary Cultural Zones', value: 'Bylakuppe (Tibetan) & Kodagu Highlands (Kodava)' }
     ],
     relatedSlugs: [
-      '2-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
       '3-day-coorg-itinerary',
       'kushalnagar-tourist-places',
       'bylakuppe-tibetan-settlement-guide',
@@ -156,102 +173,196 @@ export const GUIDES_POSTS: Record<string, BlogPost> = {
   },
 
   'best-time-to-visit-coorg': {
-    title: 'Best Time to Visit Coorg: Seasons, Weather & Month-by-Month Reality Check',
-    seoTitle: 'Best Time to Visit Coorg (Kodagu): Winter, Summer & Monsoon Guide',
-    metaDesc: 'When is the best time to visit Coorg? Compare October–March winter mist, March–May coffee blossoms, and June–September monsoons across Kushalnagar and Madikeri.',
+    title: 'Best Time to Visit Coorg: Weather, Seasons & Month-by-Month Guide',
+    seoTitle: 'Best Time to Visit Coorg: Weather, Seasons & Month-by-Month Guide',
+    metaDesc: 'Find the best time to visit Coorg with a month-by-month guide to weather, monsoon, coffee season, sightseeing and travel planning.',
     primaryKeyword: 'Best time to visit Coorg',
-    secondaryKeywords: ['Coorg weather by month', 'Coorg in monsoon', 'Coorg in summer', 'when to visit Kushalnagar'],
+    secondaryKeywords: ['Coorg weather by month', 'Coorg in monsoon', 'Coorg in summer', 'Coorg coffee blossom season', 'Kushalnagar vs Madikeri weather'],
     category: 'Complete Travel Guides',
     heroImg: '/images/places/raja.jpeg',
-    heroAlt: 'Misty morning gardens and arched pavilion at Raja’s Seat viewpoint in Madikeri',
-    heroCaption: 'Morning mist settles reliably over Madikeri’s high ridges while Kushalnagar’s lower plateau enjoys gentle sun earlier in the day.',
+    heroAlt: 'Misty morning gardens and arched pavilion at Raja’s Seat viewpoint in Madikeri, Coorg',
+    heroCaption: 'Morning mist settles over Raja’s Seat in Madikeri while eastern Kushalnagar often enjoys gentler rain and brighter sunshine.',
     publishedDate: '2026-08-05',
-    updatedDate: '2026-11-12',
-    readTime: '10 min read',
-    featuredRank: 5,
+    updatedDate: '2026-11-20',
+    readTime: '12 min read',
+    featuredRank: 3,
+    discoverPoints: [
+      'A clear month-by-month Coorg weather, rainfall, and sightseeing chart.',
+      'What Coorg actually feels like in winter, summer coffee-blossom season, monsoon, and autumn.',
+      'Why Kushalnagar and Madikeri can have noticeably different weather on the same day.',
+      'Practical packing tips so sudden mist or showers never catch you off guard.',
+    ],
+    quickSummary: {
+      heading: 'Planning Your Coorg Trip?',
+      subtitle: 'Pick your travel window based on the experience you want most.',
+      items: [
+        { label: 'Best for', value: 'Families, couples, photographers, and nature lovers—year-round with seasonal tweaks.' },
+        { label: 'Overall sweet spot', value: 'October to February (cool mornings, clear views, dry roads).' },
+        { label: 'Coffee blossom season', value: 'March to April right after the first spring showers.' },
+        { label: 'Peak waterfalls & green hills', value: 'June to September (expect heavy rain in western hills).' },
+        { label: 'Important note', value: 'Mountain weather changes quickly; check local rain advisories during July–August.' },
+      ],
+    },
     intro: [
-      'Ask ten travelers when to visit Coorg and you will hear two opposite answers: winter devotees swear by crisp January mornings, while monsoon lovers insist Kodagu only looks alive under July rain clouds. Both groups are right—depending on what you actually plan to see.',
-      'Because Coorg’s altitude shifts noticeably between Kushalnagar (around 840 meters) in the east and Madikeri or Talacauvery (1,150+ meters) in the west, understanding how each season impacts visibility, waterfalls, road traction, and outdoor resort time will save your itinerary from weather surprises.'
+      'Wondering when to visit Coorg? The honest answer depends on what you want out of your holiday. October through February brings crisp jacket weather, clear hill views, and dry roads—making it the easiest all-round window for families and first-time visitors.',
+      'That said, spring fills the coffee estates with fragrant white blossoms, and the June–September monsoon turns every waterfall and hillside an unforgettable emerald green. Because Kushalnagar in the east sits lower and stays slightly drier than hilly Madikeri, choosing the right month helps you pack smart and plan the right mix of stops.',
     ],
     sections: [
       {
-        id: 'winter-post-monsoon-oct-feb',
-        heading: 'October to February: Peak Season Across Both East & West Coorg',
+        id: 'month-by-month-coorg-table',
+        heading: 'Coorg Month-by-Month Weather & Sightseeing Overview',
         paragraphs: [
-          'Right after the southwest monsoon retreats in late September, Kodagu enters its most balanced travel window. Mornings cool down to roughly 12°C–16°C (even cooler near hilltop Mandalpatti), while afternoons stay dry and pleasant between 22°C and 27°C across Kushalnagar.',
-          'Waterfalls like Abbey Falls and reservoirs like Harangi and Chiklihole still carry brisk post-monsoon volume well into December. Meanwhile, coffee berries turn deep crimson on shaded Robusta and Arabica branches ahead of winter picking, and morning views from Mandalpatti Peak and Raja’s Seat clear out sharply once overnight fog lifts.'
+          'Typical regional ranges below reflect general Western Ghats Kodagu patterns (with eastern Kushalnagar typically running 2°C–3°C warmer by day and significantly drier during monsoon than western Madikeri). Always verify short-term Karnataka meteorological advisories before monsoon drives.'
         ],
-        bullets: [
-          'Best for: First-time visitors, multi-generational family vacations, Mandalpatti 4x4 climbs, clear sunset views, and cozy evening resort campfires.',
-          'Cultural highlights: Tula Sankramana at Talacauvery in mid-October, Kodava Puthari harvest festivities in late November/December, and lively pre-Losar monastic preparations in Bylakuppe.',
-          'Watch out for: Higher weekend traffic around Madikeri during Dussehra, Diwali, Christmas, and long January weekends—reserve accommodations early and arrive at Mandalpatti or Dubare early in the morning.'
+        table: {
+          caption: 'Month-by-Month Coorg Weather, Rainfall Character & Travel Suitability',
+          headers: ['Month', 'Typical Temp Range', 'Rainfall Pattern', 'Landscape & Highlights', 'Best For'],
+          rows: [
+            ['January', '13°C – 26°C', 'Dry (very low rain)', 'Cool misty mornings, peak coffee berry harvest, clear peaks', 'Families, trekking, Mandalpatti, campfires'],
+            ['February', '14°C – 28°C', 'Dry (very low rain)', 'Crisp skies, warming afternoons, calm Cauvery levels', 'Sightseeing, couples, Dubare crossings'],
+            ['March', '16°C – 30°C', 'Dry with isolated pre-monsoon showers', 'Coffee blossom blooms after first showers, quieter roads', 'Couples, relaxed stays, Bylakuppe & pools'],
+            ['April', '18°C – 31°C', 'Warm days, brief evening thundershowers', 'Fragrant coffee blooms, dry waterfall flow, calm rivers', 'Poolside family breaks, morning sightseeing'],
+            ['May', '18°C – 29°C', 'Increasing pre-monsoon showers', 'School holiday rush, lush early greenery, cooler evenings', 'Families, shaded Nisargadhama & Bylakuppe'],
+            ['June', '17°C – 24°C', 'Monsoon onset (heavy in west)', 'Hills turn deep green, waterfalls awaken rapidly', 'Monsoon lovers, dramatic drives, quiet resorts'],
+            ['July', '17°C – 22°C', 'Peak southwest monsoon (heaviest rain)', 'Roaring Abbey & Mallalli Falls, Harangi & Chiklihole overflows', 'Waterfall viewing, slow indoor retreats'],
+            ['August', '17°C – 22°C', 'Heavy sustained monsoon showers', 'Thick mist, emerald estates, full reservoirs', 'Photographers, cozy stays, eastern Coorg breaks'],
+            ['September', '16°C – 24°C', 'Easing showers & sunny breaks', 'Waterfalls full yet trails drying; Kailpodh harvest festival', 'Post-rain greenery with lower crowds'],
+            ['October', '16°C – 26°C', 'Retreating post-monsoon showers', 'Full waterfalls, vibrant forests, Kaveri Sankramana festival', 'All-round sightseeing, families, road trips'],
+            ['November', '15°C – 26°C', 'Mostly dry, clear mornings', 'Lush landscapes, brisk nights, clear Mandalpatti visibility', 'First-time visitors, trekking, photography'],
+            ['December', '13°C – 25°C', 'Dry & cool', 'Festive winter air, Puthari harvest, crisp evening campfires', 'Holiday families, groups, year-end escapes']
+          ]
+        },
+        links: [
+          { label: '2-Day Coorg Trip Plan', to: '/blog/coorg-trip-plan-2-days' },
+          { label: 'Best Places to Visit in Coorg', to: '/blog/places-to-visit-in-coorg' },
+          { label: 'Where to Stay in Coorg', to: '/blog/where-to-stay-in-coorg' }
         ]
       },
       {
-        id: 'summer-coffee-blossom-mar-may',
-        heading: 'March to May: Coffee Blossoms, Warm Plains & Afternoon Pool Leisure',
+        id: 'january-and-february',
+        heading: 'January and February: Crisp Winter Mornings & Peak Clarity',
         paragraphs: [
-          'As plains across South India heat up, daytime highs in Kushalnagar can reach roughly 30°C–34°C, while higher Madikeri sits a few degrees cooler. However, early mornings and tree-shaded evenings stay markedly more comfortable than metropolitan concrete, and late March or early April pre-monsoon showers trigger Coorg’s famous white coffee blossom blooms, scenting village lanes with jasmine-like aroma.',
-          'During dry summer weeks, expect practical attraction trade-offs: Abbey Falls softens into a gentle trickle and Chiklihole’s curved spillway overflow usually recedes below the rim. On the bright side, Dubare Elephant Camp’s river crossing becomes an easy walk across shallow sandbars rather than boat queues, Namdroling Monastery courtyards remain sparkling dry, and shaded resort pools become a welcome midday refuge.'
+          'January and February deliver some of the driest, clearest skies of the year across both Kushalnagar and Madikeri. Early mornings commonly dip to 13°C–15°C with light valley mist, warming smoothly to 26°C–28°C by afternoon.',
+          'Coffee estates are alive with winter berry picking and sun-drying courtyards. Because rainfall is minimal, trekking trails (Tadiandamol, Kotebetta, Pushpagiri foothills) and rough 4x4 tracks up Mandalpatti Peak remain firm and predictable.'
         ],
         bullets: [
-          'Best pacing tip: Schedule Namdroling Monastery, Dubare, or Mandalpatti before 11:00 AM; spend noon to 4:00 PM at shaded Kaveri Nisargadhama bamboo walks or by your resort swimming pool.'
+          'Waterfalls & Rivers: Abbey Falls and Mallalli Falls flow moderately (lighter than autumn, still scenic); Dubare’s shallow winter Cauvery makes river access straightforward.',
+          'Road & Family Suitability: Excellent dry driving conditions across NH 275 and hill bends; ideal for multi-generational family holidays and evening campfires.',
+          'What to Pack: Light woolens or fleece for mornings and nights, breathable daytime cottons, sunglasses, and comfortable walking sneakers.',
+          'Advantages vs Disadvantages: Clear panoramic views and reliable outdoor scheduling; weekend rooms fill early around New Year and Republic Day.'
         ]
       },
       {
-        id: 'monsoon-jun-sep',
-        heading: 'June to September: Intense Western Ghats Monsoon & Cascading Dams',
+        id: 'march-april-may',
+        heading: 'March, April and May: Coffee Blossoms, Warm Afternoons & Poolside Ease',
         paragraphs: [
-          'Between June and late August, Kodagu experiences dramatic southwest monsoon rainfall driven straight off the Arabian Sea against the Western Ghats escarpment. Western ridges around Madikeri, Bhagamandala, and Talacauvery regularly see heavy downpours, dense mountain mist, vivid emerald coffee slopes, and roaring waterfalls.',
-          'Crucially, because Kushalnagar sits along the rain-shadow eastern edge of the district, eastern Coorg frequently experiences gentler intermittent showers and sunlit breaks even when Madikeri stays blanketed in cloud. Still, monsoon travelers must pack thoughtfully and stay flexible about high-altitude routes:'
+          'Spring and summer bring warmer daytime highs (roughly 28°C–32°C across the district, slightly higher on Kushalnagar’s lower plateau), paired with refreshing evenings and sporadic April–May pre-monsoon thundershowers. Within days of the first March or April rain shower, millions of white coffee blossoms open across estates, filling country lanes with a clean jasmine-like scent.',
+          'Sightseeing pacing shifts in summer: early mornings before 11:00 AM and late afternoons after 4:00 PM feel pleasant, while midday hours reward shaded walks at Kaveri Nisargadhama or unhurried swimming pool time back at your resort.'
         ],
-        subsections: [
-          {
-            heading: 'What Changes During Peak July–August Rains',
-            bullets: [
-              'Harangi Dam & Chiklihole Reservoir: Spillway gates at Harangi periodically open to release monsoon inflows, and Chiklihole’s semi-circular weir overflows into a full white curtain.',
-              'Mandalpatti Peak Advisories: Steep mud-and-boulder tracks turn slick and zero-visibility fog is common; district authorities sometimes restrict 4x4 jeep climbs during intense rain alerts.',
-              'Dubare River Activities: High Cauvery river levels frequently suspend tourist rafting and occasionally pause small-boat crossings depending on current speed.',
-              'Abbey Falls & Trails: Cascading volume reaches peak roar—wear textured rubber-grip shoes on wet steps and pack salt/leech protection if walking damp grass borders.'
-            ]
-          }
+        bullets: [
+          'Waterfalls & Sightseeing: Abbey Falls and Chiklihole’s spillway soften to gentle flows in dry weeks; Namdroling Monastery, Bylakuppe markets, and morning Dubare sessions remain easy and unencumbered by mud.',
+          'Trekking & Roads: Clear highway driving with zero monsoon fog delays; start mountain treks early to beat midday sun.',
+          'Family Suitability: Very practical for school-holiday trips when paired with a resort offering a filtered swimming pool, rain dance, and indoor games.',
+          'What to Pack: Light cotton clothing, wide-brim hat, sunscreen, swimwear, refillable water bottles, and a compact umbrella for sudden May showers.',
+          'Advantages vs Disadvantages: Quieter non-holiday weekdays in March–April and fragrant coffee blooms; weaker waterfall volume and busier May school-break weekends.'
         ]
       },
       {
-        id: 'month-by-month-packing-summary',
-        heading: 'Quick Packing & Decision Guide by Season',
+        id: 'june-july-august-september',
+        heading: 'June, July, August and September: Lush Monsoon & Roaring Waterfalls',
         paragraphs: [
-          'Use this simple checklist when matching your suitcase and itinerary expectations to your travel month:'
+          'From June through late August, the southwest monsoon sweeps off the Arabian Sea straight onto Kodagu’s Western Ghats, turning every hillside, paddy terrace, and estate canopy luminous emerald. Daytime temperatures stay cool (around 21°C–25°C), and waterfalls including Abbey Falls, Iruppu Falls, and Mallalli Falls surge to peak strength while Harangi Dam and Chiklihole Reservoir spill over dramatically.',
+          'By September, intense downpours begin easing into alternating rain clouds and bright green sunshine, coinciding with the traditional Kodava Kailpodh festival.'
         ],
         bullets: [
-          'Clear mountain views & photography (Nov–Feb): Light fleece, windbreaker for early Mandalpatti jeeps, walking sneakers.',
-          'Waterfalls, mist & lush drives (Jul–Sep): Sturdy waterproof umbrella/rain jacket, quick-dry sandals with firm grip, spare dry socks, flexible backup plans.',
-          'Quiet off-peak resort breaks & poolside holidays (Mar–May): Breathable cotton layers, swimwear for resort pools, wide-brim hat, light evening sweater.'
+          'Trekking & Sightseeing Reality: High-altitude ridge treks and steep Mandalpatti 4x4 mud tracks face thick zero-visibility fog and occasional district safety restrictions during heavy July–August rain alerts. High Cauvery flows can also pause Dubare boats or tourist rafting.',
+          'Road & Travel Considerations: Main NH 275 highways remain open under normal conditions, though localized tree falls, mist, or ghat alerts can slow western hill corridors. Keep schedules flexible and drive hill sections in daylight.',
+          'Family Suitability: Best for families who enjoy dramatic rain views, hot local food, indoor games, and unhurried resort relaxation rather than packed outdoor checklists.',
+          'What to Pack: Waterproof rain jacket or sturdy umbrella, non-slip wet-grip footwear/sandals, quick-dry clothing, spare dry socks, waterproof phone pouch, and leech-protection salt or socks for damp trails.',
+          'Advantages vs Disadvantages: Unmatched greenery, roaring cascades, and peaceful off-peak atmosphere; wet sightseeing limitations and misty viewpoints.'
+        ],
+        links: [
+          { label: 'Abbey Falls Monsoon & Travel Guide', to: '/blog/abbey-falls-guide' },
+          { label: 'Harangi Dam Spillway Guide', to: '/blog/harangi-dam-guide' },
+          { label: 'Chiklihole Reservoir Guide', to: '/blog/chiklihole-guide' }
+        ]
+      },
+      {
+        id: 'october-november-december',
+        heading: 'October, November and December: Post-Monsoon Freshness & Festive Season',
+        paragraphs: [
+          'As the southwest monsoon recedes in October, Kodagu combines the best of two seasons: waterfalls and rivers still run briskly, hillsides glow deep green, and skies steadily clear into cool, dry winter days (roughly 13°C–26°C by December).',
+          'Culturally, autumn and early winter anchor major regional celebrations including Kaveri Sankramana (Tula Sankramana) at Talacauvery in mid-October and the Puthari harvest festival in late November or December.'
+        ],
+        bullets: [
+          'Waterfalls & Sightseeing: Peak balance—Abbey Falls, Harangi, Chiklihole, and Dubare look vibrant while Mandalpatti and Raja’s Seat reopen to crisp morning and sunset views.',
+          'Trekking & Roads: Dry trails resume cleanly by November; highways are scenic and smooth, though long holiday weekends (Dussehra, Diwali, Christmas–New Year) bring heavier Madikeri town traffic.',
+          'Family Suitability: Widely regarded as the most effortless all-round window for children, elders, couples, and group reunions.',
+          'What to Pack: Layered light sweaters/jackets for cool mornings and evening campfires, comfortable walking shoes, and a compact rain shell in October.',
+          'Advantages vs Disadvantages: Ideal weather and full scenery across all regions; higher seasonal demand requires planning accommodations ahead on holiday weekends.'
+        ],
+        links: [
+          { label: 'Mandalpatti Peak Sunrise Guide', to: '/blog/mandalpatti-guide' },
+          { label: 'Raja’s Seat Sunset Guide', to: '/blog/rajas-seat-madikeri-guide' },
+          { label: 'Dubare Elephant Camp Guide', to: '/blog/dubare-elephant-camp-guide' }
+        ]
+      },
+      {
+        id: 'kushalnagar-vs-madikeri-weather',
+        heading: 'Kushalnagar vs Madikeri Weather: Elevation & Rain-Shadow Differences',
+        paragraphs: [
+          'A critical detail many general weather charts omit is Kodagu’s east–west rain shadow. Madikeri sits along the western highland crest (~1,150 m), catching heavy Arabian Sea cloudbanks first—meaning noticeably cooler evenings, denser fog, and far higher monsoon rainfall totals.',
+          'Kushalnagar sits roughly 30 km east on gentler Cauvery river plateaus (~840 m). It receives markedly lighter rainfall during June–September, enjoys brighter morning breaks even in wet months, and stays comfortably warm for outdoor swimming pools from October through May. Staying near Kushalnagar gives travelers steadier everyday weather while keeping Madikeri’s cool misty ridges just a 45-to-55-minute scenic drive west.'
+        ],
+        callout: {
+          title: 'Choosing by Interest, Not Hype',
+          text: 'Pick October–February for crisp viewpoints and all-round family comfort; March–May for coffee blossoms and poolside relaxation; and July–September if roaring waterfalls and misty monsoon greenery matter more than clear mountain peaks.'
+        },
+        links: [
+          { label: 'Kushalnagar vs Madikeri Stay Comparison', to: '/blog/kushalnagar-vs-madikeri' },
+          { label: 'Explore Rooms at Dreamy Vacations', to: '/rooms' }
         ]
       }
     ],
     highlights: [
-      { label: 'Best All-Round Window', value: 'October – March' },
-      { label: 'Winter Temperature Range', value: 'Approx. 12°C – 26°C' },
-      { label: 'Monsoon Peak', value: 'July – August (heavy in Western Coorg)' },
-      { label: 'Coffee Blossom Time', value: 'Typically March – April after first showers' }
+      { label: 'Most Balanced Weather', value: 'October – February (cool nights, clear views)' },
+      { label: 'Coffee Blossom Season', value: 'Typically March – April after first spring showers' },
+      { label: 'Peak Waterfall Flow', value: 'July – November (heaviest monsoon in July–August)' },
+      { label: 'Regional Climate Edge', value: 'Kushalnagar (~840m) is drier & sunnier than Madikeri (~1,150m)' }
     ],
     relatedSlugs: [
-      'complete-coorg-travel-guide',
+      'coorg-trip-plan-2-days',
+      'places-to-visit-in-coorg',
+      'where-to-stay-in-coorg',
+      'kushalnagar-vs-madikeri',
       'mandalpatti-guide',
-      'abbey-falls-guide',
-      'harangi-dam-guide',
-      'coorg-travel-tips-first-time-visitors'
+      'abbey-falls-guide'
     ],
-    conclusion: 'No single month monopolizes Coorg—match your travel dates to whether crisp valley vistas, poolside summer ease, or dramatic monsoon waterfalls excite you most.',
+    stayRecommendation: {
+      heading: 'Year-Round Comfort in Eastern Coorg',
+      text: 'Located in Chikkathur Village near Kushalnagar, Dreamy Vacations pairs warm dry-season poolside afternoons and musical rain dance with steady eastern road access during monsoon months.',
+      links: [
+        { label: 'View All Accommodation Categories', to: '/rooms' },
+        { label: 'Family Rooms in Coorg', to: '/rooms/families' }
+      ]
+    },
+    conclusion: 'Let your priorities pick your Coorg season: October to February maximizes clear views and easy family pacing, March to May delivers coffee blooms and quiet poolside escapes, and June to September showcases Western Ghats waterfalls at full strength.',
     faqs: [
       {
-        q: 'Is Coorg worth visiting in summer (April or May)?',
-        a: 'Yes, particularly for families looking for relaxed travel and resort pool time. Schedule outdoor sightseeing before 11:00 AM and after 4:00 PM, keeping afternoons for shaded parks like Nisargadhama or poolside rest.'
+        q: 'What is the best time to visit Coorg for families?',
+        a: 'October through March offers the easiest weather for families with children and seniors—cool mornings, dry walking paths at Nisargadhama and Namdroling Monastery, clear sunsets at Raja’s Seat, and pleasant campfire evenings.'
       },
       {
-        q: 'Is it safe to travel to Coorg during the July–August monsoon?',
-        a: 'Main highways between Bengaluru, Mysuru, Kushalnagar, and Madikeri stay well-maintained, though heavy downpours can trigger temporary hill alerts or pause Mandalpatti jeeps and Dubare boats. Staying in Kushalnagar provides steadier road access during intense rain.'
+        q: 'Is Coorg worth visiting during summer (March to May)?',
+        a: 'Yes. While midday temperatures warm up on the plains, early mornings and evenings stay pleasant, coffee blossoms scent the countryside in March–April, and resort swimming pools keep afternoons relaxing.'
+      },
+      {
+        q: 'Does Kushalnagar rain as heavily as Madikeri during monsoon?',
+        a: 'No. Because Kushalnagar sits further east in the partial rain shadow around 840 meters elevation, it typically sees lighter intermittent rain and clearer road access than western highland towns like Madikeri and Bhagamandala.'
+      },
+      {
+        q: 'When are Coorg waterfalls at their best?',
+        a: 'Abbey Falls, Iruppu Falls, Mallalli Falls, and Chiklihole Reservoir flow most powerfully between July and November, with October–November offering strong cascades alongside more comfortable walking weather.'
       }
     ],
     structuredType: 'Article'
@@ -525,7 +636,7 @@ export const GUIDES_POSTS: Record<string, BlogPost> = {
     ],
     relatedSlugs: [
       'coorg-road-trip',
-      '2-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
       'coorg-weekend-trip',
       'kushalnagar-vs-madikeri'
     ],
@@ -636,7 +747,7 @@ export const GUIDES_POSTS: Record<string, BlogPost> = {
     ],
     relatedSlugs: [
       '1-day-coorg-itinerary',
-      '2-day-coorg-itinerary',
+      'coorg-trip-plan-2-days',
       '3-day-coorg-itinerary',
       '4-day-coorg-itinerary',
       'complete-coorg-travel-guide'

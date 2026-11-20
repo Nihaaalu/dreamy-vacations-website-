@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Compass, Search, ArrowRight, Clock, BookOpen, MapPin } from 'lucide-react';
 import { BLOG_CATEGORIES, CANONICAL_BLOG_POSTS } from '../blogData';
-import { getProductionOrigin } from '../components/SEOManager';
 
 export default function BlogList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const origin = getProductionOrigin();
 
   const categories = ['All', ...BLOG_CATEGORIES];
 
@@ -29,7 +27,7 @@ export default function BlogList() {
   }, [postsArray]);
 
   const featuredPosts = useMemo(
-    () => postsArray.filter((p) => (p.featuredRank ?? 999) <= 3),
+    () => postsArray.filter((p) => (p.featuredRank ?? 999) <= 4).slice(0, 4),
     [postsArray]
   );
 
@@ -49,27 +47,8 @@ export default function BlogList() {
     });
   }, [postsArray, searchTerm, selectedCategory]);
 
-  const listSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Blog',
-    'name': 'Dreamy Vacations Coorg & Kushalnagar Travel Publication',
-    'url': `${origin}/blog`,
-    'description':
-      'Comprehensive travel guides to Coorg (Kodagu), Bylakuppe Tibetan culture, Kushalnagar attractions, Madikeri highlands, and realistic trip itineraries.',
-    'blogPost': postsArray.slice(0, 12).map((p) => ({
-      '@type': 'BlogPosting',
-      'headline': p.title,
-      'url': `${origin}/blog/${p.slug}`,
-      'datePublished': p.publishedDate,
-      'dateModified': p.updatedDate
-    }))
-  };
-
   return (
-    <div className="min-h-screen bg-[#0d0d0d] font-sans text-white/90 pb-24 pt-28" id="blog-list-root">
-      <script type="application/ld+json" id="ld-blog-list">
-        {JSON.stringify(listSchema)}
-      </script>
+    <div className="min-h-screen bg-[#0d0d0d] font-sans text-white/90 pb-36 sm:pb-28 pt-24 sm:pt-28" id="blog-list-root">
 
       {/* Editorial Publication Header */}
       <header className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center space-y-5 mb-14">
@@ -111,7 +90,7 @@ export default function BlogList() {
               Recommended reading for first-time planners
             </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredPosts.map((post) => (
               <Link
                 key={post.slug}
@@ -265,42 +244,44 @@ export default function BlogList() {
                   className="bg-[#121212] border border-white/5 hover:border-[#6b5b4b]/40 rounded-2xl overflow-hidden shadow-xl transition-all group flex flex-col h-full"
                   id={`blog-card-${post.slug}`}
                 >
-                  <Link to={`/blog/${post.slug}`} className="h-44 overflow-hidden relative shrink-0 block">
+                  <Link to={`/blog/${post.slug}`} className="aspect-[16/10] overflow-hidden relative shrink-0 block bg-[#151412]">
                     <img
                       src={post.heroImg}
                       alt={post.heroAlt}
-                      width={440}
-                      height={176}
+                      width={480}
+                      height={300}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="absolute top-3.5 left-3.5 bg-black/80 backdrop-blur-md text-[#e2d7c5] border border-white/10 px-2.5 py-1 rounded-full text-[9px] uppercase font-mono tracking-wider">
-                      {post.category}
-                    </span>
                   </Link>
 
-                  <div className="p-5 flex flex-col justify-between flex-grow space-y-4">
+                  <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow space-y-4">
                     <div className="space-y-2">
-                      <h2 className="text-lg font-display font-light text-white leading-snug group-hover:text-[#e2d7c5] transition-colors">
+                      <span className="text-xs text-[#e2d7c5]/80 block">
+                        {post.category} · {post.readTime}
+                      </span>
+                      <h2 className="text-xl font-display font-light text-white leading-snug group-hover:text-[#e2d7c5] transition-colors">
                         <Link to={`/blog/${post.slug}`} className="focus:outline-none">
                           {post.title}
                         </Link>
                       </h2>
-                      <p className="text-xs text-white/55 font-light leading-relaxed line-clamp-3">
+                      <p className="text-sm text-white/65 font-light leading-relaxed line-clamp-3">
                         {post.metaDesc}
                       </p>
                     </div>
 
-                    <div className="pt-3 flex items-center justify-between border-t border-white/5 shrink-0">
-                      <span className="text-[10px] font-mono text-white/40 inline-flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-[#e2d7c5]/70" /> {post.readTime}
+                    <div className="pt-3 flex items-center justify-between border-t border-white/10 shrink-0">
+                      <span className="text-xs text-white/45 inline-flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-[#e2d7c5]/70" aria-hidden="true" />
+                        <span>{post.readTime}</span>
                       </span>
                       <Link
                         to={`/blog/${post.slug}`}
-                        className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider font-semibold text-[#e2d7c5] hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-medium text-[#e2d7c5] hover:text-white transition-colors"
                       >
-                        Read Guide <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                        <span>Read Guide</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                       </Link>
                     </div>
                   </div>

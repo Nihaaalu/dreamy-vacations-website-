@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
-import { Phone, MapPin, MessageSquare, Compass, Copy, Check, ExternalLink, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Phone, MapPin, MessageSquare, Compass, Copy, Check, ExternalLink, Sparkles, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/4BtwEt1ggcWm6x5v9';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -12,10 +15,6 @@ export default function Contact() {
     navigator.clipboard.writeText(address);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const openInGoogleMaps = () => {
-    window.open('https://maps.app.goo.gl/4BtwEt1ggcWm6x5v9', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -122,13 +121,15 @@ export default function Contact() {
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                 {copied ? 'Copied' : 'Copy'}
               </button>
-              <button 
-                onClick={openInGoogleMaps}
-                className="flex-1 py-3.5 px-8 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-sub font-semibold text-[11px] tracking-[0.1em] uppercase rounded-full shadow-md transition-all duration-300 ease-out flex items-center justify-center gap-1.5 cursor-pointer"
+              <a
+                href={GOOGLE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-3.5 px-8 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-sub font-semibold text-[11px] tracking-[0.1em] uppercase rounded-full shadow-md transition-all duration-300 ease-out flex items-center justify-center gap-1.5"
                 id="btn-maps-search"
               >
                 <ExternalLink className="w-3.5 h-3.5 text-[#e2d7c5]" /> Maps
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -147,13 +148,15 @@ export default function Contact() {
               <h2 className="text-xl font-display font-light text-white">Interactive Location Map</h2>
               <p className="text-xs text-white/50 font-light">Chikkathur Govt School is our primary visual landmark on the village approach road.</p>
             </div>
-            <button
-              onClick={openInGoogleMaps}
-              className="px-6 py-2.5 bg-[#6b5b4b] hover:bg-[#85725f] text-white font-sub font-semibold text-[11px] tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out cursor-pointer flex items-center gap-1.5 self-start"
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2.5 bg-[#6b5b4b] hover:bg-[#85725f] text-white font-sub font-semibold text-[11px] tracking-[0.18em] uppercase rounded-full shadow-md transition-all duration-300 ease-out flex items-center gap-1.5 self-start"
               id="btn-open-gps"
             >
               Navigate via GPS <ExternalLink className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
 
           {/* Iframe with exact coordinates */}
@@ -178,6 +181,34 @@ export default function Contact() {
             />
           </div>
         </motion.div>
+
+        {/* HELPFUL PLANNING LINKS */}
+        <div className="pt-4 flex flex-wrap items-center justify-center gap-3 text-xs">
+          <Link
+            to="/rooms"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white/80 hover:text-[#e2d7c5] transition-colors"
+          >
+            Explore Accommodation <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+          <Link
+            to="/rooms/families"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white/80 hover:text-[#e2d7c5] transition-colors"
+          >
+            Family Rooms in Coorg <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+          <Link
+            to="/blog/coorg-trip-plan-2-days"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white/80 hover:text-[#e2d7c5] transition-colors"
+          >
+            2-Day Coorg Trip Plan <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+          <Link
+            to="/blog/places-to-visit-in-coorg"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white/80 hover:text-[#e2d7c5] transition-colors"
+          >
+            25 Places to Visit in Coorg <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
 
       </div>
     </div>
