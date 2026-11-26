@@ -7,8 +7,6 @@ import FloatingContactButtons from './components/FloatingContactButtons';
 // Eagerly loaded for instant initial render
 import Home from './pages/Home';
 
-
-
 // Lazy loaded secondary pages to optimize initial bundle size & mobile performance
 const Rooms = lazy(() => import('./pages/Rooms'));
 const RoomCategoryDetail = lazy(() => import('./pages/RoomCategoryDetail'));
